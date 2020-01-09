@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3FC93A32-A745-421B-B605-B685D7B5024F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>J.A.R.V.I.S.My.MyApplication</StartupObject>
+    <RootNamespace>J.A.R.V.I.S</RootNamespace>
+    <AssemblyName>J.A.R.V.I.S</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>J.A.R.V.I.S.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>J.A.R.V.I.S.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>J.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.ADODB">
+      <HintPath>..\..\bibliotecas\ADODB\Interop.ADODB.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Uteis">
+      <HintPath>..\..\Uteis\bin\Debug\Uteis.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="CAIXA\BANCOS_SALDOS\BLL\bll_bancos.vb" />
+    <Compile Include="CAIXA\BANCOS_SALDOS\DAL\dal_bancos.vb" />
+    <Compile Include="CAIXA\BANCOS_SALDOS\DTO\dto_bancos.vb" />
+    <Compile Include="CAIXA\BANCOS_SALDOS\FORMS\frmCadBancos.Designer.vb">
+      <DependentUpon>frmCadBancos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CAIXA\BANCOS_SALDOS\FORMS\frmCadBancos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CAIXA\CENTRO_CUSTO\BLL\bll_centroCusto.vb" />
+    <Compile Include="CAIXA\CENTRO_CUSTO\DAL\dal_centroCusto.vb" />
+    <Compile Include="CAIXA\CENTRO_CUSTO\DTO\dto_centroCusto.vb" />
+    <Compile Include="CAIXA\CENTRO_CUSTO\FORMS\frmCadCentroCusto.Designer.vb">
+      <DependentUpon>frmCadCentroCusto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CAIXA\CENTRO_CUSTO\FORMS\frmCadCentroCusto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CAIXA\RECEITAS_DESPESAS\BLL\bll_receitas_despesas.vb" />
+    <Compile Include="CAIXA\RECEITAS_DESPESAS\DAL\dal_recetias_despesas.vb" />
+    <Compile Include="CAIXA\RECEITAS_DESPESAS\DTO\dto_receitas_despesas.vb" />
+    <Compile Include="CAIXA\RECEITAS_DESPESAS\FORMS\frmCadReceitasDespesas.Designer.vb">
+      <DependentUpon>frmCadReceitasDespesas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CAIXA\RECEITAS_DESPESAS\FORMS\frmCadReceitasDespesas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CLIENTES\BLL\bll_clientes.vb" />
+    <Compile Include="CLIENTES\DAL\dal_clientes.vb" />
+    <Compile Include="CLIENTES\DTO\dto_clientes.vb" />
+    <Compile Include="CLIENTES\FORMS\frmCadClientes.Designer.vb">
+      <DependentUpon>frmCadClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CLIENTES\FORMS\frmCadClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORNECEDORES\BLL\bll_fornecedores.vb" />
+    <Compile Include="FORNECEDORES\DAL\dal_fornecedores.vb" />
+    <Compile Include="FORNECEDORES\DTO\dto_fornecedores.vb" />
+    <Compile Include="FORNECEDORES\FORMS\frmCadFornecedores.Designer.vb">
+      <DependentUpon>frmCadFornecedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORNECEDORES\FORMS\frmCadFornecedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GBO\BACKOFFICE\FORMS\frmBackOffice.Designer.vb">
+      <DependentUpon>frmBackOffice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GBO\BACKOFFICE\FORMS\frmBackOffice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GBO\FILAS\BLL\bll_filas.vb" />
+    <Compile Include="GBO\FILAS\DAL\dal_filas.vb" />
+    <Compile Include="GBO\FILAS\DTO\dto_filas.vb" />
+    <Compile Include="GBO\FILAS\FORMS\frmCadFilas.Designer.vb">
+      <DependentUpon>frmCadFilas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GBO\FILAS\FORMS\frmCadFilas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GBO\FINALIZACOES\BLL\bll_finalizacoes.vb" />
+    <Compile Include="GBO\FINALIZACOES\DAL\dal_finalizacoes.vb" />
+    <Compile Include="GBO\FINALIZACOES\DTO\dto_finalizacoes.vb" />
+    <Compile Include="GBO\FINALIZACOES\FORMS\frmCadFinalizacoes.Designer.vb">
+      <DependentUpon>frmCadFinalizacoes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GBO\FINALIZACOES\FORMS\frmCadFinalizacoes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GBO\SUBFINALIZACOES\BLL\bll_subfinalizacoes.vb" />
+    <Compile Include="GBO\SUBFINALIZACOES\DAL\dal_subfinalizacoes.vb" />
+    <Compile Include="GBO\SUBFINALIZACOES\DTO\dto_subfinalizacoes.vb" />
+    <Compile Include="GBO\SUBFINALIZACOES\FORMS\frmCadSubFinalizacao.Designer.vb">
+      <DependentUpon>frmCadSubFinalizacao.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GBO\SUBFINALIZACOES\FORMS\frmCadSubFinalizacao.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOG\BLL\bll_log.vb" />
+    <Compile Include="LOG\DAL\dal_log.vb" />
+    <Compile Include="LOG\DTO\dto_log.vb" />
+    <Compile Include="LOG\FORMS\frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LOG\FORMS\frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdl_constantes.vb" />
+    <Compile Include="mdl_ordenacaoListView.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PRINCIPAL\BLL\bll_menu.vb" />
+    <Compile Include="PRINCIPAL\DAL\dal_menu.vb" />
+    <Compile Include="PRINCIPAL\DTO\dto_menu.vb" />
+    <Compile Include="PRINCIPAL\FORMS\frmPrincipal.Designer.vb">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PRINCIPAL\FORMS\frmPrincipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRINCIPAL\FORMS\frmSplash.Designer.vb">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PRINCIPAL\FORMS\frmSplash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRODUTOS\BLL\bll_produtos.vb" />
+    <Compile Include="PRODUTOS\DAL\dal_produtos.vb" />
+    <Compile Include="PRODUTOS\DTO\dto_produtos.vb" />
+    <Compile Include="PRODUTOS\FORMS\frmCadProdutos.Designer.vb">
+      <DependentUpon>frmCadProdutos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUTOS\FORMS\frmCadProdutos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USUARIOS\BLL\bll_usuarios.vb" />
+    <Compile Include="USUARIOS\DAL\dal_usuarios.vb" />
+    <Compile Include="USUARIOS\DTO\dto_usuarios.vb" />
+    <Compile Include="USUARIOS\FORMS\frmCadUsuarios.Designer.vb">
+      <DependentUpon>frmCadUsuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIOS\FORMS\frmCadUsuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USUARIOS\FORMS\frmSenhaAtualizar.Designer.vb">
+      <DependentUpon>frmSenhaAtualizar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIOS\FORMS\frmSenhaAtualizar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CAIXA\BANCOS_SALDOS\FORMS\frmCadBancos.resx">
+      <DependentUpon>frmCadBancos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CAIXA\CENTRO_CUSTO\FORMS\frmCadCentroCusto.resx">
+      <DependentUpon>frmCadCentroCusto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CAIXA\RECEITAS_DESPESAS\FORMS\frmCadReceitasDespesas.resx">
+      <DependentUpon>frmCadReceitasDespesas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CLIENTES\FORMS\frmCadClientes.resx">
+      <DependentUpon>frmCadClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORNECEDORES\FORMS\frmCadFornecedores.resx">
+      <DependentUpon>frmCadFornecedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GBO\BACKOFFICE\FORMS\frmBackOffice.resx">
+      <DependentUpon>frmBackOffice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GBO\FILAS\FORMS\frmCadFilas.resx">
+      <DependentUpon>frmCadFilas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GBO\FINALIZACOES\FORMS\frmCadFinalizacoes.resx">
+      <DependentUpon>frmCadFinalizacoes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GBO\SUBFINALIZACOES\FORMS\frmCadSubFinalizacao.resx">
+      <DependentUpon>frmCadSubFinalizacao.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOG\FORMS\frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRINCIPAL\FORMS\frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRINCIPAL\FORMS\frmSplash.resx">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRODUTOS\FORMS\frmCadProdutos.resx">
+      <DependentUpon>frmCadProdutos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USUARIOS\FORMS\frmCadUsuarios.resx">
+      <DependentUpon>frmCadUsuarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USUARIOS\FORMS\frmSenhaAtualizar.resx">
+      <DependentUpon>frmSenhaAtualizar.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CONTRATOS\BLL\" />
+    <Folder Include="CONTRATOS\DAL\" />
+    <Folder Include="CONTRATOS\DTO\" />
+    <Folder Include="CONTRATOS\FORMS\" />
+    <Folder Include="ESTOQUE\BLL\" />
+    <Folder Include="ESTOQUE\DAL\" />
+    <Folder Include="ESTOQUE\DTO\" />
+    <Folder Include="ESTOQUE\FORMS\" />
+    <Folder Include="GBO\BACKOFFICE\BLL\" />
+    <Folder Include="GBO\BACKOFFICE\DAL\" />
+    <Folder Include="GBO\BACKOFFICE\DTO\" />
+    <Folder Include="GBO\FOLLOW\BLL\" />
+    <Folder Include="GBO\FOLLOW\DAL\" />
+    <Folder Include="GBO\FOLLOW\DTO\" />
+    <Folder Include="GBO\FOLLOW\FORMS\" />
+    <Folder Include="RELATORIOS\BLL\" />
+    <Folder Include="RELATORIOS\DAL\" />
+    <Folder Include="RELATORIOS\DTO\" />
+    <Folder Include="RELATORIOS\FORMS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="J.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

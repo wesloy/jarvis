@@ -1,0 +1,22 @@
+﻿[*.vb]
+
+# IDE0058: O valor da expressão nunca é usado
+visual_basic_style_unused_value_expression_statement_preference = discard_variable:none
+
+# IDE0054: Usar a atribuição composta
+dotnet_style_prefer_compound_assignment = false:suggestion
+
+# IDE0017: Simplificar a inicialização de objeto
+dotnet_style_object_initializer = false:suggestion
+
+# IDE1006: Estilos de Nomenclatura
+dotnet_diagnostic.IDE1006.severity = silent
+
+# IDE0001: Simplificar Nomes
+dotnet_diagnostic.IDE0001.severity = silent
+
+# IDE0002: Simplificar o Acesso de Membro
+dotnet_diagnostic.IDE0002.severity = silent
+
+# IDE0044: Adicionar modificador somente leitura
+dotnet_style_readonly_field = false:suggestion
