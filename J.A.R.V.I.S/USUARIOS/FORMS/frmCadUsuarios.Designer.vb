@@ -62,7 +62,7 @@ Partial Class frmCadUsuarios
         Me.btnRemoveFiltro.Location = New System.Drawing.Point(659, 222)
         Me.btnRemoveFiltro.Name = "btnRemoveFiltro"
         Me.btnRemoveFiltro.Size = New System.Drawing.Size(63, 30)
-        Me.btnRemoveFiltro.TabIndex = 159
+        Me.btnRemoveFiltro.TabIndex = 10
         Me.btnRemoveFiltro.Text = "     Limpar"
         Me.btnRemoveFiltro.UseVisualStyleBackColor = True
         '
@@ -84,7 +84,7 @@ Partial Class frmCadUsuarios
         Me.btnFiltrar.Location = New System.Drawing.Point(596, 222)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(63, 30)
-        Me.btnFiltrar.TabIndex = 152
+        Me.btnFiltrar.TabIndex = 9
         Me.btnFiltrar.Text = "   Filtrar"
         Me.btnFiltrar.UseVisualStyleBackColor = True
         '
@@ -93,7 +93,8 @@ Partial Class frmCadUsuarios
         Me.txtFiltro.Location = New System.Drawing.Point(336, 228)
         Me.txtFiltro.Name = "txtFiltro"
         Me.txtFiltro.Size = New System.Drawing.Size(254, 20)
-        Me.txtFiltro.TabIndex = 151
+        Me.txtFiltro.TabIndex = 8
+        Me.txtFiltro.Tag = "FILTRO"
         '
         'btnCancelar
         '
@@ -103,7 +104,7 @@ Partial Class frmCadUsuarios
         Me.btnCancelar.Location = New System.Drawing.Point(255, 218)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 30)
-        Me.btnCancelar.TabIndex = 146
+        Me.btnCancelar.TabIndex = 7
         Me.btnCancelar.Text = "   Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
@@ -116,7 +117,7 @@ Partial Class frmCadUsuarios
         Me.btnExcluir.Location = New System.Drawing.Point(174, 218)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(75, 30)
-        Me.btnExcluir.TabIndex = 144
+        Me.btnExcluir.TabIndex = 6
         Me.btnExcluir.Text = "Excluir"
         Me.btnExcluir.UseVisualStyleBackColor = True
         '
@@ -129,7 +130,7 @@ Partial Class frmCadUsuarios
         Me.btnAlterar.Location = New System.Drawing.Point(93, 218)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(75, 30)
-        Me.btnAlterar.TabIndex = 141
+        Me.btnAlterar.TabIndex = 5
         Me.btnAlterar.Text = "Alterar"
         Me.btnAlterar.UseVisualStyleBackColor = True
         '
@@ -169,8 +170,8 @@ Partial Class frmCadUsuarios
         Me.txtNome.Location = New System.Drawing.Point(107, 59)
         Me.txtNome.Name = "txtNome"
         Me.txtNome.Size = New System.Drawing.Size(253, 20)
-        Me.txtNome.TabIndex = 134
-        Me.txtNome.Tag = "Nome Completo"
+        Me.txtNome.TabIndex = 1
+        Me.txtNome.Tag = "NOME COMPLETO"
         '
         'txtID
         '
@@ -178,7 +179,8 @@ Partial Class frmCadUsuarios
         Me.txtID.Location = New System.Drawing.Point(107, 33)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(59, 20)
-        Me.txtID.TabIndex = 131
+        Me.txtID.TabIndex = 0
+        Me.txtID.Tag = "ID"
         '
         'ckboxAtivo
         '
@@ -187,7 +189,8 @@ Partial Class frmCadUsuarios
         Me.ckboxAtivo.Location = New System.Drawing.Point(107, 112)
         Me.ckboxAtivo.Name = "ckboxAtivo"
         Me.ckboxAtivo.Size = New System.Drawing.Size(15, 14)
-        Me.ckboxAtivo.TabIndex = 136
+        Me.ckboxAtivo.TabIndex = 3
+        Me.ckboxAtivo.Tag = "ATIVO"
         Me.ckboxAtivo.UseVisualStyleBackColor = False
         '
         'ListView1
@@ -210,7 +213,7 @@ Partial Class frmCadUsuarios
         Me.btnIncluir.Location = New System.Drawing.Point(12, 218)
         Me.btnIncluir.Name = "btnIncluir"
         Me.btnIncluir.Size = New System.Drawing.Size(75, 30)
-        Me.btnIncluir.TabIndex = 138
+        Me.btnIncluir.TabIndex = 4
         Me.btnIncluir.Text = "Incluir"
         Me.btnIncluir.UseVisualStyleBackColor = True
         '
@@ -323,8 +326,8 @@ Partial Class frmCadUsuarios
         Me.cbPerfilAcesso.Location = New System.Drawing.Point(107, 85)
         Me.cbPerfilAcesso.Name = "cbPerfilAcesso"
         Me.cbPerfilAcesso.Size = New System.Drawing.Size(253, 21)
-        Me.cbPerfilAcesso.TabIndex = 174
-        Me.cbPerfilAcesso.Tag = "Perfil de Acesso"
+        Me.cbPerfilAcesso.TabIndex = 2
+        Me.cbPerfilAcesso.Tag = "PERFIL DE ACESSO"
         '
         'lkResetarSenha
         '

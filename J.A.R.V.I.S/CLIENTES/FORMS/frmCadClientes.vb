@@ -267,4 +267,8 @@
         btnIncluirFilho.Enabled = False
 
     End Sub
+
+    Private Sub cbxSexo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbxSexo.KeyPress
+        e.Handled = True
+    End Sub
 End Class

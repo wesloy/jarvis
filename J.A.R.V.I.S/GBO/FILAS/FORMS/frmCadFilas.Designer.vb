@@ -65,8 +65,8 @@ Partial Class frmCadFilas
         Me.txtFila.Location = New System.Drawing.Point(96, 47)
         Me.txtFila.Name = "txtFila"
         Me.txtFila.Size = New System.Drawing.Size(262, 20)
-        Me.txtFila.TabIndex = 10
-        Me.txtFila.Tag = "Fila"
+        Me.txtFila.TabIndex = 1
+        Me.txtFila.Tag = "FILA"
         '
         'txtID
         '
@@ -74,7 +74,8 @@ Partial Class frmCadFilas
         Me.txtID.Location = New System.Drawing.Point(96, 21)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(122, 20)
-        Me.txtID.TabIndex = 9
+        Me.txtID.TabIndex = 0
+        Me.txtID.Tag = "ID"
         '
         'Label2
         '
@@ -102,8 +103,8 @@ Partial Class frmCadFilas
         Me.txtGrupo.Location = New System.Drawing.Point(96, 99)
         Me.txtGrupo.Name = "txtGrupo"
         Me.txtGrupo.Size = New System.Drawing.Size(262, 20)
-        Me.txtGrupo.TabIndex = 57
-        Me.txtGrupo.Tag = "Grupo"
+        Me.txtGrupo.TabIndex = 3
+        Me.txtGrupo.Tag = "GRUPO"
         '
         'Label12
         '
@@ -142,7 +143,8 @@ Partial Class frmCadFilas
         Me.ckboxCategorizador.Location = New System.Drawing.Point(95, 166)
         Me.ckboxCategorizador.Name = "ckboxCategorizador"
         Me.ckboxCategorizador.Size = New System.Drawing.Size(15, 14)
-        Me.ckboxCategorizador.TabIndex = 64
+        Me.ckboxCategorizador.TabIndex = 6
+        Me.ckboxCategorizador.Tag = "TRABALHO MANUAL"
         Me.ckboxCategorizador.UseVisualStyleBackColor = False
         '
         'Label15
@@ -183,7 +185,8 @@ Partial Class frmCadFilas
         Me.ckboxAutomatico.Location = New System.Drawing.Point(95, 146)
         Me.ckboxAutomatico.Name = "ckboxAutomatico"
         Me.ckboxAutomatico.Size = New System.Drawing.Size(15, 14)
-        Me.ckboxAutomatico.TabIndex = 59
+        Me.ckboxAutomatico.TabIndex = 5
+        Me.ckboxAutomatico.Tag = "AUTOMÁTICA"
         Me.ckboxAutomatico.UseVisualStyleBackColor = False
         '
         'Label5
@@ -203,7 +206,8 @@ Partial Class frmCadFilas
         Me.ckboxAtivo.Location = New System.Drawing.Point(95, 125)
         Me.ckboxAtivo.Name = "ckboxAtivo"
         Me.ckboxAtivo.Size = New System.Drawing.Size(15, 14)
-        Me.ckboxAtivo.TabIndex = 58
+        Me.ckboxAtivo.TabIndex = 4
+        Me.ckboxAtivo.Tag = "ATIVO"
         Me.ckboxAtivo.UseVisualStyleBackColor = False
         '
         'btnRemoveFiltro
@@ -214,7 +218,7 @@ Partial Class frmCadFilas
         Me.btnRemoveFiltro.Location = New System.Drawing.Point(568, 209)
         Me.btnRemoveFiltro.Name = "btnRemoveFiltro"
         Me.btnRemoveFiltro.Size = New System.Drawing.Size(75, 30)
-        Me.btnRemoveFiltro.TabIndex = 80
+        Me.btnRemoveFiltro.TabIndex = 13
         Me.btnRemoveFiltro.Text = "     Limpar"
         Me.btnRemoveFiltro.UseVisualStyleBackColor = True
         '
@@ -293,7 +297,7 @@ Partial Class frmCadFilas
         Me.btnFiltrar.Location = New System.Drawing.Point(489, 209)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(75, 30)
-        Me.btnFiltrar.TabIndex = 72
+        Me.btnFiltrar.TabIndex = 12
         Me.btnFiltrar.Text = "   Filtrar"
         Me.btnFiltrar.UseVisualStyleBackColor = True
         '
@@ -302,7 +306,8 @@ Partial Class frmCadFilas
         Me.txtFiltro.Location = New System.Drawing.Point(329, 219)
         Me.txtFiltro.Name = "txtFiltro"
         Me.txtFiltro.Size = New System.Drawing.Size(154, 20)
-        Me.txtFiltro.TabIndex = 71
+        Me.txtFiltro.TabIndex = 11
+        Me.txtFiltro.Tag = "FILTRO"
         '
         'btnCancelar
         '
@@ -312,7 +317,7 @@ Partial Class frmCadFilas
         Me.btnCancelar.Location = New System.Drawing.Point(248, 209)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 30)
-        Me.btnCancelar.TabIndex = 70
+        Me.btnCancelar.TabIndex = 10
         Me.btnCancelar.Text = "   Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
@@ -325,7 +330,7 @@ Partial Class frmCadFilas
         Me.btnExcluir.Location = New System.Drawing.Point(173, 209)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(75, 30)
-        Me.btnExcluir.TabIndex = 69
+        Me.btnExcluir.TabIndex = 9
         Me.btnExcluir.Text = "Excluir"
         Me.btnExcluir.UseVisualStyleBackColor = True
         '
@@ -338,7 +343,7 @@ Partial Class frmCadFilas
         Me.btnAlterar.Location = New System.Drawing.Point(98, 209)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(75, 30)
-        Me.btnAlterar.TabIndex = 68
+        Me.btnAlterar.TabIndex = 8
         Me.btnAlterar.Text = "Alterar"
         Me.btnAlterar.UseVisualStyleBackColor = True
         '
@@ -362,7 +367,7 @@ Partial Class frmCadFilas
         Me.btnIncluir.Location = New System.Drawing.Point(23, 209)
         Me.btnIncluir.Name = "btnIncluir"
         Me.btnIncluir.Size = New System.Drawing.Size(75, 30)
-        Me.btnIncluir.TabIndex = 67
+        Me.btnIncluir.TabIndex = 7
         Me.btnIncluir.Text = "Incluir"
         Me.btnIncluir.UseVisualStyleBackColor = True
         '
@@ -372,8 +377,8 @@ Partial Class frmCadFilas
         Me.txtSigla.Location = New System.Drawing.Point(96, 73)
         Me.txtSigla.Name = "txtSigla"
         Me.txtSigla.Size = New System.Drawing.Size(262, 20)
-        Me.txtSigla.TabIndex = 81
-        Me.txtSigla.Tag = "Fila"
+        Me.txtSigla.TabIndex = 2
+        Me.txtSigla.Tag = "SIGLA"
         '
         'Label3
         '

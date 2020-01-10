@@ -75,6 +75,7 @@ Partial Class frmCadClientes
         Me.btnAlterarFilho = New System.Windows.Forms.Button()
         Me.btnIncluirFilho = New System.Windows.Forms.Button()
         Me.gbFilhos = New System.Windows.Forms.GroupBox()
+        Me.txtIdFilhos = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.dtpNascimentoFIlho = New System.Windows.Forms.DateTimePicker()
         Me.txtCpf = New System.Windows.Forms.MaskedTextBox()
@@ -83,7 +84,6 @@ Partial Class frmCadClientes
         Me.dtpPreviscaoNascimento = New System.Windows.Forms.DateTimePicker()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.txtSemanasGestacao = New System.Windows.Forms.MaskedTextBox()
-        Me.txtIdFilhos = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbFilhos.SuspendLayout()
@@ -96,7 +96,7 @@ Partial Class frmCadClientes
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(262, 20)
         Me.txtEmail.TabIndex = 5
-        Me.txtEmail.Tag = "E-mail"
+        Me.txtEmail.Tag = "E-MAIL"
         '
         'Label18
         '
@@ -115,7 +115,7 @@ Partial Class frmCadClientes
         Me.txtCelular.Name = "txtCelular"
         Me.txtCelular.Size = New System.Drawing.Size(262, 20)
         Me.txtCelular.TabIndex = 4
-        Me.txtCelular.Tag = "Celular"
+        Me.txtCelular.Tag = "CELULAR"
         '
         'txtTelefone
         '
@@ -124,7 +124,7 @@ Partial Class frmCadClientes
         Me.txtTelefone.Name = "txtTelefone"
         Me.txtTelefone.Size = New System.Drawing.Size(262, 20)
         Me.txtTelefone.TabIndex = 3
-        Me.txtTelefone.Tag = "Telefone"
+        Me.txtTelefone.Tag = "TELEFONE FIXO"
         '
         'txtObservacao
         '
@@ -134,7 +134,7 @@ Partial Class frmCadClientes
         Me.txtObservacao.Name = "txtObservacao"
         Me.txtObservacao.Size = New System.Drawing.Size(262, 65)
         Me.txtObservacao.TabIndex = 14
-        Me.txtObservacao.Tag = "Observação"
+        Me.txtObservacao.Tag = "OBSERVAÇÃO"
         '
         'Label16
         '
@@ -153,7 +153,7 @@ Partial Class frmCadClientes
         Me.txtInstagram.Name = "txtInstagram"
         Me.txtInstagram.Size = New System.Drawing.Size(262, 20)
         Me.txtInstagram.TabIndex = 6
-        Me.txtInstagram.Tag = "Instagram"
+        Me.txtInstagram.Tag = "INSTAGRAM"
         '
         'Label12
         '
@@ -203,7 +203,7 @@ Partial Class frmCadClientes
         Me.txtCompanheiro.Name = "txtCompanheiro"
         Me.txtCompanheiro.Size = New System.Drawing.Size(262, 20)
         Me.txtCompanheiro.TabIndex = 2
-        Me.txtCompanheiro.Tag = "Companheiro (a)"
+        Me.txtCompanheiro.Tag = "COMPANHEIRO"
         '
         'Label3
         '
@@ -312,6 +312,7 @@ Partial Class frmCadClientes
         Me.txtFiltro.Name = "txtFiltro"
         Me.txtFiltro.Size = New System.Drawing.Size(266, 20)
         Me.txtFiltro.TabIndex = 179
+        Me.txtFiltro.Tag = "FILTRO"
         '
         'btnCancelar
         '
@@ -403,6 +404,7 @@ Partial Class frmCadClientes
         Me.ckboxAtivo.Name = "ckboxAtivo"
         Me.ckboxAtivo.Size = New System.Drawing.Size(15, 14)
         Me.ckboxAtivo.TabIndex = 15
+        Me.ckboxAtivo.Tag = "ATIVO"
         Me.ckboxAtivo.UseVisualStyleBackColor = False
         '
         'txtCliente
@@ -412,7 +414,7 @@ Partial Class frmCadClientes
         Me.txtCliente.Name = "txtCliente"
         Me.txtCliente.Size = New System.Drawing.Size(262, 20)
         Me.txtCliente.TabIndex = 1
-        Me.txtCliente.Tag = "Cliente"
+        Me.txtCliente.Tag = "CLIENTE"
         '
         'txtID
         '
@@ -421,6 +423,7 @@ Partial Class frmCadClientes
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(262, 20)
         Me.txtID.TabIndex = 0
+        Me.txtID.Tag = "ID"
         '
         'Label2
         '
@@ -449,7 +452,7 @@ Partial Class frmCadClientes
         Me.txtFacebook.Name = "txtFacebook"
         Me.txtFacebook.Size = New System.Drawing.Size(262, 20)
         Me.txtFacebook.TabIndex = 7
-        Me.txtFacebook.Tag = "Facebook"
+        Me.txtFacebook.Tag = "FACEBOOK"
         '
         'Label19
         '
@@ -489,7 +492,7 @@ Partial Class frmCadClientes
         Me.cbxGestante.Name = "cbxGestante"
         Me.cbxGestante.Size = New System.Drawing.Size(119, 21)
         Me.cbxGestante.TabIndex = 8
-        Me.cbxGestante.Tag = "Gestante"
+        Me.cbxGestante.Tag = "GESTANTE"
         '
         'txtQtdeFilhos
         '
@@ -498,7 +501,7 @@ Partial Class frmCadClientes
         Me.txtQtdeFilhos.Name = "txtQtdeFilhos"
         Me.txtQtdeFilhos.Size = New System.Drawing.Size(262, 20)
         Me.txtQtdeFilhos.TabIndex = 11
-        Me.txtQtdeFilhos.Tag = "Qtde Filhos"
+        Me.txtQtdeFilhos.Tag = "QTDE DE FILHOS"
         '
         'Label22
         '
@@ -536,6 +539,7 @@ Partial Class frmCadClientes
         Me.txtNomeFIlho.Name = "txtNomeFIlho"
         Me.txtNomeFIlho.Size = New System.Drawing.Size(254, 20)
         Me.txtNomeFIlho.TabIndex = 0
+        Me.txtNomeFIlho.Tag = "NOME FILHO(A)"
         '
         'Label13
         '
@@ -565,6 +569,7 @@ Partial Class frmCadClientes
         Me.cbxSexo.Name = "cbxSexo"
         Me.cbxSexo.Size = New System.Drawing.Size(254, 21)
         Me.cbxSexo.TabIndex = 2
+        Me.cbxSexo.Tag = "SEXO FILHO(A)"
         '
         'Label17
         '
@@ -635,6 +640,15 @@ Partial Class frmCadClientes
         Me.gbFilhos.TabStop = False
         Me.gbFilhos.Text = "Controle de Filhos (as):"
         '
+        'txtIdFilhos
+        '
+        Me.txtIdFilhos.Enabled = False
+        Me.txtIdFilhos.Location = New System.Drawing.Point(585, 112)
+        Me.txtIdFilhos.Name = "txtIdFilhos"
+        Me.txtIdFilhos.Size = New System.Drawing.Size(79, 20)
+        Me.txtIdFilhos.TabIndex = 229
+        Me.txtIdFilhos.Visible = False
+        '
         'Label25
         '
         Me.Label25.AutoSize = True
@@ -651,6 +665,7 @@ Partial Class frmCadClientes
         Me.dtpNascimentoFIlho.Name = "dtpNascimentoFIlho"
         Me.dtpNascimentoFIlho.Size = New System.Drawing.Size(254, 20)
         Me.dtpNascimentoFIlho.TabIndex = 1
+        Me.dtpNascimentoFIlho.Tag = "DATA NASCIMENTO FILHO(A)"
         '
         'txtCpf
         '
@@ -667,6 +682,7 @@ Partial Class frmCadClientes
         Me.dtpDataNascimento.Name = "dtpDataNascimento"
         Me.dtpDataNascimento.Size = New System.Drawing.Size(262, 20)
         Me.dtpDataNascimento.TabIndex = 13
+        Me.dtpDataNascimento.Tag = "DATA DE NASCIMENTO"
         '
         'Label24
         '
@@ -684,6 +700,7 @@ Partial Class frmCadClientes
         Me.dtpPreviscaoNascimento.Name = "dtpPreviscaoNascimento"
         Me.dtpPreviscaoNascimento.Size = New System.Drawing.Size(262, 20)
         Me.dtpPreviscaoNascimento.TabIndex = 10
+        Me.dtpPreviscaoNascimento.Tag = "PREVISÃO NASCIMENTO"
         '
         'Label26
         '
@@ -702,18 +719,9 @@ Partial Class frmCadClientes
         Me.txtSemanasGestacao.Name = "txtSemanasGestacao"
         Me.txtSemanasGestacao.Size = New System.Drawing.Size(51, 20)
         Me.txtSemanasGestacao.TabIndex = 228
-        Me.txtSemanasGestacao.Tag = "CPF"
+        Me.txtSemanasGestacao.Tag = "QTDE SEMANAS"
         Me.txtSemanasGestacao.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtSemanasGestacao.ValidatingType = GetType(Integer)
-        '
-        'txtIdFilhos
-        '
-        Me.txtIdFilhos.Enabled = False
-        Me.txtIdFilhos.Location = New System.Drawing.Point(585, 112)
-        Me.txtIdFilhos.Name = "txtIdFilhos"
-        Me.txtIdFilhos.Size = New System.Drawing.Size(79, 20)
-        Me.txtIdFilhos.TabIndex = 229
-        Me.txtIdFilhos.Visible = False
         '
         'frmCadClientes
         '

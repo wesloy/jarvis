@@ -60,8 +60,8 @@ Partial Class frmCadReceitasDespesas
         Me.txtObservacao.Multiline = True
         Me.txtObservacao.Name = "txtObservacao"
         Me.txtObservacao.Size = New System.Drawing.Size(617, 61)
-        Me.txtObservacao.TabIndex = 225
-        Me.txtObservacao.Tag = "Observação"
+        Me.txtObservacao.TabIndex = 3
+        Me.txtObservacao.Tag = "OBSERVAÇÃO"
         '
         'Label16
         '
@@ -92,7 +92,7 @@ Partial Class frmCadReceitasDespesas
         Me.btnRemoveFiltro.Location = New System.Drawing.Point(675, 201)
         Me.btnRemoveFiltro.Name = "btnRemoveFiltro"
         Me.btnRemoveFiltro.Size = New System.Drawing.Size(75, 30)
-        Me.btnRemoveFiltro.TabIndex = 232
+        Me.btnRemoveFiltro.TabIndex = 11
         Me.btnRemoveFiltro.Text = "     Limpar"
         Me.btnRemoveFiltro.UseVisualStyleBackColor = True
         '
@@ -171,7 +171,7 @@ Partial Class frmCadReceitasDespesas
         Me.btnFiltrar.Location = New System.Drawing.Point(596, 201)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(75, 30)
-        Me.btnFiltrar.TabIndex = 231
+        Me.btnFiltrar.TabIndex = 10
         Me.btnFiltrar.Text = "   Filtrar"
         Me.btnFiltrar.UseVisualStyleBackColor = True
         '
@@ -180,7 +180,7 @@ Partial Class frmCadReceitasDespesas
         Me.txtFiltro.Location = New System.Drawing.Point(359, 211)
         Me.txtFiltro.Name = "txtFiltro"
         Me.txtFiltro.Size = New System.Drawing.Size(231, 20)
-        Me.txtFiltro.TabIndex = 230
+        Me.txtFiltro.TabIndex = 9
         '
         'btnCancelar
         '
@@ -190,7 +190,7 @@ Partial Class frmCadReceitasDespesas
         Me.btnCancelar.Location = New System.Drawing.Point(278, 201)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 30)
-        Me.btnCancelar.TabIndex = 229
+        Me.btnCancelar.TabIndex = 8
         Me.btnCancelar.Text = "   Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
@@ -203,7 +203,7 @@ Partial Class frmCadReceitasDespesas
         Me.btnExcluir.Location = New System.Drawing.Point(203, 201)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(75, 30)
-        Me.btnExcluir.TabIndex = 228
+        Me.btnExcluir.TabIndex = 7
         Me.btnExcluir.Text = "Excluir"
         Me.btnExcluir.UseVisualStyleBackColor = True
         '
@@ -216,7 +216,7 @@ Partial Class frmCadReceitasDespesas
         Me.btnAlterar.Location = New System.Drawing.Point(128, 201)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(75, 30)
-        Me.btnAlterar.TabIndex = 227
+        Me.btnAlterar.TabIndex = 6
         Me.btnAlterar.Text = "Alterar"
         Me.btnAlterar.UseVisualStyleBackColor = True
         '
@@ -240,7 +240,7 @@ Partial Class frmCadReceitasDespesas
         Me.btnIncluir.Location = New System.Drawing.Point(53, 201)
         Me.btnIncluir.Name = "btnIncluir"
         Me.btnIncluir.Size = New System.Drawing.Size(75, 30)
-        Me.btnIncluir.TabIndex = 226
+        Me.btnIncluir.TabIndex = 5
         Me.btnIncluir.Text = "Incluir"
         Me.btnIncluir.UseVisualStyleBackColor = True
         '
@@ -271,7 +271,8 @@ Partial Class frmCadReceitasDespesas
         Me.ckboxAtivo.Location = New System.Drawing.Point(133, 170)
         Me.ckboxAtivo.Name = "ckboxAtivo"
         Me.ckboxAtivo.Size = New System.Drawing.Size(15, 14)
-        Me.ckboxAtivo.TabIndex = 233
+        Me.ckboxAtivo.TabIndex = 4
+        Me.ckboxAtivo.Tag = "ATIVO"
         Me.ckboxAtivo.UseVisualStyleBackColor = False
         '
         'txtDescricao
@@ -280,8 +281,8 @@ Partial Class frmCadReceitasDespesas
         Me.txtDescricao.Location = New System.Drawing.Point(133, 77)
         Me.txtDescricao.Name = "txtDescricao"
         Me.txtDescricao.Size = New System.Drawing.Size(255, 20)
-        Me.txtDescricao.TabIndex = 222
-        Me.txtDescricao.Tag = "Centro Custo"
+        Me.txtDescricao.TabIndex = 2
+        Me.txtDescricao.Tag = "DESCRIÇÃO"
         '
         'txtID
         '
@@ -289,7 +290,8 @@ Partial Class frmCadReceitasDespesas
         Me.txtID.Location = New System.Drawing.Point(133, 24)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(255, 20)
-        Me.txtID.TabIndex = 221
+        Me.txtID.TabIndex = 0
+        Me.txtID.Tag = "ID"
         '
         'Label2
         '
@@ -318,7 +320,8 @@ Partial Class frmCadReceitasDespesas
         Me.cbxTipoRegistro.Location = New System.Drawing.Point(133, 50)
         Me.cbxTipoRegistro.Name = "cbxTipoRegistro"
         Me.cbxTipoRegistro.Size = New System.Drawing.Size(255, 21)
-        Me.cbxTipoRegistro.TabIndex = 245
+        Me.cbxTipoRegistro.TabIndex = 1
+        Me.cbxTipoRegistro.Tag = "TIPO DE REGISTRO"
         '
         'Label3
         '

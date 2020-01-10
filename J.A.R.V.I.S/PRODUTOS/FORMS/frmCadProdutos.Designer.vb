@@ -72,8 +72,8 @@ Partial Class frmCadProdutos
         Me.txtSigla.Location = New System.Drawing.Point(98, 69)
         Me.txtSigla.Name = "txtSigla"
         Me.txtSigla.Size = New System.Drawing.Size(262, 20)
-        Me.txtSigla.TabIndex = 1
-        Me.txtSigla.Tag = "Sigla"
+        Me.txtSigla.TabIndex = 2
+        Me.txtSigla.Tag = "SIGLA"
         '
         'Label3
         '
@@ -93,7 +93,7 @@ Partial Class frmCadProdutos
         Me.btnRemoveFiltro.Location = New System.Drawing.Point(570, 264)
         Me.btnRemoveFiltro.Name = "btnRemoveFiltro"
         Me.btnRemoveFiltro.Size = New System.Drawing.Size(75, 30)
-        Me.btnRemoveFiltro.TabIndex = 10
+        Me.btnRemoveFiltro.TabIndex = 12
         Me.btnRemoveFiltro.Text = "     Limpar"
         Me.btnRemoveFiltro.UseVisualStyleBackColor = True
         '
@@ -172,7 +172,7 @@ Partial Class frmCadProdutos
         Me.btnFiltrar.Location = New System.Drawing.Point(491, 264)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(75, 30)
-        Me.btnFiltrar.TabIndex = 9
+        Me.btnFiltrar.TabIndex = 11
         Me.btnFiltrar.Text = "   Filtrar"
         Me.btnFiltrar.UseVisualStyleBackColor = True
         '
@@ -181,7 +181,7 @@ Partial Class frmCadProdutos
         Me.txtFiltro.Location = New System.Drawing.Point(331, 274)
         Me.txtFiltro.Name = "txtFiltro"
         Me.txtFiltro.Size = New System.Drawing.Size(154, 20)
-        Me.txtFiltro.TabIndex = 8
+        Me.txtFiltro.TabIndex = 10
         '
         'btnCancelar
         '
@@ -191,7 +191,7 @@ Partial Class frmCadProdutos
         Me.btnCancelar.Location = New System.Drawing.Point(250, 264)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 30)
-        Me.btnCancelar.TabIndex = 7
+        Me.btnCancelar.TabIndex = 9
         Me.btnCancelar.Text = "   Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
@@ -204,7 +204,7 @@ Partial Class frmCadProdutos
         Me.btnExcluir.Location = New System.Drawing.Point(175, 264)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(75, 30)
-        Me.btnExcluir.TabIndex = 6
+        Me.btnExcluir.TabIndex = 8
         Me.btnExcluir.Text = "Excluir"
         Me.btnExcluir.UseVisualStyleBackColor = True
         '
@@ -217,7 +217,7 @@ Partial Class frmCadProdutos
         Me.btnAlterar.Location = New System.Drawing.Point(100, 264)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(75, 30)
-        Me.btnAlterar.TabIndex = 5
+        Me.btnAlterar.TabIndex = 7
         Me.btnAlterar.Text = "Alterar"
         Me.btnAlterar.UseVisualStyleBackColor = True
         '
@@ -230,7 +230,7 @@ Partial Class frmCadProdutos
         Me.ListView1.Location = New System.Drawing.Point(25, 300)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(620, 206)
-        Me.ListView1.TabIndex = 11
+        Me.ListView1.TabIndex = 13
         Me.ListView1.UseCompatibleStateImageBehavior = False
         '
         'btnIncluir
@@ -241,7 +241,7 @@ Partial Class frmCadProdutos
         Me.btnIncluir.Location = New System.Drawing.Point(25, 264)
         Me.btnIncluir.Name = "btnIncluir"
         Me.btnIncluir.Size = New System.Drawing.Size(75, 30)
-        Me.btnIncluir.TabIndex = 4
+        Me.btnIncluir.TabIndex = 6
         Me.btnIncluir.Text = "Incluir"
         Me.btnIncluir.UseVisualStyleBackColor = True
         '
@@ -272,7 +272,8 @@ Partial Class frmCadProdutos
         Me.ckboxAtivo.Location = New System.Drawing.Point(96, 219)
         Me.ckboxAtivo.Name = "ckboxAtivo"
         Me.ckboxAtivo.Size = New System.Drawing.Size(15, 14)
-        Me.ckboxAtivo.TabIndex = 90
+        Me.ckboxAtivo.TabIndex = 5
+        Me.ckboxAtivo.Tag = "ATIVO"
         Me.ckboxAtivo.UseVisualStyleBackColor = False
         '
         'txtDescricao
@@ -282,8 +283,8 @@ Partial Class frmCadProdutos
         Me.txtDescricao.Multiline = True
         Me.txtDescricao.Name = "txtDescricao"
         Me.txtDescricao.Size = New System.Drawing.Size(547, 92)
-        Me.txtDescricao.TabIndex = 3
-        Me.txtDescricao.Tag = "Descrição"
+        Me.txtDescricao.TabIndex = 4
+        Me.txtDescricao.Tag = "DESCRIÇÃO"
         '
         'Label12
         '
@@ -301,8 +302,8 @@ Partial Class frmCadProdutos
         Me.txtProduto.Location = New System.Drawing.Point(98, 43)
         Me.txtProduto.Name = "txtProduto"
         Me.txtProduto.Size = New System.Drawing.Size(262, 20)
-        Me.txtProduto.TabIndex = 0
-        Me.txtProduto.Tag = "Produto"
+        Me.txtProduto.TabIndex = 1
+        Me.txtProduto.Tag = "PRODUTO"
         '
         'txtID
         '
@@ -310,7 +311,8 @@ Partial Class frmCadProdutos
         Me.txtID.Location = New System.Drawing.Point(98, 17)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(122, 20)
-        Me.txtID.TabIndex = 84
+        Me.txtID.TabIndex = 0
+        Me.txtID.Tag = "ID"
         '
         'Label2
         '
@@ -338,8 +340,8 @@ Partial Class frmCadProdutos
         Me.txtValor.Location = New System.Drawing.Point(98, 95)
         Me.txtValor.Name = "txtValor"
         Me.txtValor.Size = New System.Drawing.Size(262, 20)
-        Me.txtValor.TabIndex = 2
-        Me.txtValor.Tag = "Valor"
+        Me.txtValor.TabIndex = 3
+        Me.txtValor.Tag = "VALOR"
         '
         'Label7
         '

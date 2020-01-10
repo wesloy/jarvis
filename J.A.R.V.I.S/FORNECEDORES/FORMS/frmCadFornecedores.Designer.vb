@@ -95,7 +95,7 @@ Partial Class frmCadFornecedores
         Me.txtSigla.Name = "txtSigla"
         Me.txtSigla.Size = New System.Drawing.Size(262, 20)
         Me.txtSigla.TabIndex = 2
-        Me.txtSigla.Tag = "Sigla"
+        Me.txtSigla.Tag = "SIGLA"
         '
         'Label3
         '
@@ -295,6 +295,7 @@ Partial Class frmCadFornecedores
         Me.ckboxAtivo.Name = "ckboxAtivo"
         Me.ckboxAtivo.Size = New System.Drawing.Size(15, 14)
         Me.ckboxAtivo.TabIndex = 10
+        Me.ckboxAtivo.Tag = "ATIVO"
         Me.ckboxAtivo.UseVisualStyleBackColor = False
         '
         'txtFornecedor
@@ -304,7 +305,7 @@ Partial Class frmCadFornecedores
         Me.txtFornecedor.Name = "txtFornecedor"
         Me.txtFornecedor.Size = New System.Drawing.Size(262, 20)
         Me.txtFornecedor.TabIndex = 1
-        Me.txtFornecedor.Tag = "Fornecedor"
+        Me.txtFornecedor.Tag = "FORNECEDOR"
         '
         'txtID
         '
@@ -313,6 +314,7 @@ Partial Class frmCadFornecedores
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(262, 20)
         Me.txtID.TabIndex = 0
+        Me.txtID.Tag = "ID"
         '
         'Label2
         '
@@ -351,7 +353,7 @@ Partial Class frmCadFornecedores
         Me.txtContato.Name = "txtContato"
         Me.txtContato.Size = New System.Drawing.Size(262, 20)
         Me.txtContato.TabIndex = 6
-        Me.txtContato.Tag = "Contato"
+        Me.txtContato.Tag = "CONTATO"
         '
         'Label12
         '
@@ -370,7 +372,7 @@ Partial Class frmCadFornecedores
         Me.txtSite.Name = "txtSite"
         Me.txtSite.Size = New System.Drawing.Size(262, 20)
         Me.txtSite.TabIndex = 7
-        Me.txtSite.Tag = "Site"
+        Me.txtSite.Tag = "SITE"
         '
         'Label13
         '
@@ -389,7 +391,7 @@ Partial Class frmCadFornecedores
         Me.txtHorarioFunc.Name = "txtHorarioFunc"
         Me.txtHorarioFunc.Size = New System.Drawing.Size(262, 20)
         Me.txtHorarioFunc.TabIndex = 8
-        Me.txtHorarioFunc.Tag = "Horário Funcionamento"
+        Me.txtHorarioFunc.Tag = "HORÁRIO DE FUNCIONAMENTO"
         '
         'Label15
         '
@@ -409,7 +411,7 @@ Partial Class frmCadFornecedores
         Me.txtObservacao.Name = "txtObservacao"
         Me.txtObservacao.Size = New System.Drawing.Size(624, 70)
         Me.txtObservacao.TabIndex = 10
-        Me.txtObservacao.Tag = "Observação"
+        Me.txtObservacao.Tag = "OBSERVAÇÕES"
         '
         'Label16
         '
@@ -438,7 +440,7 @@ Partial Class frmCadFornecedores
         Me.txtTelefone.Name = "txtTelefone"
         Me.txtTelefone.Size = New System.Drawing.Size(262, 20)
         Me.txtTelefone.TabIndex = 3
-        Me.txtTelefone.Tag = "Telefone"
+        Me.txtTelefone.Tag = "TELEFONE FIXO"
         '
         'txtCelular
         '
@@ -447,7 +449,7 @@ Partial Class frmCadFornecedores
         Me.txtCelular.Name = "txtCelular"
         Me.txtCelular.Size = New System.Drawing.Size(262, 20)
         Me.txtCelular.TabIndex = 4
-        Me.txtCelular.Tag = "Celular"
+        Me.txtCelular.Tag = "CELULAR"
         '
         'txtCnpj
         '
@@ -456,7 +458,7 @@ Partial Class frmCadFornecedores
         Me.txtCnpj.Name = "txtCnpj"
         Me.txtCnpj.Size = New System.Drawing.Size(262, 20)
         Me.txtCnpj.TabIndex = 9
-        Me.txtCnpj.Tag = "Cnpj"
+        Me.txtCnpj.Tag = "CNPJ"
         '
         'txtEmail
         '
@@ -465,7 +467,7 @@ Partial Class frmCadFornecedores
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(262, 20)
         Me.txtEmail.TabIndex = 5
-        Me.txtEmail.Tag = "E-mail"
+        Me.txtEmail.Tag = "E-MAIL"
         '
         'Label18
         '

@@ -141,4 +141,8 @@
         End If
         liberaBotoes()
     End Sub
+
+    Private Sub cbxTipoRegistro_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbxTipoRegistro.KeyPress
+        e.Handled = True
+    End Sub
 End Class

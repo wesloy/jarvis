@@ -68,7 +68,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Interop.ADODB">
-      <HintPath>..\..\bibliotecas\ADODB\Interop.ADODB.dll</HintPath>
+      <HintPath>..\..\Complementares\bibliotecas\ADODB\Interop.ADODB.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
@@ -82,8 +82,9 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="Uteis">
-      <HintPath>..\..\Uteis\bin\Debug\Uteis.dll</HintPath>
+    <Reference Include="Uteis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Complementares\Uteis\bin\Debug\Uteis.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

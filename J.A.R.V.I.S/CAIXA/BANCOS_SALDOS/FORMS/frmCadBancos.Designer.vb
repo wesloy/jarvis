@@ -71,7 +71,7 @@ Partial Class frmCadBancos
         Me.txtObservacao.Name = "txtObservacao"
         Me.txtObservacao.Size = New System.Drawing.Size(624, 44)
         Me.txtObservacao.TabIndex = 8
-        Me.txtObservacao.Tag = "Observação"
+        Me.txtObservacao.Tag = "OBSERVAÇÃO"
         '
         'Label16
         '
@@ -111,7 +111,7 @@ Partial Class frmCadBancos
         Me.txtCodBanco.Name = "txtCodBanco"
         Me.txtCodBanco.Size = New System.Drawing.Size(262, 20)
         Me.txtCodBanco.TabIndex = 2
-        Me.txtCodBanco.Tag = "Cod. Banco"
+        Me.txtCodBanco.Tag = "CODIGO BANCO"
         '
         'Label3
         '
@@ -311,6 +311,7 @@ Partial Class frmCadBancos
         Me.ckboxAtivo.Name = "ckboxAtivo"
         Me.ckboxAtivo.Size = New System.Drawing.Size(15, 14)
         Me.ckboxAtivo.TabIndex = 174
+        Me.ckboxAtivo.Tag = "ATIVO"
         Me.ckboxAtivo.UseVisualStyleBackColor = False
         '
         'txtNomeBanco
@@ -320,7 +321,7 @@ Partial Class frmCadBancos
         Me.txtNomeBanco.Name = "txtNomeBanco"
         Me.txtNomeBanco.Size = New System.Drawing.Size(262, 20)
         Me.txtNomeBanco.TabIndex = 1
-        Me.txtNomeBanco.Tag = "Nome Banco"
+        Me.txtNomeBanco.Tag = "NOME DO BANCO"
         '
         'txtID
         '
@@ -329,6 +330,7 @@ Partial Class frmCadBancos
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(262, 20)
         Me.txtID.TabIndex = 0
+        Me.txtID.Tag = "ID"
         '
         'Label2
         '
@@ -357,7 +359,7 @@ Partial Class frmCadBancos
         Me.txtAgencia.Name = "txtAgencia"
         Me.txtAgencia.Size = New System.Drawing.Size(152, 20)
         Me.txtAgencia.TabIndex = 3
-        Me.txtAgencia.Tag = "Agência"
+        Me.txtAgencia.Tag = "AGÊNCIA"
         '
         'Label19
         '
@@ -376,7 +378,7 @@ Partial Class frmCadBancos
         Me.txtAgenciaDig.Name = "txtAgenciaDig"
         Me.txtAgenciaDig.Size = New System.Drawing.Size(59, 20)
         Me.txtAgenciaDig.TabIndex = 4
-        Me.txtAgenciaDig.Tag = "Dígito Agência"
+        Me.txtAgenciaDig.Tag = "DÍGITO AGÊNCIA"
         '
         'txtContaCorrenteDig
         '
@@ -385,7 +387,7 @@ Partial Class frmCadBancos
         Me.txtContaCorrenteDig.Name = "txtContaCorrenteDig"
         Me.txtContaCorrenteDig.Size = New System.Drawing.Size(59, 20)
         Me.txtContaCorrenteDig.TabIndex = 6
-        Me.txtContaCorrenteDig.Tag = "Dígito Conta Corrente"
+        Me.txtContaCorrenteDig.Tag = "DÍGITO CONTA CORRENTE"
         '
         'Label8
         '
@@ -404,7 +406,7 @@ Partial Class frmCadBancos
         Me.txtContaCorrente.Name = "txtContaCorrente"
         Me.txtContaCorrente.Size = New System.Drawing.Size(152, 20)
         Me.txtContaCorrente.TabIndex = 5
-        Me.txtContaCorrente.Tag = "Conta Corrente"
+        Me.txtContaCorrente.Tag = "CONTA CORRENTE"
         '
         'Label20
         '
@@ -423,7 +425,7 @@ Partial Class frmCadBancos
         Me.txtSaldo.Name = "txtSaldo"
         Me.txtSaldo.Size = New System.Drawing.Size(262, 20)
         Me.txtSaldo.TabIndex = 7
-        Me.txtSaldo.Tag = "Saldo"
+        Me.txtSaldo.Tag = "SALDO"
         '
         'Label12
         '

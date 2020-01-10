@@ -76,17 +76,18 @@ Partial Class frmCadSubFinalizacao
         '
         Me.ckboxEfetivo.AutoSize = True
         Me.ckboxEfetivo.BackColor = System.Drawing.Color.Transparent
-        Me.ckboxEfetivo.Location = New System.Drawing.Point(118, 137)
+        Me.ckboxEfetivo.Location = New System.Drawing.Point(118, 139)
         Me.ckboxEfetivo.Name = "ckboxEfetivo"
         Me.ckboxEfetivo.Size = New System.Drawing.Size(15, 14)
         Me.ckboxEfetivo.TabIndex = 6
+        Me.ckboxEfetivo.Tag = "EFETIVO"
         Me.ckboxEfetivo.UseVisualStyleBackColor = False
         '
         'Label24
         '
         Me.Label24.AutoSize = True
         Me.Label24.BackColor = System.Drawing.Color.Transparent
-        Me.Label24.Location = New System.Drawing.Point(16, 137)
+        Me.Label24.Location = New System.Drawing.Point(16, 139)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(43, 13)
         Me.Label24.TabIndex = 190
@@ -100,6 +101,7 @@ Partial Class frmCadSubFinalizacao
         Me.ckboxPassivelEfet.Name = "ckboxPassivelEfet"
         Me.ckboxPassivelEfet.Size = New System.Drawing.Size(15, 14)
         Me.ckboxPassivelEfet.TabIndex = 5
+        Me.ckboxPassivelEfet.Tag = "PASSÍVEL DE EFETIVIDADE"
         Me.ckboxPassivelEfet.UseVisualStyleBackColor = False
         '
         'Label23
@@ -143,6 +145,7 @@ Partial Class frmCadSubFinalizacao
         Me.ckboxRotearFinalizado.Name = "ckboxRotearFinalizado"
         Me.ckboxRotearFinalizado.Size = New System.Drawing.Size(15, 14)
         Me.ckboxRotearFinalizado.TabIndex = 10
+        Me.ckboxRotearFinalizado.Tag = "ROTEAR FINALIZADO"
         Me.ckboxRotearFinalizado.UseVisualStyleBackColor = False
         '
         'Label15
@@ -163,6 +166,7 @@ Partial Class frmCadSubFinalizacao
         Me.ckboxGerarNovoCaso.Name = "ckboxGerarNovoCaso"
         Me.ckboxGerarNovoCaso.Size = New System.Drawing.Size(15, 14)
         Me.ckboxGerarNovoCaso.TabIndex = 7
+        Me.ckboxGerarNovoCaso.Tag = "GERAR NOVO CASO"
         Me.ckboxGerarNovoCaso.UseVisualStyleBackColor = False
         '
         'cbFilaDestino
@@ -175,7 +179,7 @@ Partial Class frmCadSubFinalizacao
         Me.cbFilaDestino.Name = "cbFilaDestino"
         Me.cbFilaDestino.Size = New System.Drawing.Size(290, 21)
         Me.cbFilaDestino.TabIndex = 9
-        Me.cbFilaDestino.Tag = "Fila"
+        Me.cbFilaDestino.Tag = "FILA DE DESTINO"
         '
         'Label13
         '
@@ -195,6 +199,7 @@ Partial Class frmCadSubFinalizacao
         Me.cbAging.Name = "cbAging"
         Me.cbAging.Size = New System.Drawing.Size(290, 21)
         Me.cbAging.TabIndex = 8
+        Me.cbAging.Tag = "AGING NOVO CASO"
         '
         'Label11
         '
@@ -212,9 +217,9 @@ Partial Class frmCadSubFinalizacao
         Me.Label16.BackColor = System.Drawing.Color.Transparent
         Me.Label16.Location = New System.Drawing.Point(16, 194)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(89, 13)
+        Me.Label16.Size = New System.Drawing.Size(92, 13)
         Me.Label16.TabIndex = 174
-        Me.Label16.Text = "Gera Novo Caso:"
+        Me.Label16.Text = "Gerar Novo Caso:"
         '
         'cbFila
         '
@@ -226,7 +231,7 @@ Partial Class frmCadSubFinalizacao
         Me.cbFila.Name = "cbFila"
         Me.cbFila.Size = New System.Drawing.Size(290, 21)
         Me.cbFila.TabIndex = 2
-        Me.cbFila.Tag = "Fila"
+        Me.cbFila.Tag = "FILA"
         '
         'Label10
         '
@@ -296,7 +301,7 @@ Partial Class frmCadSubFinalizacao
         Me.cbFinalizacao.Name = "cbFinalizacao"
         Me.cbFinalizacao.Size = New System.Drawing.Size(290, 21)
         Me.cbFinalizacao.TabIndex = 3
-        Me.cbFinalizacao.Tag = "Finalização"
+        Me.cbFinalizacao.Tag = "FINALIZAÇÃO"
         '
         'txtSubFinalizacao
         '
@@ -305,7 +310,7 @@ Partial Class frmCadSubFinalizacao
         Me.txtSubFinalizacao.Name = "txtSubFinalizacao"
         Me.txtSubFinalizacao.Size = New System.Drawing.Size(290, 20)
         Me.txtSubFinalizacao.TabIndex = 1
-        Me.txtSubFinalizacao.Tag = "SubFinalização"
+        Me.txtSubFinalizacao.Tag = "SUBFINALIZAÇÃO"
         '
         'Label8
         '
@@ -321,7 +326,7 @@ Partial Class frmCadSubFinalizacao
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Location = New System.Drawing.Point(16, 16)
+        Me.Label5.Location = New System.Drawing.Point(16, 17)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(34, 13)
         Me.Label5.TabIndex = 171
@@ -331,7 +336,7 @@ Partial Class frmCadSubFinalizacao
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(16, 39)
+        Me.Label2.Location = New System.Drawing.Point(16, 40)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(82, 13)
         Me.Label2.TabIndex = 166
@@ -345,6 +350,7 @@ Partial Class frmCadSubFinalizacao
         Me.ckboxAtivo.Name = "ckboxAtivo"
         Me.ckboxAtivo.Size = New System.Drawing.Size(15, 14)
         Me.ckboxAtivo.TabIndex = 0
+        Me.ckboxAtivo.Tag = "ATIVO"
         Me.ckboxAtivo.UseVisualStyleBackColor = False
         '
         'Label19
@@ -379,7 +385,7 @@ Partial Class frmCadSubFinalizacao
         Me.cbFiltrofila.Name = "cbFiltrofila"
         Me.cbFiltrofila.Size = New System.Drawing.Size(290, 21)
         Me.cbFiltrofila.TabIndex = 15
-        Me.cbFiltrofila.Tag = "Fila"
+        Me.cbFiltrofila.Tag = "FILA DE BUSCA"
         '
         'Label20
         '
@@ -397,6 +403,7 @@ Partial Class frmCadSubFinalizacao
         Me.txtFiltro.Name = "txtFiltro"
         Me.txtFiltro.Size = New System.Drawing.Size(290, 20)
         Me.txtFiltro.TabIndex = 16
+        Me.txtFiltro.Tag = "SUBFINALIZAÇÃO DE BUSCA"
         '
         'btnRemoveFiltro
         '

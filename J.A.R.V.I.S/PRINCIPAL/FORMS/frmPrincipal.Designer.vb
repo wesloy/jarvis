@@ -146,7 +146,7 @@ Partial Class frmPrincipal
         Me.ContorleDeCaixaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BancosToolStripMenuItem, Me.CentroDeCustoToolStripMenuItem, Me.ReceitasToolStripMenuItem})
         Me.ContorleDeCaixaToolStripMenuItem.Image = CType(resources.GetObject("ContorleDeCaixaToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ContorleDeCaixaToolStripMenuItem.Name = "ContorleDeCaixaToolStripMenuItem"
-        Me.ContorleDeCaixaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ContorleDeCaixaToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.ContorleDeCaixaToolStripMenuItem.Text = "Caixa"
         '
         'BancosToolStripMenuItem
@@ -170,43 +170,43 @@ Partial Class frmPrincipal
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(172, 6)
         '
         'ClientesToolStripMenuItem
         '
         Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.ClientesToolStripMenuItem.Text = "Clientes"
         '
         'ContratosToolStripMenuItem
         '
         Me.ContratosToolStripMenuItem.Name = "ContratosToolStripMenuItem"
-        Me.ContratosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ContratosToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.ContratosToolStripMenuItem.Text = "Contratos"
         '
         'FornecedoresToolStripMenuItem
         '
         Me.FornecedoresToolStripMenuItem.Name = "FornecedoresToolStripMenuItem"
-        Me.FornecedoresToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FornecedoresToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.FornecedoresToolStripMenuItem.Text = "Fornecedores"
         '
         'ProdutosToolStripMenuItem
         '
         Me.ProdutosToolStripMenuItem.Name = "ProdutosToolStripMenuItem"
-        Me.ProdutosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ProdutosToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.ProdutosToolStripMenuItem.Text = "Produtos"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(172, 6)
         '
         'FilasToolStripMenuItem
         '
         Me.FilasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FilasToolStripMenuItem1, Me.FinalizaçõesToolStripMenuItem1, Me.SubfinalizaçõesToolStripMenuItem1})
         Me.FilasToolStripMenuItem.Image = CType(resources.GetObject("FilasToolStripMenuItem.Image"), System.Drawing.Image)
         Me.FilasToolStripMenuItem.Name = "FilasToolStripMenuItem"
-        Me.FilasToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FilasToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.FilasToolStripMenuItem.Text = "Filas de Trabalho"
         '
         'FilasToolStripMenuItem1
@@ -230,13 +230,13 @@ Partial Class frmPrincipal
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(172, 6)
         '
         'UsuáriosToolStripMenuItem
         '
         Me.UsuáriosToolStripMenuItem.Image = CType(resources.GetObject("UsuáriosToolStripMenuItem.Image"), System.Drawing.Image)
         Me.UsuáriosToolStripMenuItem.Name = "UsuáriosToolStripMenuItem"
-        Me.UsuáriosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.UsuáriosToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.UsuáriosToolStripMenuItem.Text = "Usuários"
         '
         'tsmRelatorios
@@ -362,7 +362,7 @@ Partial Class frmPrincipal
         Me.PainelFormularios.Location = New System.Drawing.Point(0, 37)
         Me.PainelFormularios.Name = "PainelFormularios"
         Me.PainelFormularios.Size = New System.Drawing.Size(954, 389)
-        Me.PainelFormularios.TabIndex = 6
+        Me.PainelFormularios.TabIndex = 0
         '
         'frmPrincipal
         '

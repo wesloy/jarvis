@@ -66,7 +66,7 @@ Partial Class frmSenhaAtualizar
         Me.txtNovaSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtNovaSenha.Size = New System.Drawing.Size(236, 20)
         Me.txtNovaSenha.TabIndex = 2
-        Me.txtNovaSenha.Tag = "Nova Senha"
+        Me.txtNovaSenha.Tag = "NOVA SENHA"
         '
         'Label3
         '
@@ -95,7 +95,7 @@ Partial Class frmSenhaAtualizar
         Me.txtConfirmacaoSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtConfirmacaoSenha.Size = New System.Drawing.Size(236, 20)
         Me.txtConfirmacaoSenha.TabIndex = 3
-        Me.txtConfirmacaoSenha.Tag = "Confirmação Senha"
+        Me.txtConfirmacaoSenha.Tag = "CONFIRMAÇÃO SENHA"
         '
         'txtSenhaAtual
         '
@@ -104,7 +104,7 @@ Partial Class frmSenhaAtualizar
         Me.txtSenhaAtual.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtSenhaAtual.Size = New System.Drawing.Size(236, 20)
         Me.txtSenhaAtual.TabIndex = 1
-        Me.txtSenhaAtual.Tag = "Senha Atual"
+        Me.txtSenhaAtual.Tag = "SENHA ATUAL"
         '
         'PictureBox2
         '
@@ -137,7 +137,7 @@ Partial Class frmSenhaAtualizar
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Size = New System.Drawing.Size(236, 20)
         Me.txtUsuario.TabIndex = 0
-        Me.txtUsuario.Tag = "Usuário"
+        Me.txtUsuario.Tag = "USUÁRIO"
         '
         'btnCancelar
         '

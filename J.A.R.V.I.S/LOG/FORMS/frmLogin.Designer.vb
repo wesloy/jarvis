@@ -247,7 +247,7 @@ Partial Class frmLogin
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Size = New System.Drawing.Size(176, 20)
         Me.txtUsuario.TabIndex = 0
-        Me.txtUsuario.Tag = "Usuário:"
+        Me.txtUsuario.Tag = "USUÁRIO"
         '
         'txtSenha
         '
@@ -257,7 +257,7 @@ Partial Class frmLogin
         Me.txtSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtSenha.Size = New System.Drawing.Size(176, 20)
         Me.txtSenha.TabIndex = 1
-        Me.txtSenha.Tag = "Senha:"
+        Me.txtSenha.Tag = "SENHA"
         '
         'btnAcessar
         '
