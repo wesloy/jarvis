@@ -74,7 +74,7 @@ Partial Class frmPrincipal
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.MenuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
         Me.MenuStrip1.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmHome, Me.tsmCaixa, Me.tsmContratos, Me.tsmEstoques, Me.tsmFilaTrabalho, Me.tsmCadastro, Me.tsmRelatorios, Me.tsmSenha, Me.tsmLogoff, Me.tsmSair})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmHome, Me.tsmFilaTrabalho, Me.tsmCaixa, Me.tsmContratos, Me.tsmEstoques, Me.tsmCadastro, Me.tsmRelatorios, Me.tsmSenha, Me.tsmLogoff, Me.tsmSair})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -121,8 +121,8 @@ Partial Class frmPrincipal
         Me.tsmFilaTrabalho.Enabled = False
         Me.tsmFilaTrabalho.Image = CType(resources.GetObject("tsmFilaTrabalho.Image"), System.Drawing.Image)
         Me.tsmFilaTrabalho.Name = "tsmFilaTrabalho"
-        Me.tsmFilaTrabalho.Size = New System.Drawing.Size(129, 33)
-        Me.tsmFilaTrabalho.Text = "&Fila de Trabalho"
+        Me.tsmFilaTrabalho.Size = New System.Drawing.Size(110, 33)
+        Me.tsmFilaTrabalho.Text = "&Atendimento"
         '
         'tsmCadastro
         '
