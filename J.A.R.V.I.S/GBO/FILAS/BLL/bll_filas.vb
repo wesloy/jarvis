@@ -60,8 +60,8 @@
         dal.GetComboboxFila(frm, cb)
     End Sub
 
-    Public Sub PreencheComboFilaAutomatica(frm As Form, cb As ComboBox, Optional ByVal area As Integer = 0, Optional somenteComVolume As Boolean = True, Optional siglaFila As String = "sigla")
-        dal.GetComboboxFilaAutomatica(frm, cb, area, somenteComVolume, siglaFila)
+    Public Sub PreencheComboFilaAutomatica(frm As Form, cb As ComboBox, Optional somenteComVolume As Boolean = True)
+        dal.GetComboboxFilaAutomatica(frm, cb, somenteComVolume)
     End Sub
     Public Sub PreencheComboFilaManual(frm As Form, cb As ComboBox)
         dal.GetComboboxFilaManual(frm, cb)

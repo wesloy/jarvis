@@ -54,6 +54,10 @@
         Return dto.produto
     End Function
 
+    Public Function GetRegistroPorID_retornaDT(_id As Integer) As DataTable
+        GetRegistroPorID_retornaDT = dal.GetRegistros_retornaDT(_id)
+        Return GetRegistroPorID_retornaDT
+    End Function
     Public Function GetRegistroPorID(_id As Integer) As dto_produtos
         Dim dto As New dto_produtos
         Return dal.GetRegistrosPorId(_id)

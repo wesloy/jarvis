@@ -33,21 +33,25 @@
             If Not hlp.somenteNumero(txtAgencia) Then
                 txtAgencia.Focus()
                 MsgBox("O campo Agência deve ter apenas números!", MsgBoxStyle.Information, TITULO_ALERTA)
+                salvarRegistro = False
                 Exit Function
             End If
             If Not hlp.somenteNumero(txtAgenciaDig) Then
                 txtAgenciaDig.Focus()
                 MsgBox("O campo Dígigo Agência deve ter apenas números!", MsgBoxStyle.Information, TITULO_ALERTA)
+                salvarRegistro = False
                 Exit Function
             End If
             If Not hlp.somenteNumero(txtContaCorrente) Then
                 txtContaCorrente.Focus()
                 MsgBox("O campo Conta Corrente deve ter apenas números!", MsgBoxStyle.Information, TITULO_ALERTA)
+                salvarRegistro = False
                 Exit Function
             End If
             If Not hlp.somenteNumero(txtContaCorrenteDig) Then
                 txtContaCorrenteDig.Focus()
                 MsgBox("O campo Dígito Conta Corrente deve ter apenas números!", MsgBoxStyle.Information, TITULO_ALERTA)
+                salvarRegistro = False
                 Exit Function
             End If
 

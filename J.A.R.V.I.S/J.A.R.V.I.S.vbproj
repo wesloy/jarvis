@@ -138,6 +138,14 @@
     <Compile Include="CLIENTES\FORMS\frmCadClientes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CONTRATOS\BLL\bll_contratos.vb" />
+    <Compile Include="CONTRATOS\DAL\dal_contratos.vb" />
+    <Compile Include="CONTRATOS\FORMS\frmCadContratos.Designer.vb">
+      <DependentUpon>frmCadContratos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CONTRATOS\FORMS\frmCadContratos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FORNECEDORES\BLL\bll_fornecedores.vb" />
     <Compile Include="FORNECEDORES\DAL\dal_fornecedores.vb" />
     <Compile Include="FORNECEDORES\DTO\dto_fornecedores.vb" />
@@ -147,10 +155,18 @@
     <Compile Include="FORNECEDORES\FORMS\frmCadFornecedores.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GBO\BACKOFFICE\DAL\dal_backoffice.vb" />
+    <Compile Include="GBO\BACKOFFICE\DTO\dto_backoffice.vb" />
     <Compile Include="GBO\BACKOFFICE\FORMS\frmBackOffice.Designer.vb">
       <DependentUpon>frmBackOffice.vb</DependentUpon>
     </Compile>
     <Compile Include="GBO\BACKOFFICE\FORMS\frmBackOffice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GBO\BACKOFFICE\FORMS\frmDetalhes.Designer.vb">
+      <DependentUpon>frmDetalhes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GBO\BACKOFFICE\FORMS\frmDetalhes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GBO\FILAS\BLL\bll_filas.vb" />
@@ -265,6 +281,9 @@
     <EmbeddedResource Include="GBO\BACKOFFICE\FORMS\frmBackOffice.resx">
       <DependentUpon>frmBackOffice.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GBO\BACKOFFICE\FORMS\frmDetalhes.resx">
+      <DependentUpon>frmDetalhes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GBO\FILAS\FORMS\frmCadFilas.resx">
       <DependentUpon>frmCadFilas.vb</DependentUpon>
     </EmbeddedResource>
@@ -312,17 +331,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CONTRATOS\BLL\" />
-    <Folder Include="CONTRATOS\DAL\" />
     <Folder Include="CONTRATOS\DTO\" />
-    <Folder Include="CONTRATOS\FORMS\" />
     <Folder Include="ESTOQUE\BLL\" />
     <Folder Include="ESTOQUE\DAL\" />
     <Folder Include="ESTOQUE\DTO\" />
     <Folder Include="ESTOQUE\FORMS\" />
     <Folder Include="GBO\BACKOFFICE\BLL\" />
-    <Folder Include="GBO\BACKOFFICE\DAL\" />
-    <Folder Include="GBO\BACKOFFICE\DTO\" />
     <Folder Include="GBO\FOLLOW\BLL\" />
     <Folder Include="GBO\FOLLOW\DAL\" />
     <Folder Include="GBO\FOLLOW\DTO\" />

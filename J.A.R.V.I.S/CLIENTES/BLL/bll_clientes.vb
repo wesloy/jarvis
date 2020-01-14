@@ -79,6 +79,11 @@
         Return dal.GetRegistrosPorId(_id)
     End Function
 
+    Public Function GetRegistroPorID_retornaDT(_id As Integer) As DataTable
+        GetRegistroPorID_retornaDT = dal.GetRegistros_retornaDT(_id)
+        Return GetRegistroPorID_retornaDT
+    End Function
+
     Public Sub PreencheCombobox(frm As Form, cb As ComboBox)
         dal.GetComboboxRegistros(frm, cb)
     End Sub

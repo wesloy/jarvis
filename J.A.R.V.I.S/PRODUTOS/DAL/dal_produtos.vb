@@ -22,7 +22,19 @@
         End Try
 
     End Function
+    Public Function GetRegistros_retornaDT(ByVal _id As Integer) As DataTable
+        Try
+            sql = "Select tb_produtos.* "
+            sql += "from tb_produtos "
+            sql += "where id = " & objCon.valorSql(_id) & " "
+            sql += "order by tb_produtos.id ASC "
+            Return objCon.retornaDataTable(sql)
+        Catch ex As Exception
+            Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "MANUTENÇÃO PRODUTOS")
+            Return Nothing
+        End Try
 
+    End Function
     'parametro de filtro opcional
     Public Function GetRegistros(Optional ByVal filtro As String = "") As DataTable
         Try

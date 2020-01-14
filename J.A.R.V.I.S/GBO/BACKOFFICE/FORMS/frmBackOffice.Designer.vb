@@ -23,7 +23,7 @@ Partial Class frmBackOffice
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.gpIniciar = New System.Windows.Forms.GroupBox()
+        Me.gbIniciar = New System.Windows.Forms.GroupBox()
         Me.btnIniciar = New System.Windows.Forms.Button()
         Me.lbFila = New System.Windows.Forms.Label()
         Me.cbFila = New System.Windows.Forms.ComboBox()
@@ -42,41 +42,50 @@ Partial Class frmBackOffice
         Me.txtOutrasInformacoes = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtUsuarioCadastro = New System.Windows.Forms.TextBox()
+        Me.txtUsuarioResponsavel = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtDataCadastro = New System.Windows.Forms.TextBox()
+        Me.txtDataRegistro = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtProtocolo = New System.Windows.Forms.TextBox()
         Me.gbDados = New System.Windows.Forms.GroupBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.cbCliente = New System.Windows.Forms.ComboBox()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.linkAdcCliente = New System.Windows.Forms.LinkLabel()
-        Me.linkDetalhesCliente = New System.Windows.Forms.LinkLabel()
+        Me.linkDetalhesContrato = New System.Windows.Forms.LinkLabel()
+        Me.linkAdcContrato = New System.Windows.Forms.LinkLabel()
+        Me.cbContrato = New System.Windows.Forms.ComboBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.lbDataGridView = New System.Windows.Forms.Label()
+        Me.dgvHistorico = New System.Windows.Forms.DataGridView()
         Me.linkDetalhesProduto = New System.Windows.Forms.LinkLabel()
         Me.linkAdcProduto = New System.Windows.Forms.LinkLabel()
-        Me.gpIniciar.SuspendLayout()
+        Me.linkDetalhesCliente = New System.Windows.Forms.LinkLabel()
+        Me.linkAdcCliente = New System.Windows.Forms.LinkLabel()
+        Me.cbProduto = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.cbCliente = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.cbxPagamento = New System.Windows.Forms.CheckBox()
+        Me.cbxContratoAssinado = New System.Windows.Forms.CheckBox()
+        Me.gbIniciar.SuspendLayout()
         Me.gbConcluir.SuspendLayout()
         Me.gbInformacoesRelevantes.SuspendLayout()
         Me.gbDados.SuspendLayout()
+        CType(Me.dgvHistorico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'gpIniciar
+        'gbIniciar
         '
-        Me.gpIniciar.Controls.Add(Me.btnIniciar)
-        Me.gpIniciar.Controls.Add(Me.lbFila)
-        Me.gpIniciar.Controls.Add(Me.cbFila)
-        Me.gpIniciar.Controls.Add(Me.rbManual)
-        Me.gpIniciar.Controls.Add(Me.rbAutomatica)
-        Me.gpIniciar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gpIniciar.Location = New System.Drawing.Point(12, 12)
-        Me.gpIniciar.Name = "gpIniciar"
-        Me.gpIniciar.Size = New System.Drawing.Size(311, 113)
-        Me.gpIniciar.TabIndex = 2
-        Me.gpIniciar.TabStop = False
-        Me.gpIniciar.Text = "Iniciar"
+        Me.gbIniciar.Controls.Add(Me.btnIniciar)
+        Me.gbIniciar.Controls.Add(Me.lbFila)
+        Me.gbIniciar.Controls.Add(Me.cbFila)
+        Me.gbIniciar.Controls.Add(Me.rbManual)
+        Me.gbIniciar.Controls.Add(Me.rbAutomatica)
+        Me.gbIniciar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbIniciar.Location = New System.Drawing.Point(12, 12)
+        Me.gbIniciar.Name = "gbIniciar"
+        Me.gbIniciar.Size = New System.Drawing.Size(311, 113)
+        Me.gbIniciar.TabIndex = 2
+        Me.gbIniciar.TabStop = False
+        Me.gbIniciar.Text = "Iniciar"
         '
         'btnIniciar
         '
@@ -118,6 +127,8 @@ Partial Class frmBackOffice
         Me.rbManual.TabStop = True
         Me.rbManual.Tag = "MANUAL"
         Me.rbManual.Text = "Manual"
+        Me.ToolTip1.SetToolTip(Me.rbManual, "Ao selecionar MANUAL será possível criar um novo registro inserindo todas as info" &
+        "rmações obrigatórias")
         Me.rbManual.UseVisualStyleBackColor = True
         '
         'rbAutomatica
@@ -130,6 +141,7 @@ Partial Class frmBackOffice
         Me.rbAutomatica.TabStop = True
         Me.rbAutomatica.Tag = "AUTOMÁTICO"
         Me.rbAutomatica.Text = "Automático"
+        Me.ToolTip1.SetToolTip(Me.rbAutomatica, "Ao selecionar AUTOMÁTICO irá trazer filas de trabalho que POSSUAM VOLUME")
         Me.rbAutomatica.UseVisualStyleBackColor = True
         '
         'gbConcluir
@@ -241,9 +253,9 @@ Partial Class frmBackOffice
         Me.gbInformacoesRelevantes.Controls.Add(Me.txtOutrasInformacoes)
         Me.gbInformacoesRelevantes.Controls.Add(Me.Label7)
         Me.gbInformacoesRelevantes.Controls.Add(Me.Label6)
-        Me.gbInformacoesRelevantes.Controls.Add(Me.txtUsuarioCadastro)
+        Me.gbInformacoesRelevantes.Controls.Add(Me.txtUsuarioResponsavel)
         Me.gbInformacoesRelevantes.Controls.Add(Me.Label5)
-        Me.gbInformacoesRelevantes.Controls.Add(Me.txtDataCadastro)
+        Me.gbInformacoesRelevantes.Controls.Add(Me.txtDataRegistro)
         Me.gbInformacoesRelevantes.Controls.Add(Me.Label4)
         Me.gbInformacoesRelevantes.Controls.Add(Me.txtProtocolo)
         Me.gbInformacoesRelevantes.Location = New System.Drawing.Point(12, 131)
@@ -261,7 +273,7 @@ Partial Class frmBackOffice
         Me.txtOutrasInformacoes.Multiline = True
         Me.txtOutrasInformacoes.Name = "txtOutrasInformacoes"
         Me.txtOutrasInformacoes.ReadOnly = True
-        Me.txtOutrasInformacoes.Size = New System.Drawing.Size(270, 72)
+        Me.txtOutrasInformacoes.Size = New System.Drawing.Size(270, 77)
         Me.txtOutrasInformacoes.TabIndex = 11
         Me.txtOutrasInformacoes.TabStop = False
         '
@@ -279,36 +291,36 @@ Partial Class frmBackOffice
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(19, 102)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(97, 13)
+        Me.Label6.Size = New System.Drawing.Size(111, 13)
         Me.Label6.TabIndex = 9
-        Me.Label6.Text = "Usuário Cadastrou:"
+        Me.Label6.Text = "Usuário Responsável:"
         '
-        'txtUsuarioCadastro
+        'txtUsuarioResponsavel
         '
-        Me.txtUsuarioCadastro.Location = New System.Drawing.Point(22, 118)
-        Me.txtUsuarioCadastro.Name = "txtUsuarioCadastro"
-        Me.txtUsuarioCadastro.ReadOnly = True
-        Me.txtUsuarioCadastro.Size = New System.Drawing.Size(270, 20)
-        Me.txtUsuarioCadastro.TabIndex = 8
-        Me.txtUsuarioCadastro.TabStop = False
+        Me.txtUsuarioResponsavel.Location = New System.Drawing.Point(22, 118)
+        Me.txtUsuarioResponsavel.Name = "txtUsuarioResponsavel"
+        Me.txtUsuarioResponsavel.ReadOnly = True
+        Me.txtUsuarioResponsavel.Size = New System.Drawing.Size(270, 20)
+        Me.txtUsuarioResponsavel.TabIndex = 8
+        Me.txtUsuarioResponsavel.TabStop = False
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(19, 63)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(78, 13)
+        Me.Label5.Size = New System.Drawing.Size(75, 13)
         Me.Label5.TabIndex = 7
-        Me.Label5.Text = "Data Cadastro:"
+        Me.Label5.Text = "Data Registro:"
         '
-        'txtDataCadastro
+        'txtDataRegistro
         '
-        Me.txtDataCadastro.Location = New System.Drawing.Point(22, 79)
-        Me.txtDataCadastro.Name = "txtDataCadastro"
-        Me.txtDataCadastro.ReadOnly = True
-        Me.txtDataCadastro.Size = New System.Drawing.Size(270, 20)
-        Me.txtDataCadastro.TabIndex = 6
-        Me.txtDataCadastro.TabStop = False
+        Me.txtDataRegistro.Location = New System.Drawing.Point(22, 79)
+        Me.txtDataRegistro.Name = "txtDataRegistro"
+        Me.txtDataRegistro.ReadOnly = True
+        Me.txtDataRegistro.Size = New System.Drawing.Size(270, 20)
+        Me.txtDataRegistro.TabIndex = 6
+        Me.txtDataRegistro.TabStop = False
         '
         'Label4
         '
@@ -333,11 +345,19 @@ Partial Class frmBackOffice
         Me.gbDados.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbDados.Controls.Add(Me.cbxContratoAssinado)
+        Me.gbDados.Controls.Add(Me.cbxPagamento)
+        Me.gbDados.Controls.Add(Me.linkDetalhesContrato)
+        Me.gbDados.Controls.Add(Me.linkAdcContrato)
+        Me.gbDados.Controls.Add(Me.cbContrato)
+        Me.gbDados.Controls.Add(Me.Label10)
+        Me.gbDados.Controls.Add(Me.lbDataGridView)
+        Me.gbDados.Controls.Add(Me.dgvHistorico)
         Me.gbDados.Controls.Add(Me.linkDetalhesProduto)
         Me.gbDados.Controls.Add(Me.linkAdcProduto)
         Me.gbDados.Controls.Add(Me.linkDetalhesCliente)
         Me.gbDados.Controls.Add(Me.linkAdcCliente)
-        Me.gbDados.Controls.Add(Me.ComboBox1)
+        Me.gbDados.Controls.Add(Me.cbProduto)
         Me.gbDados.Controls.Add(Me.Label9)
         Me.gbDados.Controls.Add(Me.cbCliente)
         Me.gbDados.Controls.Add(Me.Label8)
@@ -346,83 +366,184 @@ Partial Class frmBackOffice
         Me.gbDados.Size = New System.Drawing.Size(719, 371)
         Me.gbDados.TabIndex = 7
         Me.gbDados.TabStop = False
-        Me.gbDados.Text = "Cadastro"
+        Me.gbDados.Text = "Informações"
         '
-        'Label8
+        'linkDetalhesContrato
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(14, 26)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(42, 13)
-        Me.Label8.TabIndex = 1
-        Me.Label8.Text = "Cliente:"
+        Me.linkDetalhesContrato.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.linkDetalhesContrato.AutoSize = True
+        Me.linkDetalhesContrato.Location = New System.Drawing.Point(651, 101)
+        Me.linkDetalhesContrato.Name = "linkDetalhesContrato"
+        Me.linkDetalhesContrato.Size = New System.Drawing.Size(49, 13)
+        Me.linkDetalhesContrato.TabIndex = 18
+        Me.linkDetalhesContrato.TabStop = True
+        Me.linkDetalhesContrato.Text = "Detalhes"
+        Me.ToolTip1.SetToolTip(Me.linkDetalhesContrato, "Verificar informações detalhadas do registro selecionado")
         '
-        'cbCliente
+        'linkAdcContrato
         '
-        Me.cbCliente.FormattingEnabled = True
-        Me.cbCliente.Location = New System.Drawing.Point(17, 42)
-        Me.cbCliente.Name = "cbCliente"
-        Me.cbCliente.Size = New System.Drawing.Size(439, 21)
-        Me.cbCliente.TabIndex = 4
-        Me.cbCliente.Tag = "FILA"
+        Me.linkAdcContrato.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.linkAdcContrato.AutoSize = True
+        Me.linkAdcContrato.Location = New System.Drawing.Point(553, 101)
+        Me.linkAdcContrato.Name = "linkAdcContrato"
+        Me.linkAdcContrato.Size = New System.Drawing.Size(92, 13)
+        Me.linkAdcContrato.TabIndex = 17
+        Me.linkAdcContrato.TabStop = True
+        Me.linkAdcContrato.Text = "Adicionar / Alterar"
+        Me.ToolTip1.SetToolTip(Me.linkAdcContrato, "Inserir novo registro ou editar um existente")
         '
-        'ComboBox1
+        'cbContrato
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(17, 82)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(439, 21)
-        Me.ComboBox1.TabIndex = 8
-        Me.ComboBox1.Tag = "FILA"
+        Me.cbContrato.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbContrato.FormattingEnabled = True
+        Me.cbContrato.Location = New System.Drawing.Point(17, 117)
+        Me.cbContrato.Name = "cbContrato"
+        Me.cbContrato.Size = New System.Drawing.Size(683, 21)
+        Me.cbContrato.TabIndex = 16
+        Me.cbContrato.Tag = "FILA"
         '
-        'Label9
+        'Label10
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(14, 66)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(44, 13)
-        Me.Label9.TabIndex = 7
-        Me.Label9.Text = "Produto"
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(14, 101)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(47, 13)
+        Me.Label10.TabIndex = 15
+        Me.Label10.Text = "Contrato"
         '
-        'linkAdcCliente
+        'lbDataGridView
         '
-        Me.linkAdcCliente.AutoSize = True
-        Me.linkAdcCliente.Location = New System.Drawing.Point(359, 26)
-        Me.linkAdcCliente.Name = "linkAdcCliente"
-        Me.linkAdcCliente.Size = New System.Drawing.Size(51, 13)
-        Me.linkAdcCliente.TabIndex = 9
-        Me.linkAdcCliente.TabStop = True
-        Me.linkAdcCliente.Text = "Adicionar"
+        Me.lbDataGridView.AutoSize = True
+        Me.lbDataGridView.Location = New System.Drawing.Point(14, 201)
+        Me.lbDataGridView.Name = "lbDataGridView"
+        Me.lbDataGridView.Size = New System.Drawing.Size(48, 13)
+        Me.lbDataGridView.TabIndex = 14
+        Me.lbDataGridView.Text = "Histórico"
         '
-        'linkDetalhesCliente
+        'dgvHistorico
         '
-        Me.linkDetalhesCliente.AutoSize = True
-        Me.linkDetalhesCliente.Location = New System.Drawing.Point(407, 26)
-        Me.linkDetalhesCliente.Name = "linkDetalhesCliente"
-        Me.linkDetalhesCliente.Size = New System.Drawing.Size(49, 13)
-        Me.linkDetalhesCliente.TabIndex = 10
-        Me.linkDetalhesCliente.TabStop = True
-        Me.linkDetalhesCliente.Text = "Detalhes"
+        Me.dgvHistorico.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvHistorico.BackgroundColor = System.Drawing.Color.White
+        Me.dgvHistorico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvHistorico.GridColor = System.Drawing.Color.LightCyan
+        Me.dgvHistorico.Location = New System.Drawing.Point(17, 221)
+        Me.dgvHistorico.Name = "dgvHistorico"
+        Me.dgvHistorico.Size = New System.Drawing.Size(683, 132)
+        Me.dgvHistorico.TabIndex = 13
         '
         'linkDetalhesProduto
         '
+        Me.linkDetalhesProduto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.linkDetalhesProduto.AutoSize = True
-        Me.linkDetalhesProduto.Location = New System.Drawing.Point(407, 66)
+        Me.linkDetalhesProduto.Location = New System.Drawing.Point(651, 64)
         Me.linkDetalhesProduto.Name = "linkDetalhesProduto"
         Me.linkDetalhesProduto.Size = New System.Drawing.Size(49, 13)
         Me.linkDetalhesProduto.TabIndex = 12
         Me.linkDetalhesProduto.TabStop = True
         Me.linkDetalhesProduto.Text = "Detalhes"
+        Me.ToolTip1.SetToolTip(Me.linkDetalhesProduto, "Verificar informações detalhadas do registro selecionado")
         '
         'linkAdcProduto
         '
+        Me.linkAdcProduto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.linkAdcProduto.AutoSize = True
-        Me.linkAdcProduto.Location = New System.Drawing.Point(359, 66)
+        Me.linkAdcProduto.Location = New System.Drawing.Point(553, 64)
         Me.linkAdcProduto.Name = "linkAdcProduto"
-        Me.linkAdcProduto.Size = New System.Drawing.Size(51, 13)
+        Me.linkAdcProduto.Size = New System.Drawing.Size(92, 13)
         Me.linkAdcProduto.TabIndex = 11
         Me.linkAdcProduto.TabStop = True
-        Me.linkAdcProduto.Text = "Adicionar"
+        Me.linkAdcProduto.Text = "Adicionar / Alterar"
+        Me.ToolTip1.SetToolTip(Me.linkAdcProduto, "Inserir novo registro ou editar um existente")
+        '
+        'linkDetalhesCliente
+        '
+        Me.linkDetalhesCliente.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.linkDetalhesCliente.AutoSize = True
+        Me.linkDetalhesCliente.Location = New System.Drawing.Point(651, 25)
+        Me.linkDetalhesCliente.Name = "linkDetalhesCliente"
+        Me.linkDetalhesCliente.Size = New System.Drawing.Size(49, 13)
+        Me.linkDetalhesCliente.TabIndex = 10
+        Me.linkDetalhesCliente.TabStop = True
+        Me.linkDetalhesCliente.Text = "Detalhes"
+        Me.ToolTip1.SetToolTip(Me.linkDetalhesCliente, "Verificar informações detalhadas do registro selecionado")
+        '
+        'linkAdcCliente
+        '
+        Me.linkAdcCliente.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.linkAdcCliente.AutoSize = True
+        Me.linkAdcCliente.Location = New System.Drawing.Point(553, 25)
+        Me.linkAdcCliente.Name = "linkAdcCliente"
+        Me.linkAdcCliente.Size = New System.Drawing.Size(92, 13)
+        Me.linkAdcCliente.TabIndex = 9
+        Me.linkAdcCliente.TabStop = True
+        Me.linkAdcCliente.Text = "Adicionar / Alterar"
+        Me.ToolTip1.SetToolTip(Me.linkAdcCliente, "Inserir novo registro ou editar um existente")
+        '
+        'cbProduto
+        '
+        Me.cbProduto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbProduto.FormattingEnabled = True
+        Me.cbProduto.Location = New System.Drawing.Point(17, 80)
+        Me.cbProduto.Name = "cbProduto"
+        Me.cbProduto.Size = New System.Drawing.Size(683, 21)
+        Me.cbProduto.TabIndex = 8
+        Me.cbProduto.Tag = "FILA"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(14, 64)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(44, 13)
+        Me.Label9.TabIndex = 7
+        Me.Label9.Text = "Produto"
+        '
+        'cbCliente
+        '
+        Me.cbCliente.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbCliente.FormattingEnabled = True
+        Me.cbCliente.Location = New System.Drawing.Point(17, 42)
+        Me.cbCliente.Name = "cbCliente"
+        Me.cbCliente.Size = New System.Drawing.Size(683, 21)
+        Me.cbCliente.TabIndex = 4
+        Me.cbCliente.Tag = "FILA"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(14, 25)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(42, 13)
+        Me.Label8.TabIndex = 1
+        Me.Label8.Text = "Cliente:"
+        '
+        'cbxPagamento
+        '
+        Me.cbxPagamento.AutoSize = True
+        Me.cbxPagamento.Location = New System.Drawing.Point(17, 169)
+        Me.cbxPagamento.Name = "cbxPagamento"
+        Me.cbxPagamento.Size = New System.Drawing.Size(130, 17)
+        Me.cbxPagamento.TabIndex = 19
+        Me.cbxPagamento.Text = "Pagamento Realizado"
+        Me.ToolTip1.SetToolTip(Me.cbxPagamento, "Ao clicar deverá efetivar o pagamento do cliente!")
+        Me.cbxPagamento.UseVisualStyleBackColor = True
+        '
+        'cbxContratoAssinado
+        '
+        Me.cbxContratoAssinado.AutoSize = True
+        Me.cbxContratoAssinado.Location = New System.Drawing.Point(17, 146)
+        Me.cbxContratoAssinado.Name = "cbxContratoAssinado"
+        Me.cbxContratoAssinado.Size = New System.Drawing.Size(112, 17)
+        Me.cbxContratoAssinado.TabIndex = 20
+        Me.cbxContratoAssinado.Text = "Contrato Assinado"
+        Me.ToolTip1.SetToolTip(Me.cbxContratoAssinado, "Quando o cliente assinar o contrato este item deve ser marcado, para que não gere" &
+        " fila de trabalho com esta pendência.")
+        Me.cbxContratoAssinado.UseVisualStyleBackColor = True
         '
         'frmBackOffice
         '
@@ -433,22 +554,23 @@ Partial Class frmBackOffice
         Me.Controls.Add(Me.gbDados)
         Me.Controls.Add(Me.gbInformacoesRelevantes)
         Me.Controls.Add(Me.gbConcluir)
-        Me.Controls.Add(Me.gpIniciar)
+        Me.Controls.Add(Me.gbIniciar)
         Me.Name = "frmBackOffice"
         Me.Text = ".: Atendimento :."
-        Me.gpIniciar.ResumeLayout(False)
-        Me.gpIniciar.PerformLayout()
+        Me.gbIniciar.ResumeLayout(False)
+        Me.gbIniciar.PerformLayout()
         Me.gbConcluir.ResumeLayout(False)
         Me.gbConcluir.PerformLayout()
         Me.gbInformacoesRelevantes.ResumeLayout(False)
         Me.gbInformacoesRelevantes.PerformLayout()
         Me.gbDados.ResumeLayout(False)
         Me.gbDados.PerformLayout()
+        CType(Me.dgvHistorico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents gpIniciar As GroupBox
+    Friend WithEvents gbIniciar As GroupBox
     Friend WithEvents btnIniciar As Button
     Friend WithEvents lbFila As Label
     Friend WithEvents cbFila As ComboBox
@@ -467,19 +589,27 @@ Partial Class frmBackOffice
     Friend WithEvents txtOutrasInformacoes As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents txtUsuarioCadastro As TextBox
+    Friend WithEvents txtUsuarioResponsavel As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents txtDataCadastro As TextBox
+    Friend WithEvents txtDataRegistro As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtProtocolo As TextBox
     Friend WithEvents gbDados As GroupBox
     Friend WithEvents Label8 As Label
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents cbCliente As ComboBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbProduto As ComboBox
     Friend WithEvents Label9 As Label
     Friend WithEvents linkDetalhesProduto As LinkLabel
     Friend WithEvents linkAdcProduto As LinkLabel
     Friend WithEvents linkDetalhesCliente As LinkLabel
     Friend WithEvents linkAdcCliente As LinkLabel
+    Friend WithEvents lbDataGridView As Label
+    Friend WithEvents dgvHistorico As DataGridView
+    Friend WithEvents linkDetalhesContrato As LinkLabel
+    Friend WithEvents linkAdcContrato As LinkLabel
+    Friend WithEvents cbContrato As ComboBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents cbxContratoAssinado As CheckBox
+    Friend WithEvents cbxPagamento As CheckBox
 End Class

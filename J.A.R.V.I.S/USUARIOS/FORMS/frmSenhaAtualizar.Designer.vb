@@ -113,7 +113,7 @@ Partial Class frmSenhaAtualizar
         Me.PictureBox2.ErrorImage = Nothing
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
         Me.PictureBox2.InitialImage = Nothing
-        Me.PictureBox2.Location = New System.Drawing.Point(19, 37)
+        Me.PictureBox2.Location = New System.Drawing.Point(356, 183)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(112, 91)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -253,7 +253,7 @@ Partial Class frmSenhaAtualizar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(540, 178)
+        Me.ClientSize = New System.Drawing.Size(540, 333)
         Me.Controls.Add(Me.ocultarConfirmacaoSenha)
         Me.Controls.Add(Me.mostrarConfirmacaoSenha)
         Me.Controls.Add(Me.ocultarNovaSenha)

@@ -186,7 +186,7 @@
 
 
     'listagem de filas com volume para trabalho e também de todas as filas
-    Public Sub GetComboboxFilaAutomatica(frm As Form, cb As ComboBox, ByVal area As Integer, Optional somenteComVolume As Boolean = True, Optional siglaFila As String = "sigla")
+    Public Sub GetComboboxFilaAutomatica(frm As Form, cb As ComboBox, Optional somenteComVolume As Boolean = True)
 
 
         Try
@@ -199,18 +199,18 @@
                 ''FILAS COM VOLUME
                 sql += "FROM tb_base INNER JOIN tb_filas On tb_base.fila_id = tb_filas.id "
                 sql += "where "
-                sql += "(tb_filas.ativo = " & objCon.valorSql(True) & ") "
-                sql += "And (tb_filas.capturaAutomatica = " & objCon.valorSql(True) & ") "
+                sql += "(tb_filas.ativo = " & objCon.valorSql(True, False) & ") "
+                sql += "And (tb_filas.capturaAutomatica = " & objCon.valorSql(True, False) & ") "
                 sql += "And (tb_base.status = 0 ) " 'status de casos que ainda não foram trabalhados
-                sql += "And Convert(varchar, tb_base.dataImportacao, 121) + ' ' + convert(varchar, tb_base.horaimportacao, 114) <= " & objCon.valorSql(hlp.dataHoraAtual) & " "
+                sql += "And data_imp <= " & objCon.valorSql(hlp.dataHoraAtual, False) & " "
                 sql += "GROUP BY tb_filas.id, tb_filas.descricao, tb_filas.ativo, tb_filas.capturaAutomatica, tb_base.status "
 
             Else
                 ''RELACAO DAS FILAS
                 sql += "from tb_filas "
                 sql += "where "
-                sql += "(tb_filas.ativo = " & objCon.valorSql(True) & ") "
-                sql += "and (tb_filas.capturaAutomatica = " & objCon.valorSql(True) & ") "
+                sql += "(tb_filas.ativo = " & objCon.valorSql(True, False) & ") "
+                sql += "and (tb_filas.capturaAutomatica = " & objCon.valorSql(True, False) & ") "
                 sql += "GROUP BY tb_filas.id, tb_filas.descricao, tb_filas.ativo, tb_filas.capturaAutomatica "
             End If
 
@@ -230,8 +230,8 @@
             sql = "Select tb_filas.id, tb_filas.descricao "
             sql += "FROM tb_filas "
             sql += "where "
-            sql += "(tb_filas.ativo = " & objCon.valorSql(True) & ") "
-            sql += "and (tb_filas.permitirAberturaManual = " & objCon.valorSql(True) & ") "
+            sql += "(tb_filas.ativo = " & objCon.valorSql(True, False) & ") "
+            sql += "and (tb_filas.permitirAberturaManual = " & objCon.valorSql(True, False) & ") "
             sql += "order by tb_filas.descricao asc"
 
             dt = objCon.retornaDataTable(sql)
