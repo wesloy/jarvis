@@ -85,7 +85,9 @@
     Public Sub PreencheComboboxUsuariosAtivos(frm As Form, cb As ComboBox, Optional ByVal area As Integer = 0)
         dal.GetComboboxUsuarios(frm, cb, area)
     End Sub
-
+    Public Function GetNomeUsuarioPorCodigo(ByVal _usuarioId As Integer) As String
+        Return dal.ConsultaNomePorID(_usuarioId)
+    End Function
     Public Function GetUsuariosPorCodigo(ByVal _usuarioId As Integer) As dto_usuarios
         Return dal.GetUsuarioPorId(_usuarioId)
     End Function
