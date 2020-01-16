@@ -27,6 +27,7 @@
         If hlp.validaCamposObrigatorios(Me, camposObrigatorios) Then
             With dto
                 .descricao = Me.txtFila.Text.Trim
+                .detalhesDaFila = Me.txtDetalhes.Text.Trim
                 .sigla = hlp.desacentua(Me.txtSigla.Text.Trim)
                 .ativo = Me.ckboxAtivo.Checked
                 .capturaAutomatica = Me.ckboxAutomatico.Checked
@@ -59,6 +60,7 @@
 
                 With dto
                     .descricao = Me.txtFila.Text.Trim
+                    .detalhesDaFila = Me.txtDetalhes.Text.Trim
                     .sigla = hlp.desacentua(Me.txtSigla.Text.Trim)
                     .ativo = Me.ckboxAtivo.Checked
                     .capturaAutomatica = Me.ckboxAutomatico.Checked
@@ -137,6 +139,7 @@
             With dto
                 Me.txtID.Text = .id
                 Me.txtFila.Text = .descricao
+                Me.txtDetalhes.Text = .detalhesDaFila
                 Me.txtSigla.Text = .sigla
                 Me.txtGrupo.Text = .grupo
                 Me.ckboxAutomatico.Checked = .capturaAutomatica

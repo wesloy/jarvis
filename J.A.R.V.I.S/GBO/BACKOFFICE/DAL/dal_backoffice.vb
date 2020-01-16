@@ -7,11 +7,14 @@
     Private hlp As New Uteis.Helpers
     Private dto As New dto_backoffice
 
-    Public Function gerarNovoCaso(ByVal dto As dto_backoffice) As Boolean
+    Public Function gerarNovoCaso(ByRef dto As dto_backoffice) As Boolean
         Try
+
+            Dim dataHoraAtual As DateTime = hlp.dataHoraAtual()
+
             With dto
                 sql = "Insert Into tb_base "
-                sql += "roteamento_id, "
+                sql += "(roteamento_id, "
                 sql += "fila_id, "
                 sql += "status, "
                 sql += "tipo_registro, "
@@ -42,12 +45,40 @@
                 sql += objCon.valorSql(.observacao, False) & ", "
                 sql += objCon.valorSql(.data_cat, False) & ", "
                 sql += objCon.valorSql(.usuario_cat, False) & ", "
-                sql += objCon.valorSql(.data_imp, False) & ", "
-                sql += objCon.valorSql(.usuario_imp, False) & ") "
-
-
-                Return objCon.executaQuery(sql)
+                sql += objCon.valorSql(dataHoraAtual, False) & ", "
+                sql += objCon.valorSql(sessaoIdUsuario, False) & ") "
             End With
+
+            'Capturando registro recem criado
+            If objCon.executaQuery(sql) Then
+                sql = "Select * from tb_base "
+                sql += "WHERE usuario_imp = " & objCon.valorSql(sessaoIdUsuario, False) & " "
+                sql += "AND data_imp = " & objCon.valorSql(dataHoraAtual, False) & " "
+                sql += "AND fila_id = " & objCon.valorSql(dto.fila_id, False) & " "
+                sql += "AND status = 0 "
+                dt = objCon.retornaDataTable(sql)
+
+                dto = Nothing
+                If dt.Rows.Count > 0 Then 'Carregando o DTO
+                    For Each linha As DataRow In dt.Rows 'Efeturar o looping até o fim
+                        dto = getRegistroPorId(objCon.retornaVazioParaValorNulo(linha("id")))
+                    Next
+                End If
+
+            End If
+
+            'Não criou o registro
+            If dto Is Nothing Then
+                Return False
+            Else
+                'capturar o registro para trabalho
+                If capturarRegistroTrabalho(dto) Then
+                    Return True
+                End If
+            End If
+
+            Return False
+
         Catch ex As Exception
             Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "CRIAR NOVO CASO")
             Return False
@@ -113,7 +144,7 @@
                         .usuario_imp = objCon.retornaVazioParaValorNulo(drRow("usuario_imp"), Nothing)
                         If .usuario_imp > 0 Then
                             Dim obj As New bll_usuarios
-                            .usuario_imp = obj.GetNomeUsuarioPorCodigo(.usuario_imp)
+                            .usuario_imp_desc = obj.GetNomeUsuarioPorCodigo(.usuario_imp)
                         End If
                         .acao = FlagAcao.NoAction
                     End With
@@ -128,34 +159,6 @@
         End Try
     End Function
 
-    Public Function criarCasoManualmente(ByVal _dto As dto_backoffice) As dto_backoffice
-        Try
-            With _dto
-
-                If gerarNovoCaso(_dto) Then
-                    'Após registrar na base um novo caso, buscar o mesmo para carregar o número de ID para ser usado no preenchimento do form
-                    sql = "Select * from tb_base "
-                    sql += "WHERE ([usuario_imp] = " & objCon.valorSql(.usuario_imp, False) & ") "
-                    sql += "AND ([data_imp] = " & objCon.valorSql(.data_imp, False) & ") "
-                    sql += "AND ([status] = " & objCon.valorSql(.status, False) & ") "
-
-                    dt = objCon.retornaDataTable(sql)
-
-                    If dt.Rows.Count > 0 Then 'Carregando o DTO
-                        For Each linha As DataRow In dt.Rows 'Efeturar o looping até o fim
-                            _dto = GetBasePorId(objCon.retornaVazioParaValorNulo(linha("id")))
-                        Next
-                    End If
-                End If
-            End With
-
-            Return _dto
-
-        Catch ex As Exception
-            Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "CRIAR MANUALMENTE NOVO CASO")
-            Return Nothing
-        End Try
-    End Function
 
     Public Function salvarRegistro(dto As dto_backoffice) As Boolean
         Try
@@ -219,10 +222,10 @@
                 Next
             End If
 
-            Return Nothing
+            Return 0
         Catch ex As Exception
             Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "CAPTURAR REGISTRO LOCADO USUÁRIO = " & _idUsuario)
-            Return Nothing
+            Return 0
         End Try
     End Function
     ''' <summary>
@@ -232,16 +235,16 @@
     ''' </summary>
     ''' <param name="dto_base"></param>
     ''' <returns></returns>
-    Public Function alterarStatus(ByVal dto_base As dto_backoffice) As Boolean
+    Public Function alterarStatus(ByVal dto_base As dto_backoffice, ByVal status As Integer) As Boolean
         Try
             With dto_base
 
                 'Deletar apenas se for para alterar o status para 0 e for uma entrada MANUAL
-                If .status = 0 And .tipo_registro = "M" Then
+                If status = 0 And .tipo_registro = "M" Then
                     sql = "Delete from tb_base where id = " & objCon.valorSql(.id, False) & " "
                 Else
                     sql = "Update tb_base set "
-                    sql += "status = " & objCon.valorSql(.status, False) & ", "
+                    sql += "status = " & objCon.valorSql(status, False) & ", "
                     sql += "usuario_cat = " & objCon.valorSql(sessaoIdUsuario) & ", "
                     sql += "data_cat = " & objCon.valorSql(hlp.dataHoraAtual, False) & " "
                     sql += "WHERE tb_base.ID = " & objCon.valorSql(.id, False) & " "
@@ -255,13 +258,12 @@
         End Try
     End Function
 
-    Public Function capturarRegistroTrabalho(ByVal dto_base As dto_backoffice) As dto_backoffice
+    Public Function capturarRegistroTrabalho(ByRef dto_base As dto_backoffice) As Boolean
 
         Try
             With dto_base
                 If .id > 0 Then
                     'capturar de um registro específico
-
                     sql = "Select * from tb_base where id = " & objCon.valorSql(.id, False) & " "
                     dt = objCon.retornaDataTable(sql)
 
@@ -269,13 +271,13 @@
                         For Each linha As DataRow In dt.Rows
                             If linha("status") < 2 Then
                                 'Alterar status
-                                alterarStatus(dto_base)
+                                alterarStatus(dto_base, FlagStatus.TrabalharRegistro)
                                 'Retornando registro atualizado
-                                Return getRegistroPorId(.id)
+                                dto_base = getRegistroPorId(.id)
                             Else
                                 'Caso já finalizado
                                 MsgBox("O registro selecionado para trablaho já foi finalizado e não pode ser reaberto!", vbInformation + vbOKOnly, TITULO_ALERTA)
-                                Return Nothing
+                                Return False
                             End If
                         Next
                     End If
@@ -289,11 +291,12 @@
 
                     sql = "Select * from tb_base where fila_id = " & objCon.valorSql(.fila_id) & " and status = 0"
                     dt = objCon.retornaDataTable(sql)
+                    'looping para conseguir um registro disponível
                     If dt.Rows.Count > 0 Then
                         For Each ln As DataRow In dt.Rows
                             id_bloqueado = ln("id")
                             sql = "Update tb_base set "
-                            sql += "status = " & objCon.valorSql(1, False) & ", "
+                            sql += "status = " & objCon.valorSql(FlagStatus.TrabalharRegistro, False) & ", "
                             sql += "usuario_cat = " & objCon.valorSql(sessaoIdUsuario) & ", "
                             sql += "data_cat = " & objCon.valorSql(hlp.dataHoraAtual, False) & " "
                             sql += "Where 1 = 1"
@@ -302,21 +305,29 @@
                             sql += "and tb_base.id = " & objCon.valorSql(.id, False) & " "
                             validacao = objCon.executaQuery(sql, retorno)
                             If retorno > 0 Then
-                                Return getRegistroPorId(.id)
+                                dto_base = getRegistroPorId(.id)
                             End If
                         Next
                     Else
                         'Caso não consiga capturar nenhum registro
-                        Return Nothing
+                        Return False
                     End If
                 End If
             End With
 
-            Return Nothing
+            'Status de caso capturado para trabalho
+            If dto_base.status = 1 Then
+                Return True
+            Else
+                dto_base = Nothing
+                Return False
+            End If
+
 
         Catch ex As Exception
             Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "CAPTURAR REGISTRO P/ TRABALHO = " & dto_base.id)
-            Return Nothing
+            dto_base = Nothing
+            Return False
         End Try
     End Function
 

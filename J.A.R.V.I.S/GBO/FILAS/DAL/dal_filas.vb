@@ -42,6 +42,7 @@
                 With dto
                     .id = objCon.retornaVazioParaValorNulo(drRow("id"))
                     .descricao = objCon.retornaVazioParaValorNulo(drRow("descricao"))
+                    .detalhesDaFila = objCon.retornaVazioParaValorNulo(drRow("detalhesDaFila"))
                     .sigla = objCon.retornaVazioParaValorNulo(drRow("sigla"))
                     .ativo = objCon.retornaVazioParaValorNulo(drRow("ativo"))
                     .capturaAutomatica = objCon.retornaVazioParaValorNulo(drRow("capturaAutomatica"))
@@ -61,6 +62,7 @@
         Try
             sql = "Insert into tb_filas "
             sql += "(descricao,"
+            sql += "detalhesDaFila,"
             sql += "sigla,"
             sql += "ativo,"
             sql += "capturaAutomatica,"
@@ -70,6 +72,7 @@
             sql += "idCadastro) "
             sql += "values( "
             sql += objCon.valorSql(_fila.descricao) & ","
+            sql += objCon.valorSql(_fila.detalhesDaFila) & ","
             sql += objCon.valorSql(_fila.sigla) & ","
             sql += objCon.valorSql(_fila.ativo) & ","
             sql += objCon.valorSql(_fila.capturaAutomatica) & ","
@@ -92,6 +95,7 @@
         Try
             sql = "Update tb_filas "
             sql += "set descricao = " & objCon.valorSql(_fila.descricao.Trim) & ","
+            sql += "detalhesDaFila = " & objCon.valorSql(_fila.detalhesDaFila.Trim) & ","
             sql += "sigla = " & objCon.valorSql(_fila.sigla.Trim) & ","
             sql += "ativo = " & objCon.valorSql(_fila.ativo) & ","
             sql += "capturaAutomatica = " & objCon.valorSql(_fila.capturaAutomatica) & ","

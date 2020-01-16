@@ -55,6 +55,8 @@ Partial Class frmCadFilas
         Me.txtSigla = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtDetalhes = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -215,10 +217,10 @@ Partial Class frmCadFilas
         Me.btnRemoveFiltro.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRemoveFiltro.Image = CType(resources.GetObject("btnRemoveFiltro.Image"), System.Drawing.Image)
         Me.btnRemoveFiltro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnRemoveFiltro.Location = New System.Drawing.Point(568, 209)
+        Me.btnRemoveFiltro.Location = New System.Drawing.Point(568, 261)
         Me.btnRemoveFiltro.Name = "btnRemoveFiltro"
         Me.btnRemoveFiltro.Size = New System.Drawing.Size(75, 30)
-        Me.btnRemoveFiltro.TabIndex = 13
+        Me.btnRemoveFiltro.TabIndex = 15
         Me.btnRemoveFiltro.Text = "     Limpar"
         Me.btnRemoveFiltro.UseVisualStyleBackColor = True
         '
@@ -283,10 +285,10 @@ Partial Class frmCadFilas
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Location = New System.Drawing.Point(329, 203)
+        Me.Label6.Location = New System.Drawing.Point(329, 255)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(97, 13)
-        Me.Label6.TabIndex = 74
+        Me.Label6.TabIndex = 12
         Me.Label6.Text = "Filtro por Fila/Sigla:"
         '
         'btnFiltrar
@@ -294,19 +296,19 @@ Partial Class frmCadFilas
         Me.btnFiltrar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnFiltrar.Image = CType(resources.GetObject("btnFiltrar.Image"), System.Drawing.Image)
         Me.btnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnFiltrar.Location = New System.Drawing.Point(489, 209)
+        Me.btnFiltrar.Location = New System.Drawing.Point(489, 261)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(75, 30)
-        Me.btnFiltrar.TabIndex = 12
+        Me.btnFiltrar.TabIndex = 14
         Me.btnFiltrar.Text = "   Filtrar"
         Me.btnFiltrar.UseVisualStyleBackColor = True
         '
         'txtFiltro
         '
-        Me.txtFiltro.Location = New System.Drawing.Point(329, 219)
+        Me.txtFiltro.Location = New System.Drawing.Point(329, 271)
         Me.txtFiltro.Name = "txtFiltro"
         Me.txtFiltro.Size = New System.Drawing.Size(154, 20)
-        Me.txtFiltro.TabIndex = 11
+        Me.txtFiltro.TabIndex = 13
         Me.txtFiltro.Tag = "FILTRO"
         '
         'btnCancelar
@@ -314,10 +316,10 @@ Partial Class frmCadFilas
         Me.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(248, 209)
+        Me.btnCancelar.Location = New System.Drawing.Point(248, 261)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 30)
-        Me.btnCancelar.TabIndex = 10
+        Me.btnCancelar.TabIndex = 11
         Me.btnCancelar.Text = "   Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
@@ -327,10 +329,10 @@ Partial Class frmCadFilas
         Me.btnExcluir.Enabled = False
         Me.btnExcluir.Image = CType(resources.GetObject("btnExcluir.Image"), System.Drawing.Image)
         Me.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnExcluir.Location = New System.Drawing.Point(173, 209)
+        Me.btnExcluir.Location = New System.Drawing.Point(173, 261)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(75, 30)
-        Me.btnExcluir.TabIndex = 9
+        Me.btnExcluir.TabIndex = 10
         Me.btnExcluir.Text = "Excluir"
         Me.btnExcluir.UseVisualStyleBackColor = True
         '
@@ -340,10 +342,10 @@ Partial Class frmCadFilas
         Me.btnAlterar.Enabled = False
         Me.btnAlterar.Image = CType(resources.GetObject("btnAlterar.Image"), System.Drawing.Image)
         Me.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnAlterar.Location = New System.Drawing.Point(98, 209)
+        Me.btnAlterar.Location = New System.Drawing.Point(98, 261)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(75, 30)
-        Me.btnAlterar.TabIndex = 8
+        Me.btnAlterar.TabIndex = 9
         Me.btnAlterar.Text = "Alterar"
         Me.btnAlterar.UseVisualStyleBackColor = True
         '
@@ -353,10 +355,10 @@ Partial Class frmCadFilas
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.HideSelection = False
-        Me.ListView1.Location = New System.Drawing.Point(23, 245)
+        Me.ListView1.Location = New System.Drawing.Point(23, 297)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(620, 266)
-        Me.ListView1.TabIndex = 73
+        Me.ListView1.Size = New System.Drawing.Size(620, 214)
+        Me.ListView1.TabIndex = 16
         Me.ListView1.UseCompatibleStateImageBehavior = False
         '
         'btnIncluir
@@ -364,10 +366,10 @@ Partial Class frmCadFilas
         Me.btnIncluir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnIncluir.Image = CType(resources.GetObject("btnIncluir.Image"), System.Drawing.Image)
         Me.btnIncluir.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnIncluir.Location = New System.Drawing.Point(23, 209)
+        Me.btnIncluir.Location = New System.Drawing.Point(23, 261)
         Me.btnIncluir.Name = "btnIncluir"
         Me.btnIncluir.Size = New System.Drawing.Size(75, 30)
-        Me.btnIncluir.TabIndex = 7
+        Me.btnIncluir.TabIndex = 8
         Me.btnIncluir.Text = "Incluir"
         Me.btnIncluir.UseVisualStyleBackColor = True
         '
@@ -401,12 +403,36 @@ Partial Class frmCadFilas
         Me.Label4.TabIndex = 83
         Me.Label4.Text = "Dê um duplo click para editar um registro!"
         '
+        'txtDetalhes
+        '
+        Me.txtDetalhes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtDetalhes.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtDetalhes.Location = New System.Drawing.Point(96, 186)
+        Me.txtDetalhes.Multiline = True
+        Me.txtDetalhes.Name = "txtDetalhes"
+        Me.txtDetalhes.Size = New System.Drawing.Size(547, 66)
+        Me.txtDetalhes.TabIndex = 7
+        Me.txtDetalhes.Tag = "DETALHES"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Location = New System.Drawing.Point(23, 189)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(52, 13)
+        Me.Label8.TabIndex = 85
+        Me.Label8.Text = "Detalhes:"
+        '
         'frmCadFilas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightCyan
         Me.ClientSize = New System.Drawing.Size(661, 554)
+        Me.Controls.Add(Me.txtDetalhes)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtSigla)
         Me.Controls.Add(Me.Label3)
@@ -481,4 +507,6 @@ Partial Class frmCadFilas
     Friend WithEvents txtSigla As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents txtDetalhes As TextBox
+    Friend WithEvents Label8 As Label
 End Class

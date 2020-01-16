@@ -3,7 +3,7 @@
     Public Property roteamento_id As Integer
     Public Property fila_id As Integer
     Public Property status As Integer
-    Public Property tipo_registro As Byte 'A ou M (Automático ou Manual)
+    Public Property tipo_registro As String 'A ou M (Automático ou Manual)
     Public Property cliente_id As Integer
     Public Property produto_id As Integer
     Public Property contrato_id As Integer

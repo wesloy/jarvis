@@ -22,6 +22,7 @@
             .Columns.Add("FILA", 200, HorizontalAlignment.Left)
             .Columns.Add("CAPTURA AUTOMÁTICA", 200, HorizontalAlignment.Left)
             .Columns.Add("PERMITE CATEGORIZAÇÃO", 200, HorizontalAlignment.Left)
+            .Columns.Add("DETALHES DA FILA", 500, HorizontalAlignment.Left)
         End With
         'POPULANDO
         If dt.Rows.Count > 0 Then 'verifica se existem registros
@@ -33,6 +34,7 @@
                 item.SubItems.Add(drRow("descricao"))
                 item.SubItems.Add(IIf(drRow("capturaAutomatica") = True, "SIM", "NÃO"))
                 item.SubItems.Add(IIf(drRow("permitirAberturaManual") = False, "NÃO PERMITE CAT. MANUAL", "PERMITE"))
+                item.SubItems.Add(IIf(IsDBNull(drRow("detalhesDaFila")), "", drRow("detalhesDaFila")))
 
                 If drRow("ativo") Then
                     item.ImageKey = 1 'verde

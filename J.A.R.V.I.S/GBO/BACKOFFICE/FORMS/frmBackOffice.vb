@@ -2,6 +2,7 @@
 
 #Region "VARIAVEIS"
     Private hlp As New Uteis.Helpers
+    Private backOffice As New bll_backoffice
     Private filas As New bll_filas
     Private clientes As New bll_clientes
     Private produtos As New bll_produtos
@@ -17,6 +18,7 @@
         End If
         gbDados.Enabled = False
         gbConcluir.Enabled = False
+        gbIniciar.Enabled = True
     End Sub
 
     Private Sub exibirDetalhes(ByVal titulo As String, ByVal id_busca As Integer)
@@ -50,11 +52,58 @@
         produtos.PreencheCombobox(Me, cbProduto)
         'contratos.PreencheCombobox(Me, cbContrato)
 
-        'Capturar registro se fila AUTOMÁTICA ou criar registro se fila MANUAL
-        If rbAutomatica.Checked Then
+
+        'Validações de campos obrigatórios
+        If Not rbAutomatica.Checked And Not rbManual.Checked Then
+            MsgBox("Não foi selecionado o tipo de entrada! Selecione AUTOMÁTCO ou MANUAL.", vbInformation + vbOKOnly, TITULO_ALERTA)
+            Exit Sub
+        End If
+
+        If Not hlp.validaCamposObrigatorios(gbIniciar, "cbFila") Then
+            Exit Sub
+        End If
+
+        'Bloqueando grupo iniciar para evitar alterações durante o trabalho 
+        gbIniciar.Enabled = False
+
+        Dim dto_back As New dto_backoffice
+        With dto_back
+            'Capturando dados básicos para criar ou buscar um registro para trabalho
+            .id = IIf(txtProtocolo.Text = "", 0, txtProtocolo.Text)
+            .fila_id = IIf(cbFila.Text <> "", cbFila.SelectedValue, 0)
+            .tipo_registro = IIf(rbAutomatica.Checked, "A", "M")
+        End With
+
+        'Carregando dados, se a captura ocorreu corretamente
+        If backOffice.capturarRegistro(dto_back) Then
+            With dto_back
+
+                'Iniciar
+                cbFila.SelectedValue = .fila_id
+                If .tipo_registro = "A" Then
+                    rbAutomatica.Checked = True
+                Else
+                    rbManual.Checked = True
+                End If
+
+                'Informações Relevantes
+                txtProtocolo.Text = .id
+                txtDataRegistro.Text = hlp.retornaDataTextBox(.data_imp)
+                txtUsuarioResponsavel.Text = .usuario_imp_desc
+                Dim d_fila As New dto_filas
+                d_fila = filas.GetFilaPorCodigo(.fila_id)
+                txtOutrasInformacoes.Text = d_fila.detalhesDaFila
+
+                'Informações
+                cbCliente.SelectedValue = .cliente_id
+                cbProduto.SelectedValue = .produto_id
+                cbContrato.SelectedValue = .contrato_id
+                cbxContratoAssinado.Checked = .contrato_assinado
+                cbxPagamento.Checked = .pgto_realizado
+            End With
 
         Else
-
+            limpeza()
         End If
 
     End Sub

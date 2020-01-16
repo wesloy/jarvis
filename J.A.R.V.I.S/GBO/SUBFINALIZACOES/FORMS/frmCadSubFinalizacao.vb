@@ -25,7 +25,7 @@
         hlp.limparCampos(Me)
         bll.AtualizaListViewSubFinalizacao()
         filabll.PreencheComboFila(Me, cbFila)
-        filabll.PreencheComboFila(Me, cbFilaDestino)
+        filabll.PreencheComboFilaAutomatica(Me, cbFilaDestino)
         filabll.PreencheComboFila(Me, cbFiltrofila)
         hlp.limparCampos(Me)
     End Sub

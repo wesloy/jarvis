@@ -162,10 +162,10 @@
 
     End Sub
 
-    Public Function ConsultaNomePorID(ByVal id As String) As String
+    Public Function ConsultaNomePorID(ByVal id As Integer) As String
         Dim nome As String = Nothing
         Try
-            sql = "Select * from tb_usuarios where ([id] = " & objCon.valorSql(id) & ")"
+            sql = "Select * from tb_usuarios where ([id] = " & objCon.valorSql(id, False) & ")"
             dt = objCon.retornaDataTable(sql)
             If dt.Rows.Count > 0 Then 'Ou seja, o caso já está sendo trabalhado por outra pessoa
                 For Each linha As DataRow In dt.Rows 'Efeturar o looping até o fim

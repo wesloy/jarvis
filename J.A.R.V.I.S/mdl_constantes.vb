@@ -97,6 +97,12 @@ Module mdl_constantes
         NoAction = 0
     End Enum
 
+    Public Enum FlagStatus
+        LiberarRegistro = 0
+        TrabalharRegistro = 1
+        FinalizarRegistro = 2
+    End Enum
+
     Public Function imglist() As ImageList
         'cria um imagelist se necessario
         Dim imageListSmall As New ImageList
