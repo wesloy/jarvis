@@ -23,6 +23,7 @@ Partial Class frmBackOffice
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmBackOffice))
         Me.gbIniciar = New System.Windows.Forms.GroupBox()
         Me.btnIniciar = New System.Windows.Forms.Button()
         Me.lbFila = New System.Windows.Forms.Label()
@@ -48,12 +49,13 @@ Partial Class frmBackOffice
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtProtocolo = New System.Windows.Forms.TextBox()
         Me.gbDados = New System.Windows.Forms.GroupBox()
+        Me.cbxContratoAssinado = New System.Windows.Forms.CheckBox()
+        Me.cbxPagamento = New System.Windows.Forms.CheckBox()
         Me.linkDetalhesContrato = New System.Windows.Forms.LinkLabel()
         Me.linkAdcContrato = New System.Windows.Forms.LinkLabel()
         Me.cbContrato = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.lbDataGridView = New System.Windows.Forms.Label()
-        Me.dgvHistorico = New System.Windows.Forms.DataGridView()
         Me.linkDetalhesProduto = New System.Windows.Forms.LinkLabel()
         Me.linkAdcProduto = New System.Windows.Forms.LinkLabel()
         Me.linkDetalhesCliente = New System.Windows.Forms.LinkLabel()
@@ -63,13 +65,22 @@ Partial Class frmBackOffice
         Me.cbCliente = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cbxPagamento = New System.Windows.Forms.CheckBox()
-        Me.cbxContratoAssinado = New System.Windows.Forms.CheckBox()
+        Me.lvHistoricoCliente = New System.Windows.Forms.ListView()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.linkAtualizarHistoricoCliente = New System.Windows.Forms.LinkLabel()
         Me.gbIniciar.SuspendLayout()
         Me.gbConcluir.SuspendLayout()
         Me.gbInformacoesRelevantes.SuspendLayout()
         Me.gbDados.SuspendLayout()
-        CType(Me.dgvHistorico, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbIniciar
@@ -345,6 +356,15 @@ Partial Class frmBackOffice
         Me.gbDados.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbDados.Controls.Add(Me.linkAtualizarHistoricoCliente)
+        Me.gbDados.Controls.Add(Me.Label14)
+        Me.gbDados.Controls.Add(Me.PictureBox3)
+        Me.gbDados.Controls.Add(Me.Label11)
+        Me.gbDados.Controls.Add(Me.PictureBox2)
+        Me.gbDados.Controls.Add(Me.Label12)
+        Me.gbDados.Controls.Add(Me.Label13)
+        Me.gbDados.Controls.Add(Me.PictureBox1)
+        Me.gbDados.Controls.Add(Me.lvHistoricoCliente)
         Me.gbDados.Controls.Add(Me.cbxContratoAssinado)
         Me.gbDados.Controls.Add(Me.cbxPagamento)
         Me.gbDados.Controls.Add(Me.linkDetalhesContrato)
@@ -352,7 +372,6 @@ Partial Class frmBackOffice
         Me.gbDados.Controls.Add(Me.cbContrato)
         Me.gbDados.Controls.Add(Me.Label10)
         Me.gbDados.Controls.Add(Me.lbDataGridView)
-        Me.gbDados.Controls.Add(Me.dgvHistorico)
         Me.gbDados.Controls.Add(Me.linkDetalhesProduto)
         Me.gbDados.Controls.Add(Me.linkAdcProduto)
         Me.gbDados.Controls.Add(Me.linkDetalhesCliente)
@@ -367,6 +386,29 @@ Partial Class frmBackOffice
         Me.gbDados.TabIndex = 7
         Me.gbDados.TabStop = False
         Me.gbDados.Text = "Informações"
+        '
+        'cbxContratoAssinado
+        '
+        Me.cbxContratoAssinado.AutoSize = True
+        Me.cbxContratoAssinado.Location = New System.Drawing.Point(17, 146)
+        Me.cbxContratoAssinado.Name = "cbxContratoAssinado"
+        Me.cbxContratoAssinado.Size = New System.Drawing.Size(112, 17)
+        Me.cbxContratoAssinado.TabIndex = 20
+        Me.cbxContratoAssinado.Text = "Contrato Assinado"
+        Me.ToolTip1.SetToolTip(Me.cbxContratoAssinado, "Quando o cliente assinar o contrato este item deve ser marcado, para que não gere" &
+        " fila de trabalho com esta pendência.")
+        Me.cbxContratoAssinado.UseVisualStyleBackColor = True
+        '
+        'cbxPagamento
+        '
+        Me.cbxPagamento.AutoSize = True
+        Me.cbxPagamento.Location = New System.Drawing.Point(17, 169)
+        Me.cbxPagamento.Name = "cbxPagamento"
+        Me.cbxPagamento.Size = New System.Drawing.Size(130, 17)
+        Me.cbxPagamento.TabIndex = 19
+        Me.cbxPagamento.Text = "Pagamento Realizado"
+        Me.ToolTip1.SetToolTip(Me.cbxPagamento, "Ao clicar deverá efetivar o pagamento do cliente!")
+        Me.cbxPagamento.UseVisualStyleBackColor = True
         '
         'linkDetalhesContrato
         '
@@ -420,19 +462,6 @@ Partial Class frmBackOffice
         Me.lbDataGridView.Size = New System.Drawing.Size(48, 13)
         Me.lbDataGridView.TabIndex = 14
         Me.lbDataGridView.Text = "Histórico"
-        '
-        'dgvHistorico
-        '
-        Me.dgvHistorico.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvHistorico.BackgroundColor = System.Drawing.Color.White
-        Me.dgvHistorico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvHistorico.GridColor = System.Drawing.Color.LightCyan
-        Me.dgvHistorico.Location = New System.Drawing.Point(17, 221)
-        Me.dgvHistorico.Name = "dgvHistorico"
-        Me.dgvHistorico.Size = New System.Drawing.Size(683, 132)
-        Me.dgvHistorico.TabIndex = 13
         '
         'linkDetalhesProduto
         '
@@ -522,28 +551,108 @@ Partial Class frmBackOffice
         Me.Label8.TabIndex = 1
         Me.Label8.Text = "Cliente:"
         '
-        'cbxPagamento
+        'lvHistoricoCliente
         '
-        Me.cbxPagamento.AutoSize = True
-        Me.cbxPagamento.Location = New System.Drawing.Point(17, 169)
-        Me.cbxPagamento.Name = "cbxPagamento"
-        Me.cbxPagamento.Size = New System.Drawing.Size(130, 17)
-        Me.cbxPagamento.TabIndex = 19
-        Me.cbxPagamento.Text = "Pagamento Realizado"
-        Me.ToolTip1.SetToolTip(Me.cbxPagamento, "Ao clicar deverá efetivar o pagamento do cliente!")
-        Me.cbxPagamento.UseVisualStyleBackColor = True
+        Me.lvHistoricoCliente.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lvHistoricoCliente.HideSelection = False
+        Me.lvHistoricoCliente.Location = New System.Drawing.Point(17, 217)
+        Me.lvHistoricoCliente.Name = "lvHistoricoCliente"
+        Me.lvHistoricoCliente.Size = New System.Drawing.Size(683, 136)
+        Me.lvHistoricoCliente.TabIndex = 21
+        Me.lvHistoricoCliente.UseCompatibleStateImageBehavior = False
         '
-        'cbxContratoAssinado
+        'Label11
         '
-        Me.cbxContratoAssinado.AutoSize = True
-        Me.cbxContratoAssinado.Location = New System.Drawing.Point(17, 146)
-        Me.cbxContratoAssinado.Name = "cbxContratoAssinado"
-        Me.cbxContratoAssinado.Size = New System.Drawing.Size(112, 17)
-        Me.cbxContratoAssinado.TabIndex = 20
-        Me.cbxContratoAssinado.Text = "Contrato Assinado"
-        Me.ToolTip1.SetToolTip(Me.cbxContratoAssinado, "Quando o cliente assinar o contrato este item deve ser marcado, para que não gere" &
-        " fila de trabalho com esta pendência.")
-        Me.cbxContratoAssinado.UseVisualStyleBackColor = True
+        Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Location = New System.Drawing.Point(635, 202)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(65, 13)
+        Me.Label11.TabIndex = 147
+        Me.Label11.Text = "Aguardando"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(623, 200)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(18, 15)
+        Me.PictureBox2.TabIndex = 146
+        Me.PictureBox2.TabStop = False
+        '
+        'Label12
+        '
+        Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
+        Me.Label12.Location = New System.Drawing.Point(427, 202)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(52, 13)
+        Me.Label12.TabIndex = 145
+        Me.Label12.Text = "Legenda:"
+        '
+        'Label13
+        '
+        Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Location = New System.Drawing.Point(492, 202)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(56, 13)
+        Me.Label13.TabIndex = 144
+        Me.Label13.Text = "Concluído"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(478, 200)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(18, 15)
+        Me.PictureBox1.TabIndex = 143
+        Me.PictureBox1.TabStop = False
+        '
+        'Label14
+        '
+        Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label14.AutoSize = True
+        Me.Label14.BackColor = System.Drawing.Color.Transparent
+        Me.Label14.Location = New System.Drawing.Point(559, 202)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(67, 13)
+        Me.Label14.TabIndex = 149
+        Me.Label14.Text = "Trabalhando"
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(546, 200)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(18, 15)
+        Me.PictureBox3.TabIndex = 148
+        Me.PictureBox3.TabStop = False
+        '
+        'linkAtualizarHistoricoCliente
+        '
+        Me.linkAtualizarHistoricoCliente.AutoSize = True
+        Me.linkAtualizarHistoricoCliente.Location = New System.Drawing.Point(58, 201)
+        Me.linkAtualizarHistoricoCliente.Name = "linkAtualizarHistoricoCliente"
+        Me.linkAtualizarHistoricoCliente.Size = New System.Drawing.Size(53, 13)
+        Me.linkAtualizarHistoricoCliente.TabIndex = 150
+        Me.linkAtualizarHistoricoCliente.TabStop = True
+        Me.linkAtualizarHistoricoCliente.Text = "(Atualizar)"
+        Me.ToolTip1.SetToolTip(Me.linkAtualizarHistoricoCliente, "Verificar informações detalhadas do registro selecionado")
         '
         'frmBackOffice
         '
@@ -565,7 +674,9 @@ Partial Class frmBackOffice
         Me.gbInformacoesRelevantes.PerformLayout()
         Me.gbDados.ResumeLayout(False)
         Me.gbDados.PerformLayout()
-        CType(Me.dgvHistorico, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -605,11 +716,19 @@ Partial Class frmBackOffice
     Friend WithEvents linkDetalhesCliente As LinkLabel
     Friend WithEvents linkAdcCliente As LinkLabel
     Friend WithEvents lbDataGridView As Label
-    Friend WithEvents dgvHistorico As DataGridView
     Friend WithEvents linkDetalhesContrato As LinkLabel
     Friend WithEvents linkAdcContrato As LinkLabel
     Friend WithEvents cbContrato As ComboBox
     Friend WithEvents Label10 As Label
     Friend WithEvents cbxContratoAssinado As CheckBox
     Friend WithEvents cbxPagamento As CheckBox
+    Friend WithEvents lvHistoricoCliente As ListView
+    Friend WithEvents Label14 As Label
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents linkAtualizarHistoricoCliente As LinkLabel
 End Class

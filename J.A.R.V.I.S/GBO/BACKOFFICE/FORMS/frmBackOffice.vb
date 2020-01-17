@@ -7,12 +7,16 @@
     Private clientes As New bll_clientes
     Private produtos As New bll_produtos
     Private contratos As New bll_contratos
+
+
 #End Region
 
     Private Sub limpeza(Optional ByVal parcial = False)
         hlp.limparCampos(gbInformacoesRelevantes)
         hlp.limparCampos(gbDados)
         hlp.limparCampos(gbConcluir)
+        lvHistoricoCliente.Clear()
+
         If Not parcial Then
             hlp.limparCampos(gbIniciar)
         End If
@@ -26,6 +30,53 @@
         frmDetalhes.id_busca = id_busca
         hlp.abrirForm(frmDetalhes)
     End Sub
+
+    Private Function carregarDto(ByVal Optional parcial As Boolean = False) As dto_backoffice
+        Try
+            Dim dto_back As New dto_backoffice
+            With dto_back
+                If parcial Then
+
+                    'Capturando dados básicos para criar ou buscar um registro para trabalho
+                    .id = IIf(txtProtocolo.Text = "", 0, txtProtocolo.Text)
+                    .fila_id = IIf(cbFila.Text <> "", cbFila.SelectedValue, 0)
+                    .tipo_registro = IIf(rbAutomatica.Checked, "A", "M")
+                Else
+
+                    'Capturando todos os dados da tela
+                    .id = IIf(txtProtocolo.Text = "", 0, txtProtocolo.Text)
+                    .fila_id = IIf(cbFila.Text <> "", cbFila.SelectedValue, 0)
+                    .tipo_registro = IIf(rbAutomatica.Checked, "A", "M")
+                    .data_imp = txtDataRegistro.Text
+                    .usuario_imp = txtUsuarioResponsavel.Text
+
+                    .cliente_id = cbCliente.SelectedValue
+                    .cliente_desc = cbCliente.Text
+                    .produto_id = cbProduto.SelectedValue
+                    .produto_desc = cbProduto.Text
+                    .contrato_id = cbContrato.SelectedValue
+                    .contrato_desc = cbContrato.Text
+                    .contrato_assinado = cbxContratoAssinado.Text
+                    .pgto_realizado = cbxPagamento.Text
+
+                    .finalizacao_id = cbFinalizacao.SelectedValue
+                    .finalizacao_desc = cbFinalizacao.Text
+                    .subfinalizacao_id = cbSubfinalizacao.SelectedValue
+                    .subfinalizacao_desc = cbSubfinalizacao.Text
+                    .observacao = txtObservacao.Text
+
+                End If
+            End With
+
+            Return dto_back
+
+        Catch ex As Exception
+            Return Nothing
+        End Try
+
+    End Function
+
+
 
     Private Sub frmBackOffice_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         limpeza()
@@ -67,24 +118,20 @@
         gbIniciar.Enabled = False
 
         Dim dto_back As New dto_backoffice
-        With dto_back
-            'Capturando dados básicos para criar ou buscar um registro para trabalho
-            .id = IIf(txtProtocolo.Text = "", 0, txtProtocolo.Text)
-            .fila_id = IIf(cbFila.Text <> "", cbFila.SelectedValue, 0)
-            .tipo_registro = IIf(rbAutomatica.Checked, "A", "M")
-        End With
-
+        dto_back = carregarDto(True)
         'Carregando dados, se a captura ocorreu corretamente
         If backOffice.capturarRegistro(dto_back) Then
             With dto_back
 
                 'Iniciar
-                cbFila.SelectedValue = .fila_id
                 If .tipo_registro = "A" Then
+                    filas.PreencheComboFilaAutomatica(Me, cbFila, False)
                     rbAutomatica.Checked = True
                 Else
+                    filas.PreencheComboFilaManual(Me, cbFila)
                     rbManual.Checked = True
                 End If
+                cbFila.SelectedValue = .fila_id
 
                 'Informações Relevantes
                 txtProtocolo.Text = .id
@@ -157,14 +204,56 @@
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+
+        Dim dto_back As New dto_backoffice
+
         'Limpeza simples, visto não haver registro capturado para trabalho
-        If txtProtocolo.Text <> "" Or txtProtocolo.Text <> 0 Then
+        If txtProtocolo.Text = "" Or txtProtocolo.Text = 0 Then
             limpeza()
             Exit Sub
         End If
 
         'Limpeza completa, envolvendo rollback (FILA AUTOMÁTICA) de caso ou delete de registro (FILA MANUAL)
+        dto_back = carregarDto(True)
+        If backOffice.liberarRegistro(dto_back) Then
+            limpeza()
+        End If
 
+    End Sub
 
+    Private Sub cbCliente_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cbCliente.SelectionChangeCommitted
+        Try
+            If cbCliente.SelectedValue > 0 Then
+                If Not backOffice.carregarListViewHistoricoCliente(lvHistoricoCliente, cbCliente.SelectedValue) Then
+                    lvHistoricoCliente.Clear()
+                End If
+            End If
+        Catch ex As Exception
+            lvHistoricoCliente.Clear()
+        End Try
+    End Sub
+
+    Private Sub lvHistoricoCliente_ColumnClick(sender As Object, e As ColumnClickEventArgs) Handles lvHistoricoCliente.ColumnClick
+        If Me.lvHistoricoCliente.Sorting = SortOrder.Ascending Then
+            Me.lvHistoricoCliente.Sorting = SortOrder.Descending
+        Else
+            Me.lvHistoricoCliente.Sorting = SortOrder.Ascending
+        End If
+        Me.lvHistoricoCliente.ListViewItemSorter = New mdlOrdenacaoListView(e.Column, Me.lvHistoricoCliente.Sorting)
+    End Sub
+
+    Private Sub linkAtualizarHistoricoCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkAtualizarHistoricoCliente.LinkClicked
+        Try
+            If cbCliente.SelectedValue > 0 Then
+                If Not backOffice.carregarListViewHistoricoCliente(lvHistoricoCliente, cbCliente.SelectedValue) Then
+                    lvHistoricoCliente.Clear()
+                End If
+            Else
+                MsgBox("Não foi selecionado nenhum cliente para que o Histórico seja carregado.", vbInformation + vbOKOnly, TITULO_ALERTA)
+                lvHistoricoCliente.Clear()
+            End If
+        Catch ex As Exception
+            lvHistoricoCliente.Clear()
+        End Try
     End Sub
 End Class

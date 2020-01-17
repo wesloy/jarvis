@@ -299,13 +299,12 @@
                             sql += "status = " & objCon.valorSql(FlagStatus.TrabalharRegistro, False) & ", "
                             sql += "usuario_cat = " & objCon.valorSql(sessaoIdUsuario) & ", "
                             sql += "data_cat = " & objCon.valorSql(hlp.dataHoraAtual, False) & " "
-                            sql += "Where 1 = 1"
-                            sql += "and id = " & objCon.valorSql(.id, False) & " "
+                            sql += "Where 1 = 1 "
+                            sql += "and fila_id = " & objCon.valorSql(.fila_id, False) & " "
                             sql += "and status = 0 " 'Garantindo que outra pessoa não capturou o mesmo registro
-                            sql += "and tb_base.id = " & objCon.valorSql(.id, False) & " "
                             validacao = objCon.executaQuery(sql, retorno)
                             If retorno > 0 Then
-                                dto_base = getRegistroPorId(.id)
+                                dto_base = getRegistroPorId(id_bloqueado)
                             End If
                         Next
                     Else
@@ -328,6 +327,22 @@
             Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "CAPTURAR REGISTRO P/ TRABALHO = " & dto_base.id)
             dto_base = Nothing
             Return False
+        End Try
+    End Function
+
+    Public Function getHistoricoRegistrosPorCliente(ByVal idCliente As Integer) As DataTable
+        Try
+            sql = "select b.id, f.descricao as fila, b.data_cat, fin.descricao as finalizacao, sfin.descricao as subfinalizacao, b.observacao, b.status   
+                        from (((tb_base b 
+                        left join tb_filas f on b.fila_id = f.id)  
+                        left join tb_finalizacoes fin on b.finalizacao_id = fin.id) 
+                        left join tb_subfinalizacoes sfin on b.subfinalizacao_id = sfin.id) "
+            sql += "where b.cliente_id = 1 "
+            Return objCon.retornaDataTable(sql)
+
+        Catch ex As Exception
+            Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "CAPTURAR HISTORICO DO CLIENTE = " & idCliente)
+            Return Nothing
         End Try
     End Function
 
