@@ -45,26 +45,31 @@
                 sql += objCon.valorSql(.observacao, False) & ", "
                 sql += objCon.valorSql(.data_cat, False) & ", "
                 sql += objCon.valorSql(.usuario_cat, False) & ", "
-                sql += objCon.valorSql(dataHoraAtual, False) & ", "
+                sql += objCon.valorSql(.data_imp, False) & ", "
                 sql += objCon.valorSql(sessaoIdUsuario, False) & ") "
             End With
 
-            'Capturando registro recem criado
+            'Capturando registro recem criado, caso a data de importação seja para hoje, se a data for futura, trata-se de um follow e não é necessário capturar
             If objCon.executaQuery(sql) Then
-                sql = "Select * from tb_base "
-                sql += "WHERE usuario_imp = " & objCon.valorSql(sessaoIdUsuario, False) & " "
-                sql += "AND data_imp = " & objCon.valorSql(dataHoraAtual, False) & " "
-                sql += "AND fila_id = " & objCon.valorSql(dto.fila_id, False) & " "
-                sql += "AND status = 0 "
-                dt = objCon.retornaDataTable(sql)
+                If hlp.FormataDataAbreviada(dto.data_imp) = hlp.dataAbreviada() Then
+                    sql = "Select * from tb_base "
+                    sql += "WHERE usuario_imp = " & objCon.valorSql(sessaoIdUsuario, False) & " "
+                    sql += "AND data_imp = " & objCon.valorSql(dataHoraAtual, False) & " "
+                    sql += "AND fila_id = " & objCon.valorSql(dto.fila_id, False) & " "
+                    sql += "AND status = 0 "
+                    dt = objCon.retornaDataTable(sql)
 
-                dto = Nothing
-                If dt.Rows.Count > 0 Then 'Carregando o DTO
-                    For Each linha As DataRow In dt.Rows 'Efeturar o looping até o fim
-                        dto = getRegistroPorId(objCon.retornaVazioParaValorNulo(linha("id")))
-                    Next
+                    dto = Nothing
+                    If dt.Rows.Count > 0 Then 'Carregando o DTO
+                        For Each linha As DataRow In dt.Rows 'Efeturar o looping até o fim
+                            dto = getRegistroPorId(objCon.retornaVazioParaValorNulo(linha("id")))
+                        Next
+                    End If
                 End If
 
+            Else
+                'Sair da função de forma positiva, já que não é preciso capturar o registro criado por se
+                Return True
             End If
 
             'Não criou o registro
@@ -159,6 +164,30 @@
         End Try
     End Function
 
+
+    ''' <summary>
+    ''' Utilizado para confirmar se o registro que será salvo está locado para o mesmo usuário que o capturou
+    ''' se a locação do registro for diferente, significa que o mesmo sofreu rollback devido o tempo que ficou locado
+    ''' </summary>
+    ''' <param name="dto"></param>
+    ''' <returns></returns>
+    Public Function confirmarUsuiarioCatAntesSalvar(ByVal dto As dto_backoffice) As Boolean
+        Try
+            sql = "Select * from tb_base where id = " & objCon.valorSql(dto.id, False) & " "
+            dt = objCon.retornaDataTable(sql)
+            If dt.Rows.Count > 0 Then
+                For Each linha As DataRow In dt.Rows
+                    If linha("usuario_cat") = dto.usuario_cat Then
+                        Return True
+                    End If
+                Next
+            End If
+
+            Return False
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
 
     Public Function salvarRegistro(dto As dto_backoffice) As Boolean
         Try
@@ -342,6 +371,49 @@
 
         Catch ex As Exception
             Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "CAPTURAR HISTORICO DO CLIENTE = " & idCliente)
+            Return Nothing
+        End Try
+    End Function
+
+
+    ''' <summary>
+    ''' Voltar registros para a fila e/ou deletar registros após um tempo de espera.
+    ''' Padrão atual de 6 horas de espera.
+    ''' </summary>
+    Public Sub rollbackRegistrosLocados()
+        Try
+            sql = "Select * from tb_base where status = 1 and data_cat < " & objCon.valorSql(hlp.dataHoraAtual.AddHours(-6), False) & " "
+            dt = objCon.retornaDataTable(sql)
+
+            If dt.Rows.Count > 0 Then
+                For Each ln As DataRow In dt.Rows
+                    If ln("tipo_registro") = "M" Then
+                        'Deletar já que o registro tem entrada manual
+                        deletarPorID(ln("id"))
+                    Else
+                        'Alterar status para disponível já que a entrada é automática (GBO)
+                        alterarStatus(getRegistroPorId(ln("id")), 0)
+                    End If
+                Next
+            End If
+
+        Catch ex As Exception
+            Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "ROLLBACK DE REGISTROS")
+        End Try
+
+    End Sub
+
+    Public Function capturarClientesDiposniveisPorFila(ByVal id_fila As Integer) As DataTable
+        Try
+
+            'Rollback casos presos
+            rollbackRegistrosLocados()
+
+            'Capturar lista de clientes (ID + NOME)
+            sql = ""
+            Return objCon.retornaDataTable(sql)
+
+        Catch ex As Exception
             Return Nothing
         End Try
     End Function

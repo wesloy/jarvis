@@ -17,9 +17,22 @@
         Me.btnAlterar.Enabled = False
         Me.btnExcluir.Enabled = False
     End Sub
+
+    Private Sub limparForm()
+
+        hlp.limparCampos(Me)
+
+        'bloqueando opções de filas automáticas/manuais para que todas as filas sejam semelhantes
+        ckboxAutomatico.Checked = True
+        ckboxCategorizador.Checked = True
+        ckboxAutomatico.Enabled = False
+        ckboxCategorizador.Enabled = False
+
+    End Sub
+
     Private Sub frmCadFilas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         bloqueiaBotoes()
-        hlp.limparCampos(Me)
+        limparForm()
         bll.AtualizaListViewFilas()
     End Sub
 
@@ -45,7 +58,7 @@
                     Exit Sub
                 End If
             End With
-            hlp.limparCampos(Me)
+            limparForm()
             bloqueiaBotoes()
         End If
     End Sub
@@ -71,7 +84,7 @@
                 With bll
                     If .SalvaFila(dto) Then
                         .AtualizaListViewFilas()
-                        hlp.limparCampos(Me)
+                        limparForm()
                         bloqueiaBotoes()
                         MsgBox("Registro alterado com sucesso.", vbInformation, TITULO_ALERTA)
                         Logs.RegistrarLOG("Alteração", "Fila", hlp.getCurrentMethodName, Me.txtFila.Text.Trim)
@@ -112,7 +125,7 @@
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        hlp.limparCampos(Me)
+        limparForm()
         bloqueiaBotoes()
     End Sub
 

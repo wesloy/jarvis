@@ -31,6 +31,7 @@
 
                 'Manual
                 If .tipo_registro = "M" And .id = 0 Then
+                    dto_back.data_imp = hlp.dataHoraAtual()
                     capturarRegistro = dal.gerarNovoCaso(dto_back)
                 End If
 
@@ -47,23 +48,6 @@
 
         Catch ex As Exception
             dto_back = Nothing
-            Return False
-        End Try
-    End Function
-
-    Public Function liberarRegistro(ByVal dto_back As dto_backoffice) As Boolean
-
-        Try
-            If dal.alterarStatus(dto_back, 0) Then
-                MsgBox("Cancelado, com sucesso!", vbInformation + vbOKOnly, TITULO_ALERTA)
-                Return True
-            Else
-                MsgBox("Não foi possível cancelar a categorização deste registro!", vbCritical + vbOKOnly, TITULO_ALERTA)
-                Return False
-            End If
-
-            Return False
-        Catch ex As Exception
             Return False
         End Try
     End Function
@@ -116,6 +100,126 @@
         End Try
 
 
+    End Function
+
+    Public Function liberarRegistro(ByVal dto_back As dto_backoffice) As Boolean
+
+        Try
+            'Confirmar se o registro está locado para o mesmo usuário que deseja liberar o registro
+            'Se sim, prosseguir com a alteração de status
+            'Se não, apenas retornar um FALSO POSITIVO para que as funções que invoquem este médoto possa prosseguir com suas etapas
+            If Not dal.confirmarUsuiarioCatAntesSalvar(dto_back) Then
+                MsgBox("Registro já trabalho em outro momento. Limpeza de SUAS alterações realizadas com sucesso!", vbInformation + vbOKOnly, TITULO_ALERTA)
+                Return True
+            End If
+
+            If dal.alterarStatus(dto_back, 0) Then
+                MsgBox("Cancelado, com sucesso!", vbInformation + vbOKOnly, TITULO_ALERTA)
+                Return True
+            Else
+                MsgBox("Não foi possível cancelar a categorização deste registro!", vbCritical + vbOKOnly, TITULO_ALERTA)
+                Return False
+            End If
+
+            Return False
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+    Private Sub rollbackRegistros()
+        dal.rollbackRegistrosLocados()
+    End Sub
+
+    Public Function finalizarRegistro(ByVal dto_back As dto_backoffice) As Boolean
+        Try
+            Dim validacao As Boolean = False
+            Dim rotear As Boolean = False
+            Dim roteado As Boolean = False
+            Dim filaNovoCaso As Integer = 0
+            Dim agingNovoCaso As Integer = 0
+
+            Dim finalizacao As New bll_finalizacoes
+            Dim fin_dto As New dto_finalizacoes
+
+            Dim subfinalizacao As New bll_subfinalizacoes
+            Dim subfin_dto As New dto_subfinalizacoes
+
+            'Fazer rollback de registros locados
+            rollbackRegistros()
+
+            'Validar se o registro está locado para o mesmo usuário que está tentando finalizar
+            If Not dal.confirmarUsuiarioCatAntesSalvar(dto_back) Then
+                MsgBox("Atualize a fila de trabalho e confirme que este registro ainda está disponível para trablahar!", vbInformation, TITULO_ALERTA)
+                Return False
+            End If
+
+            'Finalizar o registro
+            If dal.salvarRegistro(dto_back) Then
+                validacao = True
+
+                'Validar se as subfin requer um follow
+                If Not subfinalizacao.roteamentoPorSubFinalizacao(dto_back.subfinalizacao_id, subfin_dto) Then
+                    'Se a subfin não requer um follow, verificar se a fin requer
+                    If finalizacao.roteamentoPorFinalizacao(dto.finalizacao_id, fin_dto) Then
+                        filaNovoCaso = fin_dto.filaNovoCaso
+                        agingNovoCaso = fin_dto.agingNovoCaso
+                        rotear = True
+                    End If
+                Else
+                    filaNovoCaso = subfin_dto.filaNovoCaso
+                    agingNovoCaso = subfin_dto.agingNovoCaso
+                    rotear = True
+                End If
+
+            End If
+
+
+            If rotear Then
+
+                'Criar novo registro
+                With dto_back
+                    .roteamento_id = .id
+                    .fila_id = filaNovoCaso
+                    .status = 0
+                    .tipo_registro = "A"
+                    '.cliente_id = .cliente_id
+                    .produto_id = 0
+                    .contrato_id = 0
+                    .contrato_assinado = False
+                    .pgto_realizado = False
+                    .finalizacao_id = 0
+                    .subfinalizacao_id = 0
+                    .observacao = "Protocolo anterior = " & .id
+                    .data_cat = Nothing
+                    .usuario_cat = Nothing
+                    .data_imp = hlp.dataAbreviada().AddDays(agingNovoCaso) 'calculando o aging de retorno
+                End With
+
+                'Validando se o roteamento ocorreu corretamente
+                roteado = dal.gerarNovoCaso(dto_back)
+
+            End If
+
+            If (validacao And Not rotear) Or (validacao And rotear And roteado) Then
+                MsgBox("Registro salvo com sucesso!", vbInformation, TITULO_ALERTA)
+                Return True
+            Else
+                If Not validacao Then
+                    MsgBox("Erro ao salvar o registro!", vbCritical, TITULO_ALERTA)
+                    Return False
+                ElseIf validacao And Not roteado Then
+                    MsgBox("Registro salvo, porém não foi possível criar um novo registro para contato futuro!", vbCritical, TITULO_ALERTA)
+                    Return False
+                Else
+                    MsgBox("Erro ao salvar o registro!", vbCritical, TITULO_ALERTA)
+                    Return False
+                End If
+            End If
+
+        Catch ex As Exception
+            Return False
+        End Try
     End Function
 
 End Class

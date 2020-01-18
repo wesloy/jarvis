@@ -49,17 +49,20 @@
         End If
         Return True
     End Function
+
     Public Sub PreencheComboSubFinalizacao(frm As Form, cb As ComboBox, Optional ByVal idFinalizacao As Integer = 0)
         db.GetComboboxSubFinalizacao(frm, cb, idFinalizacao)
     End Sub
+
     Public Function GetNomeSubFinalizacaoPorID(ByVal idSubFinalizacao As Integer) As String
         dto = GetSubFinalizacaoPorCodigo(idSubFinalizacao)
-        Return dto.Descricao.ToString.ToUpper
+        Return dto.descricao.ToString.ToUpper
     End Function
 
     Public Function GetSubFinalizacaoPorCodigo(ByVal _SubfinalizacaoId As Integer) As dto_subfinalizacoes
         Return db.GetSubFinalizacaoPorId(_SubfinalizacaoId)
     End Function
+
     Public Function SalvaSubFinalizacao(ByVal _SubfinalizacaoId As dto_subfinalizacoes) As Boolean
         If db.ValidaDuplicidade(_SubfinalizacaoId.descricao, _SubfinalizacaoId.id, _SubfinalizacaoId.idFinalizacao) Then
             Return db.Salvar(_SubfinalizacaoId)
@@ -67,11 +70,25 @@
             Return False
         End If
     End Function
+
     Public Function DeletaSubFinalizacao(ByVal _SubfinalizacaoId As Integer) As Boolean
         Return db.DeletaSubFinalizacaoPorId(_SubfinalizacaoId)
     End Function
 
-    Public Function roteamentoPorSubFinalizacao(ByVal idSubfinalizacao As Integer) As dto_subfinalizacoes
-        Return db.roteamentoPorSubFinalizacao(idSubfinalizacao)
+    ''' <summary>
+    ''' Retorna o objeto, se o a subfinalização é passível de roteamento
+    ''' </summary>
+    ''' <param name="idSubfinalizacao"></param>
+    ''' <returns></returns>
+    Public Function roteamentoPorSubFinalizacao(ByVal idSubfinalizacao As Integer, ByRef dto_subfin As dto_subfinalizacoes) As Boolean
+
+        dto_subfin = db.roteamentoPorSubFinalizacao(idSubfinalizacao)
+
+        If dto_subfin Is Nothing Then
+            Return False
+        Else
+            Return True
+        End If
+
     End Function
 End Class

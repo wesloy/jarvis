@@ -106,7 +106,20 @@
     Public Function DeletaFinalizacao(ByVal _finalizacaoId As Integer) As Boolean
         Return db.DeletaFinalizacaoPorId(_finalizacaoId)
     End Function
-    Public Function roteamentoPorFinalizacao(ByVal idfinalizacao As Integer) As dto_finalizacoes
-        Return db.roteamentoPorFinalizacao(idfinalizacao)
+    ''' <summary>
+    ''' Retorna o objeto, se o a finalização é passível de roteamento
+    ''' </summary>
+    ''' <param name="idfinalizacao"></param>
+    ''' <returns></returns>
+    Public Function roteamentoPorFinalizacao(ByVal idfinalizacao As Integer, ByRef dto_fin As dto_finalizacoes) As Boolean
+
+        dto_fin = db.roteamentoPorFinalizacao(idfinalizacao)
+
+        If dto_fin Is Nothing Then
+            Return False
+        Else
+            Return True
+        End If
+
     End Function
 End Class

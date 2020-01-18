@@ -39,6 +39,20 @@ J.A.R.V.I.S
  <param name="dto_base"></param>
  <returns></returns>
 </member>
+<member name="M:J.A.R.V.I.S.bll_finalizacoes.roteamentoPorFinalizacao(System.Int32,J.A.R.V.I.S.dto_finalizacoes@)">
+ <summary>
+ Retorna o objeto, se o a finalização é passível de roteamento
+ </summary>
+ <param name="idfinalizacao"></param>
+ <returns></returns>
+</member>
+<member name="M:J.A.R.V.I.S.bll_subfinalizacoes.roteamentoPorSubFinalizacao(System.Int32,J.A.R.V.I.S.dto_subfinalizacoes@)">
+ <summary>
+ Retorna o objeto, se o a subfinalização é passível de roteamento
+ </summary>
+ <param name="idSubfinalizacao"></param>
+ <returns></returns>
+</member>
 <member name="M:J.A.R.V.I.S.dal_relatorios.exportarRS_excel(System.String)">
  <summary>
  Função para exportar um RS para excel

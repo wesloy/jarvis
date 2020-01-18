@@ -97,11 +97,7 @@
     End Sub
 
     Private Sub btnIniciar_Click(sender As Object, e As EventArgs) Handles btnIniciar.Click
-        gbDados.Enabled = True
-        gbConcluir.Enabled = True
-        clientes.PreencheCombobox(Me, cbCliente)
-        produtos.PreencheCombobox(Me, cbProduto)
-        'contratos.PreencheCombobox(Me, cbContrato)
+
 
 
         'Validações de campos obrigatórios
@@ -114,8 +110,14 @@
             Exit Sub
         End If
 
-        'Bloqueando grupo iniciar para evitar alterações durante o trabalho 
+
+        'Bloqueando/Liberando grupos
         gbIniciar.Enabled = False
+        gbDados.Enabled = True
+        gbConcluir.Enabled = True
+        clientes.PreencheCombobox(Me, cbCliente)
+        produtos.PreencheCombobox(Me, cbProduto)
+        'contratos.PreencheCombobox(Me, cbContrato)
 
         Dim dto_back As New dto_backoffice
         dto_back = carregarDto(True)
@@ -155,7 +157,7 @@
 
     End Sub
 
-    Private Sub linkAdcCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkAdcCliente.LinkClicked
+    Private Sub linkAdcCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
         hlp.abrirForm(frmCadClientes, False, False)
     End Sub
 
@@ -167,7 +169,7 @@
         hlp.abrirForm(frmCadContratos, False, False)
     End Sub
 
-    Private Sub linkDetalhesCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkDetalhesCliente.LinkClicked
+    Private Sub linkDetalhesCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
         If cbCliente.Text <> "" Then
             exibirDetalhes("CLIENTES", cbCliente.SelectedValue)
         End If
@@ -191,7 +193,7 @@
         e.Handled = True
     End Sub
 
-    Private Sub cbCliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbCliente.KeyPress
+    Private Sub cbCliente_KeyPress(sender As Object, e As KeyPressEventArgs)
         e.Handled = True
     End Sub
 
@@ -221,7 +223,7 @@
 
     End Sub
 
-    Private Sub cbCliente_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cbCliente.SelectionChangeCommitted
+    Private Sub cbCliente_SelectionChangeCommitted(sender As Object, e As EventArgs)
         Try
             If cbCliente.SelectedValue > 0 Then
                 If Not backOffice.carregarListViewHistoricoCliente(lvHistoricoCliente, cbCliente.SelectedValue) Then
@@ -255,5 +257,34 @@
         Catch ex As Exception
             lvHistoricoCliente.Clear()
         End Try
+    End Sub
+
+    Private Sub linkAtualizarCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+        clientes.PreencheCombobox(Me, cbCliente)
+    End Sub
+
+    Private Sub linkAtualizarProduto_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkAtualizarProduto.LinkClicked
+        produtos.PreencheCombobox(Me, cbProduto)
+    End Sub
+
+    Private Sub linkAtualizarContrato_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkAtualizarContrato.LinkClicked
+
+    End Sub
+
+    Private Sub cbFila_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cbFila.SelectionChangeCommitted
+        If rbAutomatica.Checked Then
+            'Carregar combo de clientes apenas com os disponíveis para trabalho na fila e bloquear o link de adicionar/alterar tbm o de atualizar
+
+        End If
+
+        If rbManual.Checked Then
+            'Carregar combo de clientes com todos os clientes disponíveis na base de clientes e liberar o link de adicionar/alterar tbm o de atualizar
+
+        End If
+    End Sub
+
+    Private Sub btnFinalizar_Click(sender As Object, e As EventArgs) Handles btnFinalizar.Click
+        'Validar campos obrigatórios
+        'salvar
     End Sub
 End Class
