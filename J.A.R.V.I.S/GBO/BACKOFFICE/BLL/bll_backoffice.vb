@@ -52,6 +52,10 @@
         End Try
     End Function
 
+    Public Sub capturarListaClientesDisponiveisPorFila(ByVal frm As Form, ByVal cb As ComboBox, ByVal id_fila As Integer)
+        dal.capturarClientesDiposniveisPorFila(frm, cb, id_fila)
+    End Sub
+
     Public Function carregarListViewHistoricoCliente(ByVal ltv As ListView, ByVal id_cliente As Integer) As Boolean
         Try
             dt = dal.getHistoricoRegistrosPorCliente(id_cliente)
@@ -85,11 +89,11 @@
                     item.SubItems.Add(IIf(IsDBNull(drRow("observacao")), "", drRow("observacao")))
 
                     If drRow("status") = 0 Then
-                        item.ImageKey = 1 'verde
+                        item.ImageKey = 3 'vermelho
                     ElseIf drRow("status") = 1 Then
                         item.ImageKey = 2 'amarelo
                     Else
-                        item.ImageKey = 3 'vermelho
+                        item.ImageKey = 1 'verde
                     End If
                     ltv.Items.Add(item)
                 Next drRow

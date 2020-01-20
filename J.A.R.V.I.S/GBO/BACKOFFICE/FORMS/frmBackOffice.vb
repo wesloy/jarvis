@@ -7,6 +7,8 @@
     Private clientes As New bll_clientes
     Private produtos As New bll_produtos
     Private contratos As New bll_contratos
+    Private finalizacoes As New bll_finalizacoes
+    Private subFinalizacoes As New bll_subfinalizacoes
 
 
 #End Region
@@ -48,7 +50,7 @@
                     .fila_id = IIf(cbFila.Text <> "", cbFila.SelectedValue, 0)
                     .tipo_registro = IIf(rbAutomatica.Checked, "A", "M")
                     .data_imp = txtDataRegistro.Text
-                    .usuario_imp = txtUsuarioResponsavel.Text
+                    .usuario_imp_desc = txtUsuarioResponsavel.Text
 
                     .cliente_id = cbCliente.SelectedValue
                     .cliente_desc = cbCliente.Text
@@ -56,9 +58,11 @@
                     .produto_desc = cbProduto.Text
                     .contrato_id = cbContrato.SelectedValue
                     .contrato_desc = cbContrato.Text
-                    .contrato_assinado = cbxContratoAssinado.Text
-                    .pgto_realizado = cbxPagamento.Text
+                    .contrato_assinado = cbxContratoAssinado.Checked
+                    .pgto_realizado = cbxPagamento.Checked
 
+                    .usuario_cat = sessaoIdUsuario
+                    .usuario_cat_desc = sessaoNomeUsuario
                     .finalizacao_id = cbFinalizacao.SelectedValue
                     .finalizacao_desc = cbFinalizacao.Text
                     .subfinalizacao_id = cbSubfinalizacao.SelectedValue
@@ -85,20 +89,24 @@
     Private Sub rbAutomatica_CheckedChanged(sender As Object, e As EventArgs) Handles rbAutomatica.CheckedChanged
         If rbAutomatica.Checked Then
             filas.PreencheComboFilaAutomatica(Me, cbFila, True)
+            cbCliente.DataSource = Nothing
             limpeza(True)
+            linkAdcCliente.Enabled = False
+            linkAtualizarCliente.Enabled = False
         End If
     End Sub
 
     Private Sub rbManual_CheckedChanged(sender As Object, e As EventArgs) Handles rbManual.CheckedChanged
         If rbManual.Checked Then
             filas.PreencheComboFilaManual(Me, cbFila)
+            cbCliente.DataSource = Nothing
             limpeza(True)
+            linkAdcCliente.Enabled = True
+            linkAtualizarCliente.Enabled = True
         End If
     End Sub
 
     Private Sub btnIniciar_Click(sender As Object, e As EventArgs) Handles btnIniciar.Click
-
-
 
         'Validações de campos obrigatórios
         If Not rbAutomatica.Checked And Not rbManual.Checked Then
@@ -115,7 +123,6 @@
         gbIniciar.Enabled = False
         gbDados.Enabled = True
         gbConcluir.Enabled = True
-        clientes.PreencheCombobox(Me, cbCliente)
         produtos.PreencheCombobox(Me, cbProduto)
         'contratos.PreencheCombobox(Me, cbContrato)
 
@@ -133,7 +140,10 @@
                     filas.PreencheComboFilaManual(Me, cbFila)
                     rbManual.Checked = True
                 End If
+
+                'Carregar todas as filas/clientes devido recuperaçao de registro
                 cbFila.SelectedValue = .fila_id
+
 
                 'Informações Relevantes
                 txtProtocolo.Text = .id
@@ -151,15 +161,29 @@
                 cbxPagamento.Checked = .pgto_realizado
             End With
 
+            'Carregamento listviewHistórico
+            Try
+                If cbCliente.SelectedValue > 0 Then
+                    If Not backOffice.carregarListViewHistoricoCliente(lvHistoricoCliente, cbCliente.SelectedValue) Then
+                        lvHistoricoCliente.Clear()
+                    End If
+                End If
+            Catch ex As Exception
+                lvHistoricoCliente.Clear()
+            End Try
+
+            'Carregando finalizações independnete do tipo de entrada do registro
+            If cbFila.SelectedValue > 0 Then
+                finalizacoes.PreencheComboFinalizacao(Me, cbFinalizacao, cbFila.SelectedValue)
+            End If
+
         Else
             limpeza()
         End If
 
     End Sub
 
-    Private Sub linkAdcCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
-        hlp.abrirForm(frmCadClientes, False, False)
-    End Sub
+
 
     Private Sub linkAdcProduto_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkAdcProduto.LinkClicked
         hlp.abrirForm(frmCadProdutos, False, False)
@@ -169,11 +193,7 @@
         hlp.abrirForm(frmCadContratos, False, False)
     End Sub
 
-    Private Sub linkDetalhesCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
-        If cbCliente.Text <> "" Then
-            exibirDetalhes("CLIENTES", cbCliente.SelectedValue)
-        End If
-    End Sub
+
 
     Private Sub linkDetalhesProduto_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkDetalhesProduto.LinkClicked
         If cbProduto.Text <> "" Then
@@ -216,23 +236,11 @@
         End If
 
         'Limpeza completa, envolvendo rollback (FILA AUTOMÁTICA) de caso ou delete de registro (FILA MANUAL)
-        dto_back = carregarDto(True)
+        dto_back = carregarDto(False)
         If backOffice.liberarRegistro(dto_back) Then
             limpeza()
         End If
 
-    End Sub
-
-    Private Sub cbCliente_SelectionChangeCommitted(sender As Object, e As EventArgs)
-        Try
-            If cbCliente.SelectedValue > 0 Then
-                If Not backOffice.carregarListViewHistoricoCliente(lvHistoricoCliente, cbCliente.SelectedValue) Then
-                    lvHistoricoCliente.Clear()
-                End If
-            End If
-        Catch ex As Exception
-            lvHistoricoCliente.Clear()
-        End Try
     End Sub
 
     Private Sub lvHistoricoCliente_ColumnClick(sender As Object, e As ColumnClickEventArgs) Handles lvHistoricoCliente.ColumnClick
@@ -259,9 +267,6 @@
         End Try
     End Sub
 
-    Private Sub linkAtualizarCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
-        clientes.PreencheCombobox(Me, cbCliente)
-    End Sub
 
     Private Sub linkAtualizarProduto_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkAtualizarProduto.LinkClicked
         produtos.PreencheCombobox(Me, cbProduto)
@@ -274,17 +279,52 @@
     Private Sub cbFila_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cbFila.SelectionChangeCommitted
         If rbAutomatica.Checked Then
             'Carregar combo de clientes apenas com os disponíveis para trabalho na fila e bloquear o link de adicionar/alterar tbm o de atualizar
-
+            backOffice.capturarListaClientesDisponiveisPorFila(Me, cbCliente, cbFila.SelectedValue)
         End If
 
         If rbManual.Checked Then
             'Carregar combo de clientes com todos os clientes disponíveis na base de clientes e liberar o link de adicionar/alterar tbm o de atualizar
-
+            clientes.PreencheCombobox(Me, cbCliente)
         End If
+
+
     End Sub
 
     Private Sub btnFinalizar_Click(sender As Object, e As EventArgs) Handles btnFinalizar.Click
         'Validar campos obrigatórios
-        'salvar
+        If Not hlp.validaCamposObrigatorios(gbDados, "cbProduto") Then
+            Exit Sub
+        End If
+
+        If Not hlp.validaCamposObrigatorios(gbConcluir, "cbFinalizacao;cbSubfinalizacao") Then
+            Exit Sub
+        End If
+        'Salvar
+
+    End Sub
+
+    Private Sub linkAtualizarCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkAtualizarCliente.LinkClicked
+        clientes.PreencheCombobox(Me, cbCliente)
+    End Sub
+
+    Private Sub cbCliente_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cbCliente.SelectionChangeCommitted
+
+    End Sub
+
+    Private Sub linkDetalhesCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkDetalhesCliente.LinkClicked
+        If cbCliente.Text <> "" Then
+            exibirDetalhes("CLIENTES", cbCliente.SelectedValue)
+        End If
+    End Sub
+
+    Private Sub linkAdcCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkAdcCliente.LinkClicked
+        hlp.abrirForm(frmCadClientes, False, False)
+    End Sub
+
+    Private Sub cbFinalizacao_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cbFinalizacao.SelectionChangeCommitted
+        'Validando se foi selecionado um registro
+        If cbFinalizacao.SelectedValue > 0 Then
+            subFinalizacoes.PreencheComboSubFinalizacao(Me, cbSubfinalizacao, cbFinalizacao.SelectedValue)
+        End If
     End Sub
 End Class

@@ -385,6 +385,13 @@
             sql = "Select * from tb_base where status = 1 and data_cat < " & objCon.valorSql(hlp.dataHoraAtual.AddHours(-6), False) & " "
             dt = objCon.retornaDataTable(sql)
 
+
+            If dt.Rows.Count = 0 Then
+                sql = "Select * from tb_base where data_imp < " & objCon.valorSql(hlp.dataHoraAtual.AddHours(-6), False) & " "
+                sql += "and status < 2 and tipo_registro = 'M'"
+                dt = objCon.retornaDataTable(sql)
+            End If
+
             If dt.Rows.Count > 0 Then
                 For Each ln As DataRow In dt.Rows
                     If ln("tipo_registro") = "M" Then
@@ -403,20 +410,22 @@
 
     End Sub
 
-    Public Function capturarClientesDiposniveisPorFila(ByVal id_fila As Integer) As DataTable
+    Public Sub capturarClientesDiposniveisPorFila(ByVal frm As Form, ByVal cb As ComboBox, ByVal id_fila As Integer)
         Try
 
             'Rollback casos presos
             rollbackRegistrosLocados()
 
             'Capturar lista de clientes (ID + NOME)
-            sql = ""
-            Return objCon.retornaDataTable(sql)
-
+            sql = "select c.id, c.cliente from tb_base b inner join tb_clientes c on b.cliente_id = c.id "
+            sql += "Where b.fila_id = " & objCon.valorSql(id_fila, False) & " "
+            sql += "and status = 0 "
+            dt = objCon.retornaDataTable(sql)
+            hlp.carregaComboBox(dt, frm, cb, False,,, True)
         Catch ex As Exception
-            Return Nothing
+            Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "CAPTURAR CLIENTES DISP POR FILA")
         End Try
-    End Function
+    End Sub
 
 
 End Class

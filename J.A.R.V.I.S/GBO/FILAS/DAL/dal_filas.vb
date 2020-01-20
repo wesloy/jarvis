@@ -221,7 +221,7 @@
             sql = sql & "order by tb_filas.descricao asc"
 
             dt = objCon.retornaDataTable(sql)
-            hlp.carregaComboBox(dt, frm, cb, True,,, True)
+            hlp.carregaComboBox(dt, frm, cb, False,,, True)
         Catch ex As Exception
             MsgBox(Err.Description & " - " & hlp.getCurrentMethodName)
         End Try

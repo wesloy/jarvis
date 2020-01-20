@@ -237,7 +237,7 @@
             sql += "order by tb_clientes.cliente asc"
 
             dt = objCon.retornaDataTable(sql)
-            hlp.carregaComboBox(dt, frm, cb, True,,, True)
+            hlp.carregaComboBox(dt, frm, cb, False,,, True)
         Catch ex As Exception
             Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "MANUTENÇÃO CLIENTES")
         End Try

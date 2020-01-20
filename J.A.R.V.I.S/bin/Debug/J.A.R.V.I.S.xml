@@ -22,6 +22,14 @@ J.A.R.V.I.S
   pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
 </summary>
 </member>
+<member name="M:J.A.R.V.I.S.dal_backoffice.confirmarUsuiarioCatAntesSalvar(J.A.R.V.I.S.dto_backoffice)">
+ <summary>
+ Utilizado para confirmar se o registro que será salvo está locado para o mesmo usuário que o capturou
+ se a locação do registro for diferente, significa que o mesmo sofreu rollback devido o tempo que ficou locado
+ </summary>
+ <param name="dto"></param>
+ <returns></returns>
+</member>
 <member name="M:J.A.R.V.I.S.dal_backoffice.deletarPorID(System.Int32)">
  <summary>
  Função para deletar registro por ID
@@ -38,6 +46,12 @@ J.A.R.V.I.S
  </summary>
  <param name="dto_base"></param>
  <returns></returns>
+</member>
+<member name="M:J.A.R.V.I.S.dal_backoffice.rollbackRegistrosLocados">
+ <summary>
+ Voltar registros para a fila e/ou deletar registros após um tempo de espera.
+ Padrão atual de 6 horas de espera.
+ </summary>
 </member>
 <member name="M:J.A.R.V.I.S.bll_finalizacoes.roteamentoPorFinalizacao(System.Int32,J.A.R.V.I.S.dto_finalizacoes@)">
  <summary>

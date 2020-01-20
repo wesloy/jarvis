@@ -159,7 +159,7 @@ Partial Class frmBackOffice
         Me.cbCliente.Name = "cbCliente"
         Me.cbCliente.Size = New System.Drawing.Size(243, 21)
         Me.cbCliente.TabIndex = 6
-        Me.cbCliente.Tag = "FILA"
+        Me.cbCliente.Tag = "CLIENTE"
         '
         'btnIniciar
         '
@@ -581,6 +581,7 @@ Partial Class frmBackOffice
         Me.cbxContratoAssinado.Name = "cbxContratoAssinado"
         Me.cbxContratoAssinado.Size = New System.Drawing.Size(112, 17)
         Me.cbxContratoAssinado.TabIndex = 20
+        Me.cbxContratoAssinado.Tag = "CONTRATO ASSINADO"
         Me.cbxContratoAssinado.Text = "Contrato Assinado"
         Me.ToolTip1.SetToolTip(Me.cbxContratoAssinado, "Quando o cliente assinar o contrato este item deve ser marcado, para que não gere" &
         " fila de trabalho com esta pendência.")
@@ -593,6 +594,7 @@ Partial Class frmBackOffice
         Me.cbxPagamento.Name = "cbxPagamento"
         Me.cbxPagamento.Size = New System.Drawing.Size(130, 17)
         Me.cbxPagamento.TabIndex = 19
+        Me.cbxPagamento.Tag = "PAGTO REALIZADO"
         Me.cbxPagamento.Text = "Pagamento Realizado"
         Me.ToolTip1.SetToolTip(Me.cbxPagamento, "Ao clicar deverá efetivar o pagamento do cliente!")
         Me.cbxPagamento.UseVisualStyleBackColor = True
@@ -630,7 +632,7 @@ Partial Class frmBackOffice
         Me.cbContrato.Name = "cbContrato"
         Me.cbContrato.Size = New System.Drawing.Size(683, 21)
         Me.cbContrato.TabIndex = 16
-        Me.cbContrato.Tag = "FILA"
+        Me.cbContrato.Tag = "CONTRATO"
         '
         'Label10
         '
@@ -683,7 +685,7 @@ Partial Class frmBackOffice
         Me.cbProduto.Name = "cbProduto"
         Me.cbProduto.Size = New System.Drawing.Size(683, 21)
         Me.cbProduto.TabIndex = 8
-        Me.cbProduto.Tag = "FILA"
+        Me.cbProduto.Tag = "PRODUTO"
         '
         'Label9
         '
