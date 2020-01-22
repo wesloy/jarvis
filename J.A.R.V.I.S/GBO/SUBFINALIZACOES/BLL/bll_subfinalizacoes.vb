@@ -16,15 +16,17 @@
             .FullRowSelect = True
             .HideSelection = False
             .MultiSelect = False
-            .Columns.Add("ID", 50, HorizontalAlignment.Center)
-            .Columns.Add("SUBFINALIZAÇÃO", 220, HorizontalAlignment.Left)
-            .Columns.Add("ÁREA", 80, HorizontalAlignment.Left)
-            .Columns.Add("FILA", 180, HorizontalAlignment.Left)
-            .Columns.Add("FINALIZAÇÃO", 160, HorizontalAlignment.Left)
-            .Columns.Add("PASSIVEL EF.", 200, HorizontalAlignment.Left)
-            .Columns.Add("EFETIVO.", 200, HorizontalAlignment.Left)
-            .Columns.Add("FRAUDE", 200, HorizontalAlignment.Left)
-            .Columns.Add("NÃO FRAUDE", 200, HorizontalAlignment.Left)
+            .Columns.Add("ID:", 50, HorizontalAlignment.Center)
+            .Columns.Add("DESCRIÇÃO:", 180, HorizontalAlignment.Left)
+            .Columns.Add("FILA:", 200, HorizontalAlignment.Left)
+            .Columns.Add("FINALIZAÇÃO:", 200, HorizontalAlignment.Left)
+            .Columns.Add("PASSIVEL EF.:", 200, HorizontalAlignment.Left)
+            .Columns.Add("EFETIVO:", 200, HorizontalAlignment.Left)
+            .Columns.Add("GERAR NOVO CASO:", 200, HorizontalAlignment.Left)
+            .Columns.Add("AGING NOVO CASO:", 200, HorizontalAlignment.Left)
+            .Columns.Add("FILA DESTINO:", 200, HorizontalAlignment.Left)
+            .Columns.Add("DATA MANUTENÇÃO:", 200, HorizontalAlignment.Left)
+            .Columns.Add("MANUTENÇÃO REALIZADA POR:", 200, HorizontalAlignment.Left)
         End With
         'POPULANDO
         If dt.Rows.Count > 0 Then 'verifica se existem registros
@@ -32,13 +34,15 @@
                 Dim item As New ListViewItem()
                 item.Text = drRow("id")
                 item.SubItems.Add(drRow("descricao"))
-                item.SubItems.Add(drRow("DescricaoArea"))
                 item.SubItems.Add(drRow("DescricaoFila"))
                 item.SubItems.Add(drRow("DescricaoFinalizacao"))
-                item.SubItems.Add(drRow("cttoPassivelEfetividade"))
-                item.SubItems.Add(drRow("cttoEfetivo"))
-                item.SubItems.Add(drRow("fraude"))
-                item.SubItems.Add(drRow("naoFraude"))
+                item.SubItems.Add(IIf(drRow("cttoPassivelEfetividade") = True, "SIM", "NÃO"))
+                item.SubItems.Add(IIf(drRow("cttoEfetivo") = True, "SIM", "NÃO"))
+                item.SubItems.Add(IIf(drRow("geraNovoCaso") = True, "SIM", "NÃO"))
+                item.SubItems.Add(IIf(drRow("geraNovoCaso") = True, FlagRoteamentoRetornaExpressao(drRow("agingNovoCaso")).ToUpper, "NÃO SE APLICA"))
+                item.SubItems.Add(IIf(IsDBNull(drRow("DescricaoFilaDestino")), "NÃO SE APLICA", drRow("DescricaoFilaDestino")))
+                item.SubItems.Add(drRow("dataCadastro"))
+                item.SubItems.Add(drRow("nome"))
                 If drRow("situacao") Then
                     item.ImageKey = 1 'verde
                 Else
@@ -91,4 +95,36 @@
         End If
 
     End Function
+
+    Public Function AtualizaListViewFilasPorSubFinalizacao(ByVal subfinalizacao As String) As Boolean
+        dt = db.GetFilasPorSubFinalizacao(subfinalizacao)
+        frmCadFinalizacoes.listviewFilasPorFinalizacao.Clear()
+        'AJUSTANDO AS COLUNAS
+        With frmCadFinalizacoes.listviewFilasPorFinalizacao
+            .View = View.Details
+            .LabelEdit = False
+            .CheckBoxes = False
+            .SmallImageList = imglist() 'Utilizando um modulo publico
+            .GridLines = True
+            .FullRowSelect = False
+            .HideSelection = False
+            .MultiSelect = False
+            .Columns.Add("ID_FILA", 0, HorizontalAlignment.Center)
+            .Columns.Add("FILA", 200, HorizontalAlignment.Left)
+            .Columns.Add("SIGLA", 100, HorizontalAlignment.Left)
+        End With
+        'POPULANDO
+        If dt.Rows.Count > 0 Then 'verifica se existem registros
+            For Each drRow As DataRow In dt.Rows
+                Dim item As New ListViewItem()
+                item.Text = drRow("id")
+                item.SubItems.Add(drRow("descricao"))
+                item.SubItems.Add(drRow("sigla"))
+                frmCadFinalizacoes.listviewFilasPorFinalizacao.Items.Add(item)
+            Next drRow
+        End If
+        Return True
+    End Function
+
+
 End Class

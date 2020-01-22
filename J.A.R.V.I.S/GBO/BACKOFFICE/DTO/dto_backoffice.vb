@@ -13,9 +13,9 @@
     Public Property subfinalizacao_id As Integer
     Public Property observacao As String
     Public Property data_cat As Date
-    Public Property usuario_cat As String
+    Public Property usuario_cat As Integer
     Public Property data_imp As Date
-    Public Property usuario_imp As String
+    Public Property usuario_imp As Integer
     Public Property acao As Byte
 
     'Variáveis auxiliares

@@ -182,11 +182,11 @@
     Public Sub GetComboboxFinalizacao(frm As Form, cb As ComboBox, Optional ByVal fila As Integer = 0)
         Try
             sql = "Select * from tb_finalizacoes "
-            sql += "where situacao = " & objCon.valorSql(True) & " "
-            sql += "and tb_finalizacoes.idfila = " & objCon.valorSql(fila) & " "
+            sql += "where situacao = " & objCon.valorSql(True, False) & " "
+            sql += "and tb_finalizacoes.idfila = " & objCon.valorSql(fila, False) & " "
             sql += "order by tb_finalizacoes.descricao asc "
             dt = objCon.retornaDataTable(sql)
-            hlp.carregaComboBox(dt, frm, cb, True,,, True)
+            hlp.carregaComboBox(dt, frm, cb, False,,, True)
         Catch ex As Exception
             MsgBox(Err.Description & " - " & hlp.getCurrentMethodName)
         End Try

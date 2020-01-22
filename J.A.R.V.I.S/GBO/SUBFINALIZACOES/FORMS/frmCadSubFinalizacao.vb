@@ -192,4 +192,44 @@
     Private Sub cbFiltrofila_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbFiltrofila.KeyPress
         e.Handled = True
     End Sub
+
+    Private Sub ListView1_ColumnClick(sender As Object, e As ColumnClickEventArgs) Handles ListView1.ColumnClick
+        If Me.ListView1.Sorting = SortOrder.Ascending Then
+            Me.ListView1.Sorting = SortOrder.Descending
+        Else
+            Me.ListView1.Sorting = SortOrder.Ascending
+        End If
+        Me.ListView1.ListViewItemSorter = New mdlOrdenacaoListView(e.Column, Me.ListView1.Sorting)
+    End Sub
+
+    Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles ListView1.DoubleClick
+        Dim id_registro As Integer
+        id_registro = Me.ListView1.SelectedItems(0).SubItems(0).Text 'captura informações da primeira coluna selecionada
+        If String.IsNullOrEmpty(id_registro) Or id_registro = 0 Then
+            MsgBox("Nenhum registro foi selecionado!", MsgBoxStyle.Information, TITULO_ALERTA)
+            Exit Sub
+        Else
+            dto = bll.GetSubFinalizacaoPorCodigo(id_registro)
+            With dto
+                'GERAL
+                Me.ckboxAtivo.Checked = .situacao
+                Me.txtID.Text = .id
+                Me.txtSubFinalizacao.Text = .descricao
+                Me.cbFila.SelectedValue = .idFila
+                Me.cbFinalizacao.SelectedValue = .idFinalizacao
+
+                'CARACTERISTICA DA FINALIZACAO
+                Me.ckboxPassivelEfet.Checked = .cttoPassivelEfetividade
+                Me.ckboxEfetivo.Checked = .cttoEfetivo
+
+                'ROTEAMENTO
+                Me.ckboxGerarNovoCaso.Checked = .geraNovoCaso
+                Me.cbAging.Text = FlagRoteamentoRetornaExpressao(.agingNovoCaso)
+                Me.cbFilaDestino.SelectedValue = .filaNovoCaso
+
+            End With
+            bll.AtualizaListViewFilasPorSubFinalizacao(dto.descricao)
+        End If
+        liberaBotoes()
+    End Sub
 End Class

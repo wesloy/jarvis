@@ -550,7 +550,7 @@ Partial Class frmCadSubFinalizacao
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(338, 22)
         Me.Label18.TabIndex = 209
-        Me.Label18.Text = "Finalizações vinculadas:"
+        Me.Label18.Text = "SubFinalizações vinculadas:"
         '
         'listviewFilasPorFinalizacao
         '

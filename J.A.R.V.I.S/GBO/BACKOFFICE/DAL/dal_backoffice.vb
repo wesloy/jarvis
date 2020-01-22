@@ -54,7 +54,12 @@
                 If hlp.FormataDataAbreviada(dto.data_imp) = hlp.dataAbreviada() Then
                     sql = "Select * from tb_base "
                     sql += "WHERE usuario_imp = " & objCon.valorSql(sessaoIdUsuario, False) & " "
-                    sql += "AND data_imp = " & objCon.valorSql(dataHoraAtual, False) & " "
+                    sql += "AND day(data_imp) = " & objCon.valorSql(dataHoraAtual.Day, False) & " "
+                    sql += "AND month(data_imp) = " & objCon.valorSql(dataHoraAtual.Month, False) & " "
+                    sql += "AND year(data_imp) = " & objCon.valorSql(dataHoraAtual.Year, False) & " "
+                    sql += "AND hour(data_imp) = " & objCon.valorSql(dataHoraAtual.Hour, False) & " "
+                    sql += "AND Minute(data_imp) = " & objCon.valorSql(dataHoraAtual.Minute, False) & " "
+                    sql += "AND Second(data_imp) = " & objCon.valorSql(dataHoraAtual.Second, False) & " "
                     sql += "AND fila_id = " & objCon.valorSql(dto.fila_id, False) & " "
                     sql += "AND status = 0 "
                     dt = objCon.retornaDataTable(sql)
@@ -206,9 +211,7 @@
                 sql += "subfinalizacao_id = " & objCon.valorSql(.subfinalizacao_id, False) & ", "
                 sql += "observacao = " & objCon.valorSql(.observacao, False) & ", "
                 sql += "data_cat = " & objCon.valorSql(.data_cat, False) & ", "
-                sql += "usuario_cat = " & objCon.valorSql(.usuario_cat, False) & ", "
-                sql += "data_imp = " & objCon.valorSql(.data_imp, False) & ", "
-                sql += "usuario_imp = " & objCon.valorSql(.usuario_imp, False) & " "
+                sql += "usuario_cat = " & objCon.valorSql(.usuario_cat, False) & " "
                 sql += "Where "
                 sql += "id = " & objCon.valorSql(.id) & " "
             End With
@@ -240,9 +243,10 @@
         End Try
     End Function
 
-    Public Function validarRegistroLocadoPorUsuario(ByVal _idUsuario As Integer) As Integer
+    Public Function validarRegistroLocadoPorUsuario(ByVal dto_back As dto_backoffice) As Integer
         Try
-            sql = "Select * from tb_base where status = 1 and usuario_cat = " & objCon.valorSql(_idUsuario, False) & " "
+            sql = "Select * from tb_base where status = 1 and usuario_cat = " & objCon.valorSql(dto_back.usuario_cat, False) & " "
+            sql += "and tipo_registro =  " & objCon.valorSql(dto_back.tipo_registro, False) & " "
             dt = objCon.retornaDataTable(sql)
 
             If dt.Rows.Count > 0 Then
@@ -253,7 +257,7 @@
 
             Return 0
         Catch ex As Exception
-            Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "CAPTURAR REGISTRO LOCADO USUÁRIO = " & _idUsuario)
+            Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "CAPTURAR REGISTRO LOCADO USUÁRIO = " & dto_back.usuario_cat)
             Return 0
         End Try
     End Function

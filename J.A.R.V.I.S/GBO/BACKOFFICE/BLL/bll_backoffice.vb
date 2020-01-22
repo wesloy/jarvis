@@ -11,7 +11,7 @@
             With dto_back
 
                 'Validar se há algum registro preso para o usuário logado
-                Dim id_locado = dal.validarRegistroLocadoPorUsuario(sessaoIdUsuario)
+                Dim id_locado = dal.validarRegistroLocadoPorUsuario(dto_back)
                 If id_locado > 0 Then
                     If MsgBox(sessaoNomeUsuario & " existe um registro que você não finalizou. Deseja finalizar agora?", vbQuestion + vbYesNo, TITULO_ALERTA) = vbYes Then
                         dto_back.id = id_locado

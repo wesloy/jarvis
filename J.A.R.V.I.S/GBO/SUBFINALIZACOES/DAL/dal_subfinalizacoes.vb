@@ -10,17 +10,26 @@
 
     'parametro de filtro opcional
     Public Function GetSubFinalizacoes(Optional ByVal filtro As String = "", Optional ByVal filtroArea As String = "", Optional ByVal filtroFila As String = "") As DataTable
-        sql = "Select tb_subfinalizacoes.*, MX_sysAreas.area AS DescricaoArea, MX_sysFinalizacao.descricao as DescricaoFinalizacao, MX_sysFilas.fila as DescricaoFila "
-        sql += "from ((tb_subfinalizacoes "
-        sql += "LEFT JOIN MX_sysAreas ON tb_subfinalizacoes.idArea = MX_sysAreas.id) "
-        sql += "LEFT JOIN MX_sysFinalizacao ON tb_subfinalizacoes.IdFinalizacao = MX_sysFinalizacao.id) "
-        sql += "LEFT JOIN MX_sysFilas ON tb_subfinalizacoes.IdFila = MX_sysFilas.id "
-        sql += "where tb_subfinalizacoes.descricao like ('" & filtro & "%') " 'filtro opcional por finalizacao
-        sql += "and MX_sysAreas.area like('" & filtroArea & "%') "
-        sql += "and MX_sysFilas.fila like('" & filtroFila & "%') "
+        sql = "SELECT tb_subfinalizacoes.*, "
+        sql += "tb_finalizacoes.descricao as DescricaoFinalizacao, "
+        sql += "tb_filas.descricao as DescricaoFila "
+        sql += "From tb_filas INNER JOIN "
+        sql += "(tb_subfinalizacoes INNER JOIN tb_finalizacoes ON tb_subfinalizacoes.idFinalizacao = tb_finalizacoes.id) "
+        sql += "On tb_filas.id = tb_finalizacoes.idFila "
+        sql += "WHERE tb_subfinalizacoes.descricao Like ('" & filtro & "%') "
 
         GetSubFinalizacoes = objCon.retornaDataTable(sql)
     End Function
+    'captura as filas relacionadas de uma determinada subfinalizacao
+    Public Function GetFilasPorSubFinalizacao(ByVal subfinalizacao As String) As DataTable
+        sql = "SELECT tb_filas.id, tb_filas.descricao, tb_filas.sigla  "
+        sql += "FROM tb_filas "
+        sql += "INNER JOIN tb_subfinalizacoes ON tb_filas.id = tb_subfinalizacoes.IdFila "
+        sql += "WHERE tb_subfinalizacoes.descricao = " & objCon.valorSql(subfinalizacao) & " "
+        sql += "GROUP BY tb_filas.id, tb_filas.descricao, tb_filas.sigla "
+        GetFilasPorSubFinalizacao = objCon.retornaDataTable(sql)
+    End Function
+
     'captura as informações por id e retorna o objeto
     Public Function GetSubFinalizacaoPorId(ByVal _SubFinalizacaoId As Integer) As dto_subfinalizacoes
         sql = "Select * from tb_subfinalizacoes where id= " & objCon.valorSql(_SubFinalizacaoId)
@@ -162,7 +171,7 @@
         Try
             sql = "Select * from tb_subfinalizacoes "
             sql += "where tb_subfinalizacoes.situacao = " & objCon.valorSql(True, False) & " "
-            sql += "and tb_subfinalizacoes.idFinalizacao = " & objCon.valorSql(idFinalizacao) & " "
+            sql += "and tb_subfinalizacoes.idFinalizacao = " & objCon.valorSql(idFinalizacao, False) & " "
             sql += "order by tb_subfinalizacoes.descricao asc "
 
             dt = objCon.retornaDataTable(sql)

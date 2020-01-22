@@ -263,6 +263,7 @@ Partial Class frmBackOffice
         '
         Me.txtObservacao.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtObservacao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtObservacao.Location = New System.Drawing.Point(104, 73)
         Me.txtObservacao.Multiline = True
         Me.txtObservacao.Name = "txtObservacao"
