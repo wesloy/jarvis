@@ -20,12 +20,48 @@
         Me.btnAlterar.Enabled = False
         Me.btnExcluir.Enabled = False
     End Sub
+
+    Private Function carregarDTO(ByRef dto_sub As dto_subfinalizacoes, ByVal flagAcao As Integer) As Boolean
+        Try
+            With dto_sub
+                'Geral
+                .descricao = Me.txtSubFinalizacao.Text.Trim
+                .idFila = IIf(Me.cbFila.SelectedValue = 0, 1, Me.cbFila.SelectedValue)
+                .idFinalizacao = IIf(Me.cbFinalizacao.SelectedValue = 0, 1, Me.cbFinalizacao.SelectedValue)
+                .situacao = Me.ckboxAtivo.Checked
+                'Caracterização
+                .cttoPassivelEfetividade = Me.ckboxPassivelEfet.Checked
+                .cttoEfetivo = Me.ckboxEfetivo.Checked
+                'Roteamento
+                If Not ckboxGerarNovoCaso.Checked Then
+                    .geraNovoCaso = False
+                    .agingNovoCaso = 0
+                    .filaNovoCaso = 0
+                Else
+                    camposObrigatorios = "cbAging;cbFilaDestino"
+                    If Not hlp.validaCamposObrigatorios(Me, camposObrigatorios, nomeDosCampos) Then
+                        MsgBox("Como foi selecionado o roteamento do registro, favor preencher todos os campos vinculados ao roteamento!", MsgBoxStyle.Information, TITULO_ALERTA)
+                        Return False
+                    End If
+                    .geraNovoCaso = Me.ckboxGerarNovoCaso.Checked
+                    .agingNovoCaso = IIf(String.IsNullOrEmpty(Me.cbAging.Text), 0, FlagRoteamentoRetornaDias(Me.cbAging.Text))
+                    .filaNovoCaso = Me.cbFilaDestino.SelectedValue
+                End If
+                .Acao = flagAcao
+            End With
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
+
     Private Sub frmCadSubFinalizacao_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         bloqueiaBotoes()
         hlp.limparCampos(Me)
         bll.AtualizaListViewSubFinalizacao()
         filabll.PreencheComboFila(Me, cbFila)
-        filabll.PreencheComboFilaAutomatica(Me, cbFilaDestino)
+        filabll.PreencheComboFilaAutomatica(Me, cbFilaDestino, False)
         filabll.PreencheComboFila(Me, cbFiltrofila)
         hlp.limparCampos(Me)
     End Sub
@@ -45,7 +81,7 @@
     End Sub
 
     Private Sub btnIncluir_Click(sender As Object, e As EventArgs) Handles btnIncluir.Click
-        camposObrigatorios = "txtSubFinalizacao;cbFila;cbFinalizacao"
+        camposObrigatorios = "txtSubFinalizacao;cbFila;cbFinalizacao;cbFila"
 
         'validação para preencher o campo cbaging
         If ckboxGerarNovoCaso.Checked Then
@@ -57,38 +93,25 @@
         End If
 
         If hlp.validaCamposObrigatorios(Me, camposObrigatorios, nomeDosCampos) Then
-            With dto
-                'Geral
-                .descricao = Me.txtSubFinalizacao.Text.Trim
-                .idFila = IIf(Me.cbFila.SelectedValue = 0, 1, Me.cbFila.SelectedValue)
-                .IDFinalizacao = IIf(Me.cbFinalizacao.SelectedValue = 0, 1, Me.cbFinalizacao.SelectedValue)
-                .situacao = Me.ckboxAtivo.Checked
-                'Caracterização
-                .cttoPassivelEfetividade = Me.ckboxPassivelEfet.Checked
-                .cttoEfetivo = Me.ckboxEfetivo.Checked
-                'Roteamento
-                .geraNovoCaso = Me.ckboxGerarNovoCaso.Checked
-                .agingNovoCaso = IIf(String.IsNullOrEmpty(Me.cbAging.Text), 0, Me.cbAging.Text)
-                .filaNovoCaso = Me.cbFilaDestino.SelectedValue
-                .Acao = FlagAcao.Insert
-            End With
-            With bll
-                If .SalvaSubFinalizacao(dto) Then
-                    MsgBox("Registro incluído com sucesso!", vbInformation, TITULO_ALERTA)
-                    Logs.registrarLOG("Inclusão", "SubFinalização", hlp.getCurrentMethodName, Me.txtSubFinalizacao.Text.Trim)
-                    .AtualizaListViewSubFinalizacao()
-                Else
-                    MsgBox("A Subfinalização: " & Me.txtSubFinalizacao.Text.ToUpper & " já esta cadastrada!", MsgBoxStyle.Exclamation, TITULO_ALERTA)
-                    Exit Sub
-                End If
-            End With
+            If carregarDTO(dto, FlagAcao.Insert) Then
+                With bll
+                    If .SalvaSubFinalizacao(dto) Then
+                        MsgBox("Registro incluído com sucesso!", vbInformation, TITULO_ALERTA)
+                        Logs.RegistrarLOG("Inclusão", "SubFinalização", hlp.getCurrentMethodName, Me.txtSubFinalizacao.Text.Trim)
+                        .AtualizaListViewSubFinalizacao()
+                    Else
+                        MsgBox("A Subfinalização: " & Me.txtSubFinalizacao.Text.ToUpper & " já esta cadastrada!", MsgBoxStyle.Exclamation, TITULO_ALERTA)
+                        Exit Sub
+                    End If
+                End With
+            End If
             hlp.limparCampos(Me)
             bloqueiaBotoes()
         End If
     End Sub
 
     Private Sub btnAlterar_Click(sender As Object, e As EventArgs) Handles btnAlterar.Click
-        camposObrigatorios = "txtSubFinalizacao;cbFila;cbFinalizacao"
+        camposObrigatorios = "txtSubFinalizacao;cbFila;cbFinalizacao;cbFila"
         If String.IsNullOrEmpty(Me.txtID.Text) Or Me.txtID.Text = 0 Then
             MsgBox("Nenhum registro foi selecionado!", MsgBoxStyle.Information, TITULO_ALERTA)
             Exit Sub
@@ -104,35 +127,21 @@
             End If
             If hlp.validaCamposObrigatorios(Me, camposObrigatorios, nomeDosCampos) Then
                 dto = bll.GetSubFinalizacaoPorCodigo(Me.txtID.Text)
-                With dto
-                    'Geral
-                    .descricao = Me.txtSubFinalizacao.Text.Trim
-                    .idFila = IIf(Me.cbFila.SelectedValue = 0, 1, Me.cbFila.SelectedValue)
-                    .idFinalizacao = IIf(Me.cbFinalizacao.SelectedValue = 0, 1, Me.cbFinalizacao.SelectedValue)
-                    .situacao = Me.ckboxAtivo.Checked
-                    'Caracterização
-                    .cttoPassivelEfetividade = Me.ckboxPassivelEfet.Checked
-                    .cttoEfetivo = Me.ckboxEfetivo.Checked
-                    'Roteamento
-                    .geraNovoCaso = Me.ckboxGerarNovoCaso.Checked
-                    .agingNovoCaso = IIf(String.IsNullOrEmpty(Me.cbAging.Text), 0, Me.cbAging.Text)
-                    .filaNovoCaso = Me.cbFilaDestino.SelectedValue
-                    .Acao = FlagAcao.Update
-                End With
-                With bll
-                    If .SalvaSubFinalizacao(dto) Then
-                        MsgBox("Registro alterado com sucesso!", vbInformation, TITULO_ALERTA)
-                        Logs.RegistrarLOG("Alteração", "SubFinalização", hlp.getCurrentMethodName, Me.txtSubFinalizacao.Text.Trim)
-                        .AtualizaListViewSubFinalizacao()
-                        hlp.limparCampos(Me)
-                        Me.cbAging.Text = ""
-                        bloqueiaBotoes()
-                        MsgBox("Registro alterado com sucesso.", vbInformation, TITULO_ALERTA)
-                    Else
-                        MsgBox("A Subfinalização: " & Me.txtSubFinalizacao.Text.ToUpper & " já esta cadastrada!", MsgBoxStyle.Exclamation, TITULO_ALERTA)
-                        Exit Sub
-                    End If
-                End With
+                If carregarDTO(dto, FlagAcao.Update) Then
+                    With bll
+                        If .SalvaSubFinalizacao(dto) Then
+                            MsgBox("Registro alterado com sucesso!", vbInformation, TITULO_ALERTA)
+                            Logs.RegistrarLOG("Alteração", "SubFinalização", hlp.getCurrentMethodName, Me.txtSubFinalizacao.Text.Trim)
+                            .AtualizaListViewSubFinalizacao()
+                            hlp.limparCampos(Me)
+                            Me.cbAging.Text = ""
+                            bloqueiaBotoes()
+                        Else
+                            MsgBox("A Subfinalização: " & Me.txtSubFinalizacao.Text.ToUpper & " já esta cadastrada!", MsgBoxStyle.Exclamation, TITULO_ALERTA)
+                            Exit Sub
+                        End If
+                    End With
+                End If
             End If
         End If
     End Sub
@@ -216,6 +225,7 @@
                 Me.txtID.Text = .id
                 Me.txtSubFinalizacao.Text = .descricao
                 Me.cbFila.SelectedValue = .idFila
+                fbll.PreencheComboFinalizacao(Me, cbFinalizacao, .idFila)
                 Me.cbFinalizacao.SelectedValue = .idFinalizacao
 
                 'CARACTERISTICA DA FINALIZACAO

@@ -70,12 +70,13 @@
                 .FullRowSelect = True
                 .HideSelection = False
                 .MultiSelect = False
-                .Columns.Add("PROTOCOLO", 100, HorizontalAlignment.Center)
-                .Columns.Add("FILA", 100, HorizontalAlignment.Left)
-                .Columns.Add("DATA TRABALHADA", 150, HorizontalAlignment.Left)
-                .Columns.Add("FINALIZAÇÃO", 150, HorizontalAlignment.Left)
-                .Columns.Add("SUBFINALIZAÇÃO", 150, HorizontalAlignment.Left)
-                .Columns.Add("OBSERVAÇÃO", 300, HorizontalAlignment.Left)
+                .Columns.Add("PROTOCOLO:", 100, HorizontalAlignment.Center)
+                .Columns.Add("FILA:", 100, HorizontalAlignment.Left)
+                .Columns.Add("TRABALHAR À PARTIR DE:", 150, HorizontalAlignment.Left)
+                .Columns.Add("DATA TRABALHADA:", 150, HorizontalAlignment.Left)
+                .Columns.Add("FINALIZAÇÃO:", 150, HorizontalAlignment.Left)
+                .Columns.Add("SUBFINALIZAÇÃO:", 150, HorizontalAlignment.Left)
+                .Columns.Add("OBSERVAÇÃO:", 300, HorizontalAlignment.Left)
             End With
             'POPULANDO
             If dt.Rows.Count > 0 Then 'verifica se existem registros
@@ -83,6 +84,7 @@
                     Dim item As New ListViewItem()
                     item.Text = drRow("id")
                     item.SubItems.Add(drRow("fila"))
+                    item.SubItems.Add(IIf(IsDBNull(drRow("data_imp")), "", drRow("data_imp")))
                     item.SubItems.Add(IIf(IsDBNull(drRow("data_cat")), "", drRow("data_cat")))
                     item.SubItems.Add(IIf(IsDBNull(drRow("finalizacao")), "", drRow("finalizacao")))
                     item.SubItems.Add(IIf(IsDBNull(drRow("subfinalizacao")), "", drRow("subfinalizacao")))
@@ -197,7 +199,7 @@
                     .observacao = "Protocolo anterior = " & .id
                     .data_cat = Nothing
                     .usuario_cat = Nothing
-                    .data_imp = hlp.dataAbreviada().AddDays(agingNovoCaso) 'calculando o aging de retorno
+                    .data_imp = hlp.dataAbreviada().AddDays(agingNovoCaso) & " 08:00:00" 'calculando o aging de retorno
                 End With
 
                 'Validando se o roteamento ocorreu corretamente

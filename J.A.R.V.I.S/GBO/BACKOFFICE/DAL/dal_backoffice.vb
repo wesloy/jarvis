@@ -70,22 +70,29 @@
                             dto = getRegistroPorId(objCon.retornaVazioParaValorNulo(linha("id")))
                         Next
                     End If
-                End If
 
-            Else
-                'Sair da função de forma positiva, já que não é preciso capturar o registro criado por se
-                Return True
-            End If
+                    'Não criou o registro
+                    If dto Is Nothing Then
+                        Return False
+                    Else
+                        'capturar o registro para trabalho
+                        If capturarRegistroTrabalho(dto) Then
+                            Return True
+                        End If
+                    End If
 
-            'Não criou o registro
-            If dto Is Nothing Then
-                Return False
-            Else
-                'capturar o registro para trabalho
-                If capturarRegistroTrabalho(dto) Then
+                Else
+
+                    'Roteamentos de registros
+                    'Sair da função de forma positiva, já que não é preciso capturar o registro criado por se
                     Return True
                 End If
+
+            Else
+                'Erro ao salvar o registro
+                Return False
             End If
+
 
             Return False
 
@@ -365,7 +372,7 @@
 
     Public Function getHistoricoRegistrosPorCliente(ByVal idCliente As Integer) As DataTable
         Try
-            sql = "select b.id, f.descricao as fila, b.data_cat, fin.descricao as finalizacao, sfin.descricao as subfinalizacao, b.observacao, b.status   
+            sql = "select b.id, f.descricao as fila, b.data_cat, b.data_imp, fin.descricao as finalizacao, sfin.descricao as subfinalizacao, b.observacao, b.status   
                         from (((tb_base b 
                         left join tb_filas f on b.fila_id = f.id)  
                         left join tb_finalizacoes fin on b.finalizacao_id = fin.id) 

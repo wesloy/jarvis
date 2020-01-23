@@ -98,9 +98,9 @@
 
     Public Function AtualizaListViewFilasPorSubFinalizacao(ByVal subfinalizacao As String) As Boolean
         dt = db.GetFilasPorSubFinalizacao(subfinalizacao)
-        frmCadFinalizacoes.listviewFilasPorFinalizacao.Clear()
+        frmCadSubFinalizacao.listviewFilasPorSubFinalizacao.Clear()
         'AJUSTANDO AS COLUNAS
-        With frmCadFinalizacoes.listviewFilasPorFinalizacao
+        With frmCadSubFinalizacao.listviewFilasPorSubFinalizacao
             .View = View.Details
             .LabelEdit = False
             .CheckBoxes = False
@@ -120,7 +120,7 @@
                 item.Text = drRow("id")
                 item.SubItems.Add(drRow("descricao"))
                 item.SubItems.Add(drRow("sigla"))
-                frmCadFinalizacoes.listviewFilasPorFinalizacao.Items.Add(item)
+                frmCadSubFinalizacao.listviewFilasPorSubFinalizacao.Items.Add(item)
             Next drRow
         End If
         Return True

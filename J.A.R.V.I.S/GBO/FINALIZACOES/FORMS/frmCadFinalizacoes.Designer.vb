@@ -441,7 +441,7 @@ Partial Class frmCadFinalizacoes
         Me.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(300, 274)
+        Me.btnCancelar.Location = New System.Drawing.Point(295, 281)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(83, 30)
         Me.btnCancelar.TabIndex = 11
@@ -454,7 +454,7 @@ Partial Class frmCadFinalizacoes
         Me.btnExcluir.Enabled = False
         Me.btnExcluir.Image = CType(resources.GetObject("btnExcluir.Image"), System.Drawing.Image)
         Me.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnExcluir.Location = New System.Drawing.Point(213, 274)
+        Me.btnExcluir.Location = New System.Drawing.Point(208, 281)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(83, 30)
         Me.btnExcluir.TabIndex = 10
@@ -467,7 +467,7 @@ Partial Class frmCadFinalizacoes
         Me.btnAlterar.Enabled = False
         Me.btnAlterar.Image = CType(resources.GetObject("btnAlterar.Image"), System.Drawing.Image)
         Me.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnAlterar.Location = New System.Drawing.Point(126, 274)
+        Me.btnAlterar.Location = New System.Drawing.Point(121, 281)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(83, 30)
         Me.btnAlterar.TabIndex = 9
@@ -491,7 +491,7 @@ Partial Class frmCadFinalizacoes
         Me.btnIncluir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnIncluir.Image = CType(resources.GetObject("btnIncluir.Image"), System.Drawing.Image)
         Me.btnIncluir.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnIncluir.Location = New System.Drawing.Point(39, 274)
+        Me.btnIncluir.Location = New System.Drawing.Point(34, 281)
         Me.btnIncluir.Name = "btnIncluir"
         Me.btnIncluir.Size = New System.Drawing.Size(83, 30)
         Me.btnIncluir.TabIndex = 8

@@ -10,12 +10,12 @@
 
     'parametro de filtro opcional
     Public Function GetSubFinalizacoes(Optional ByVal filtro As String = "", Optional ByVal filtroArea As String = "", Optional ByVal filtroFila As String = "") As DataTable
-        sql = "SELECT tb_subfinalizacoes.*, "
-        sql += "tb_finalizacoes.descricao as DescricaoFinalizacao, "
-        sql += "tb_filas.descricao as DescricaoFila "
-        sql += "From tb_filas INNER JOIN "
-        sql += "(tb_subfinalizacoes INNER JOIN tb_finalizacoes ON tb_subfinalizacoes.idFinalizacao = tb_finalizacoes.id) "
-        sql += "On tb_filas.id = tb_finalizacoes.idFila "
+        sql = "Select tb_subfinalizacoes.*, tb_filas.descricao as DescricaoFila, tb_finalizacoes.descricao as DescricaoFinalizacao, fw.descricao as DescricaoFilaDestino, tb_usuarios.nome  "
+        sql += "from (((tb_subfinalizacoes "
+        sql += "inner join tb_filas on tb_filas.id = tb_subfinalizacoes.idFila) "
+        sql += "inner join tb_finalizacoes on tb_finalizacoes.id = tb_subfinalizacoes.idFinalizacao) "
+        sql += "inner join tb_usuarios on tb_usuarios.id = tb_subfinalizacoes.idCadastro) "
+        sql += "left join tb_finalizacoes fw on tb_subfinalizacoes.idFinalizacao = fw.id "
         sql += "WHERE tb_subfinalizacoes.descricao Like ('" & filtro & "%') "
 
         GetSubFinalizacoes = objCon.retornaDataTable(sql)
@@ -64,7 +64,7 @@
 
             DeletaSubFinalizacaoPorId = objCon.executaQuery(sql)
             If DeletaSubFinalizacaoPorId Then
-                Logs.registrarLOG(_SubFinalizacaoId, , hlp.getCurrentMethodName, "MANUTENÇÃO SUBFINALIZACAO")
+                Logs.RegistrarLOG(_SubFinalizacaoId, , hlp.getCurrentMethodName, "MANUTENÇÃO SUBFINALIZACAO")
             End If
         Catch ex As Exception
             Return False
@@ -111,7 +111,7 @@
 
             Incluir = objCon.executaQuery(sql)
             If Incluir Then
-                Logs.registrarLOG(0, _SubFinalizacao.descricao, hlp.getCurrentMethodName, "MANUTENÇÃO SUBFINALIZACAO")
+                Logs.RegistrarLOG(0, _SubFinalizacao.descricao, hlp.getCurrentMethodName, "MANUTENÇÃO SUBFINALIZACAO")
             End If
         Catch ex As Exception
             Return False
@@ -139,7 +139,7 @@
             sql += "where id = " & objCon.valorSql(_SubFinalizacao.id) & " "
             Atualizar = objCon.executaQuery(sql)
             If Atualizar Then
-                Logs.registrarLOG(_SubFinalizacao.id, _SubFinalizacao.descricao, hlp.getCurrentMethodName, "MANUTENÇÃO SUBFINALIZACAO")
+                Logs.RegistrarLOG(_SubFinalizacao.id, _SubFinalizacao.descricao, hlp.getCurrentMethodName, "MANUTENÇÃO SUBFINALIZACAO")
             End If
         Catch ex As Exception
             Return False

@@ -28,9 +28,6 @@ Partial Class frmCadSubFinalizacao
         Me.ckboxPassivelEfet = New System.Windows.Forms.CheckBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.ckboxRotearFinalizado = New System.Windows.Forms.CheckBox()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.ckboxGerarNovoCaso = New System.Windows.Forms.CheckBox()
         Me.cbFilaDestino = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -67,7 +64,7 @@ Partial Class frmCadSubFinalizacao
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.listviewFilasPorFinalizacao = New System.Windows.Forms.ListView()
+        Me.listviewFilasPorSubFinalizacao = New System.Windows.Forms.ListView()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -125,38 +122,6 @@ Partial Class frmCadSubFinalizacao
         Me.Label6.Size = New System.Drawing.Size(392, 22)
         Me.Label6.TabIndex = 187
         Me.Label6.Text = "Roteamento:"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.BackColor = System.Drawing.Color.Transparent
-        Me.Label22.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.Label22.Location = New System.Drawing.Point(137, 271)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(205, 13)
-        Me.Label22.TabIndex = 186
-        Me.Label22.Text = "(Não será encaminhado para os analistas)"
-        '
-        'ckboxRotearFinalizado
-        '
-        Me.ckboxRotearFinalizado.AutoSize = True
-        Me.ckboxRotearFinalizado.BackColor = System.Drawing.Color.Transparent
-        Me.ckboxRotearFinalizado.Location = New System.Drawing.Point(118, 271)
-        Me.ckboxRotearFinalizado.Name = "ckboxRotearFinalizado"
-        Me.ckboxRotearFinalizado.Size = New System.Drawing.Size(15, 14)
-        Me.ckboxRotearFinalizado.TabIndex = 10
-        Me.ckboxRotearFinalizado.Tag = "ROTEAR FINALIZADO"
-        Me.ckboxRotearFinalizado.UseVisualStyleBackColor = False
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.BackColor = System.Drawing.Color.Transparent
-        Me.Label15.Location = New System.Drawing.Point(16, 271)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(92, 13)
-        Me.Label15.TabIndex = 184
-        Me.Label15.Text = "Rotear Finalizado:"
         '
         'ckboxGerarNovoCaso
         '
@@ -248,7 +213,7 @@ Partial Class frmCadSubFinalizacao
         Me.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(284, 293)
+        Me.btnCancelar.Location = New System.Drawing.Point(295, 282)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 30)
         Me.btnCancelar.TabIndex = 14
@@ -261,7 +226,7 @@ Partial Class frmCadSubFinalizacao
         Me.btnExcluir.Enabled = False
         Me.btnExcluir.Image = CType(resources.GetObject("btnExcluir.Image"), System.Drawing.Image)
         Me.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnExcluir.Location = New System.Drawing.Point(203, 293)
+        Me.btnExcluir.Location = New System.Drawing.Point(214, 282)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(75, 30)
         Me.btnExcluir.TabIndex = 13
@@ -274,7 +239,7 @@ Partial Class frmCadSubFinalizacao
         Me.btnAlterar.Enabled = False
         Me.btnAlterar.Image = CType(resources.GetObject("btnAlterar.Image"), System.Drawing.Image)
         Me.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnAlterar.Location = New System.Drawing.Point(122, 293)
+        Me.btnAlterar.Location = New System.Drawing.Point(133, 282)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(75, 30)
         Me.btnAlterar.TabIndex = 12
@@ -286,7 +251,7 @@ Partial Class frmCadSubFinalizacao
         Me.btnIncluir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnIncluir.Image = CType(resources.GetObject("btnIncluir.Image"), System.Drawing.Image)
         Me.btnIncluir.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnIncluir.Location = New System.Drawing.Point(41, 293)
+        Me.btnIncluir.Location = New System.Drawing.Point(52, 282)
         Me.btnIncluir.Name = "btnIncluir"
         Me.btnIncluir.Size = New System.Drawing.Size(75, 30)
         Me.btnIncluir.TabIndex = 11
@@ -552,14 +517,14 @@ Partial Class frmCadSubFinalizacao
         Me.Label18.TabIndex = 209
         Me.Label18.Text = "SubFinalizações vinculadas:"
         '
-        'listviewFilasPorFinalizacao
+        'listviewFilasPorSubFinalizacao
         '
-        Me.listviewFilasPorFinalizacao.HideSelection = False
-        Me.listviewFilasPorFinalizacao.Location = New System.Drawing.Point(447, 37)
-        Me.listviewFilasPorFinalizacao.Name = "listviewFilasPorFinalizacao"
-        Me.listviewFilasPorFinalizacao.Size = New System.Drawing.Size(392, 225)
-        Me.listviewFilasPorFinalizacao.TabIndex = 208
-        Me.listviewFilasPorFinalizacao.UseCompatibleStateImageBehavior = False
+        Me.listviewFilasPorSubFinalizacao.HideSelection = False
+        Me.listviewFilasPorSubFinalizacao.Location = New System.Drawing.Point(447, 37)
+        Me.listviewFilasPorSubFinalizacao.Name = "listviewFilasPorSubFinalizacao"
+        Me.listviewFilasPorSubFinalizacao.Size = New System.Drawing.Size(392, 225)
+        Me.listviewFilasPorSubFinalizacao.TabIndex = 208
+        Me.listviewFilasPorSubFinalizacao.UseCompatibleStateImageBehavior = False
         '
         'frmCadSubFinalizacao
         '
@@ -569,7 +534,7 @@ Partial Class frmCadSubFinalizacao
         Me.ClientSize = New System.Drawing.Size(851, 749)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.listviewFilasPorFinalizacao)
+        Me.Controls.Add(Me.listviewFilasPorSubFinalizacao)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.PictureBox2)
@@ -591,9 +556,6 @@ Partial Class frmCadSubFinalizacao
         Me.Controls.Add(Me.ckboxPassivelEfet)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label22)
-        Me.Controls.Add(Me.ckboxRotearFinalizado)
-        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.ckboxGerarNovoCaso)
         Me.Controls.Add(Me.cbFilaDestino)
         Me.Controls.Add(Me.Label13)
@@ -627,9 +589,6 @@ Partial Class frmCadSubFinalizacao
     Friend WithEvents ckboxPassivelEfet As CheckBox
     Friend WithEvents Label23 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label22 As Label
-    Friend WithEvents ckboxRotearFinalizado As CheckBox
-    Friend WithEvents Label15 As Label
     Friend WithEvents ckboxGerarNovoCaso As CheckBox
     Friend WithEvents cbFilaDestino As ComboBox
     Friend WithEvents Label13 As Label
@@ -666,5 +625,5 @@ Partial Class frmCadSubFinalizacao
     Friend WithEvents Label4 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents Label18 As Label
-    Friend WithEvents listviewFilasPorFinalizacao As ListView
+    Friend WithEvents listviewFilasPorSubFinalizacao As ListView
 End Class

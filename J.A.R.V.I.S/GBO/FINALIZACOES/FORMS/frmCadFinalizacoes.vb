@@ -25,7 +25,7 @@
         Me.cbAging.Text = ""
         bll.AtualizaListViewFinalizacao()
         fbll.PreencheComboFila(Me, cbFila)
-        fbll.PreencheComboFilaAutomatica(Me, cbFilaDestino)
+        fbll.PreencheComboFilaAutomatica(Me, cbFilaDestino, False)
         fbll.PreencheComboFila(Me, cbFiltrofila)
         cbFila.SelectedIndex = -1
         cbFilaDestino.SelectedIndex = -1
