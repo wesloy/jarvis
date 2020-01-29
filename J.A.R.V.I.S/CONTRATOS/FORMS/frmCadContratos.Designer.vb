@@ -22,9 +22,50 @@ Partial Class frmCadContratos
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnImprimir = New System.Windows.Forms.Button()
+        Me.PrintDocument = New System.Drawing.Printing.PrintDocument()
+        Me.SuspendLayout()
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(21, 9)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(95, 31)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Label2"
+        '
+        'btnImprimir
+        '
+        Me.btnImprimir.Location = New System.Drawing.Point(85, 195)
+        Me.btnImprimir.Name = "btnImprimir"
+        Me.btnImprimir.Size = New System.Drawing.Size(75, 23)
+        Me.btnImprimir.TabIndex = 3
+        Me.btnImprimir.Text = "&Imprimir"
+        Me.btnImprimir.UseVisualStyleBackColor = True
+        '
+        'PrintDocument
+        '
+        '
+        'frmCadContratos
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Text = "frmCadContratos"
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(395, 297)
+        Me.Controls.Add(Me.btnImprimir)
+        Me.Controls.Add(Me.Label2)
+        Me.MaximizeBox = False
+        Me.Name = "frmCadContratos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = ".: CONTRATOS :."
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
     End Sub
+    Friend WithEvents Label2 As Label
+    Friend WithEvents btnImprimir As Button
+    Friend WithEvents PrintDocument As Printing.PrintDocument
 End Class

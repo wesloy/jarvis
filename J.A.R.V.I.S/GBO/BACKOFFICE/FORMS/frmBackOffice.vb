@@ -189,7 +189,7 @@
             End If
 
         Else
-                limpeza()
+            limpeza()
         End If
 
     End Sub
@@ -352,10 +352,14 @@
     End Sub
 
     Private Sub frmBackOffice_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If txtProtocolo.Text <> "" Or Not txtProtocolo.Text Is Nothing Then
+        If Not String.IsNullOrEmpty(txtProtocolo.Text) Then
             Dim dto_back As New dto_backoffice
             dto_back = carregarDto()
             backOffice.liberarRegistro(dto_back)
         End If
+    End Sub
+
+    Private Sub btnCancelarCaptura_Click(sender As Object, e As EventArgs) Handles btnCancelarCaptura.Click
+        limpeza(True)
     End Sub
 End Class

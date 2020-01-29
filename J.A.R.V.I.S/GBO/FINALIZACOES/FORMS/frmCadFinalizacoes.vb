@@ -10,7 +10,7 @@
     Private Sub liberaBotoes()
         Me.btnAlterar.Enabled = True
         Me.btnExcluir.Enabled = True
-        Me.btnIncluir.Enabled = True
+        Me.btnIncluir.Enabled = False
         Me.btnCancelar.Enabled = True
     End Sub
 
@@ -47,6 +47,31 @@
         txtFiltro.Text = ""
     End Sub
 
+    Private Function carregarDTO(ByRef dto_fin As dto_finalizacoes, ByVal flagAcao As Integer) As Boolean
+        Try
+            With dto_fin
+
+                'Geral
+                .idFila = Me.cbFila.SelectedValue
+                .descricao = Me.txtFinalizacao.Text
+                .situacao = ckboxAtivo.Checked
+                'Caracterização
+                .cttoPassivelEfetividade = ckboxPassivelEfet.Checked
+                .cttoEfetivo = ckboxEfetivo.Checked
+                'Roteamento
+                .geraNovoCaso = ckboxGerarNovoCaso.Checked
+                .agingNovoCaso = IIf(String.IsNullOrEmpty(Me.cbAging.Text), 0, FlagRoteamentoRetornaDias(Me.cbAging.Text))
+                .filaNovoCaso = cbFilaDestino.SelectedValue
+                .Acao = flagAcao
+            End With
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+
+    End Function
+
     Private Sub cbFiltrofila_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbFiltrofila.KeyPress
         e.Handled = True
     End Sub
@@ -82,10 +107,10 @@
             dto = bll.GetFinalizacaoPorCodigo(id_registro)
             With dto
                 'GERAL
-                Me.ckboxAtivo.Checked = .Situacao
+                Me.ckboxAtivo.Checked = .situacao
                 Me.txtID.Text = .ID
-                Me.txtFinalizacao.Text = .Descricao
-                Me.cbFila.SelectedValue = .IDFila
+                Me.txtFinalizacao.Text = .descricao
+                Me.cbFila.SelectedValue = .idFila
 
                 'CARACTERISTICA DA FINALIZACAO
                 Me.ckboxPassivelEfet.Checked = .cttoPassivelEfetividade
@@ -97,17 +122,14 @@
                 Me.cbFilaDestino.SelectedValue = .filaNovoCaso
 
             End With
-            bll.AtualizaListViewFilasPorFinalizacao(dto.Descricao)
+            bll.AtualizaListViewFilasPorFinalizacao(dto.descricao)
         End If
         liberaBotoes()
     End Sub
 
     Private Sub btnIncluir_Click(sender As Object, e As EventArgs) Handles btnIncluir.Click
 
-        Dim id_fila As Long
-        Dim descricao_finalizacao As String
-        Dim id_registro As Integer = 0
-        'Dim id_modulo As Integer
+
         Dim finalizacao As New dto_finalizacoes
         camposObrigatorios = "txtFinalizacao;cbFila"
 
@@ -121,38 +143,21 @@
         End If
 
         If hlp.validaCamposObrigatorios(Me, camposObrigatorios) Then
-            descricao_finalizacao = Me.txtFinalizacao.Text
-            id_fila = Me.cbFila.SelectedValue
-            If Not String.IsNullOrEmpty(txtID.Text) Then
-                id_registro = txtID.Text
-            End If
 
-            With finalizacao
-                'Geral
-                .ID = id_registro
-                .IDFila = id_fila
-                .Descricao = descricao_finalizacao
-                .Situacao = ckboxAtivo.Checked
-                'Caracterização
-                .cttoPassivelEfetividade = ckboxPassivelEfet.Checked
-                .cttoEfetivo = ckboxEfetivo.Checked
-                'Roteamento
-                .GeraNovoCaso = ckboxGerarNovoCaso.Checked
-                .agingNovoCaso = IIf(String.IsNullOrEmpty(Me.cbAging.Text), 0, FlagRoteamentoRetornaDias(Me.cbAging.Text))
-                .filaNovoCaso = cbFilaDestino.SelectedValue
-                .Acao = FlagAcao.Insert
-            End With
-            If bll.SalvaFinalizacao(finalizacao) Then
-                bll.AtualizaListViewFilasPorFinalizacao(descricao_finalizacao)
-                bll.AtualizaListViewFinalizacao()
-                MsgBox("Finalização salva com sucesso!", vbInformation, TITULO_ALERTA)
-                Logs.registrarLOG("Inclusão", "Finalização", hlp.getCurrentMethodName, Me.txtFinalizacao.Text)
-                hlp.limparCampos(Me)
-                bloqueiaBotoes()
-                Me.cbAging.Text = ""
-            Else
-                MsgBox("Esta finalização " & descricao_finalizacao & " já esta cadastrado.", vbExclamation, TITULO_ALERTA)
-                Exit Sub
+            'Carregar DTO
+            If carregarDTO(finalizacao, FlagAcao.Insert) Then
+                If bll.SalvaFinalizacao(finalizacao) Then
+                    bll.AtualizaListViewFilasPorFinalizacao(finalizacao.descricao)
+                    bll.AtualizaListViewFinalizacao()
+                    MsgBox("Finalização salva com sucesso!", vbInformation, TITULO_ALERTA)
+                    Logs.RegistrarLOG("Inclusão", "Finalização", hlp.getCurrentMethodName, Me.txtFinalizacao.Text)
+                    hlp.limparCampos(Me)
+                    bloqueiaBotoes()
+                    Me.cbAging.Text = ""
+                Else
+                    MsgBox("Esta finalização " & finalizacao.descricao & " já esta cadastrado.", vbExclamation, TITULO_ALERTA)
+                    Exit Sub
+                End If
             End If
         End If
     End Sub
@@ -173,34 +178,22 @@
             End If
             If hlp.validaCamposObrigatorios(Me, camposObrigatorios, nomeDosCampos) Then
                 dto = bll.GetFinalizacaoPorCodigo(Me.txtID.Text)
-                With dto
-                    'Geral
-                    .Descricao = Me.txtFinalizacao.Text.Trim
-                    .IDFila = IIf(Me.cbFila.SelectedValue = 0, 1, Me.cbFila.SelectedValue)
-                    .Situacao = Me.ckboxAtivo.Checked
-                    'Caracterização
-                    .cttoPassivelEfetividade = Me.ckboxPassivelEfet.Checked
-                    .cttoEfetivo = Me.ckboxEfetivo.Checked
-                    'Roteamento
-                    .GeraNovoCaso = Me.ckboxGerarNovoCaso.Checked
-                    .agingNovoCaso = IIf(String.IsNullOrEmpty(Me.cbAging.Text), 0, FlagRoteamentoRetornaDias(Me.cbAging.Text))
-                    .filaNovoCaso = Me.cbFilaDestino.SelectedValue
-                    .Acao = FlagAcao.Update
-                End With
-                With bll
-                    If .SalvaFinalizacao(dto) Then
-                        .AtualizaListViewFinalizacao()
-                        bll.AtualizaListViewFilasPorFinalizacao(dto.Descricao)
-                        hlp.limparCampos(Me)
-                        Me.cbAging.Text = ""
-                        bloqueiaBotoes()
-                        MsgBox("Registro alterado com sucesso.", vbInformation, TITULO_ALERTA)
-                        Logs.RegistrarLOG("Alteração", "Finalização", hlp.getCurrentMethodName, Me.txtFinalizacao.Text)
-                    Else
-                        MsgBox("Esta finalização " & dto.Descricao & " já esta cadastrado.", vbExclamation, TITULO_ALERTA)
-                        Exit Sub
-                    End If
-                End With
+                If carregarDTO(dto, FlagAcao.Update) Then
+                    With bll
+                        If .SalvaFinalizacao(dto) Then
+                            .AtualizaListViewFinalizacao()
+                            bll.AtualizaListViewFilasPorFinalizacao(dto.descricao)
+                            hlp.limparCampos(Me)
+                            Me.cbAging.Text = ""
+                            bloqueiaBotoes()
+                            MsgBox("Registro alterado com sucesso.", vbInformation, TITULO_ALERTA)
+                            Logs.RegistrarLOG("Alteração", "Finalização", hlp.getCurrentMethodName, Me.txtFinalizacao.Text)
+                        Else
+                            MsgBox("Esta finalização " & dto.descricao & " já esta cadastrado.", vbExclamation, TITULO_ALERTA)
+                            Exit Sub
+                        End If
+                    End With
+                End If
             End If
         End If
     End Sub

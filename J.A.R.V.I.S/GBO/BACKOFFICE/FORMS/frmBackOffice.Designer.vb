@@ -77,6 +77,7 @@ Partial Class frmBackOffice
         Me.cbProduto = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btnCancelarCaptura = New System.Windows.Forms.Button()
         Me.gbIniciar.SuspendLayout()
         Me.gbConcluir.SuspendLayout()
         Me.gbInformacoesRelevantes.SuspendLayout()
@@ -88,6 +89,7 @@ Partial Class frmBackOffice
         '
         'gbIniciar
         '
+        Me.gbIniciar.Controls.Add(Me.btnCancelarCaptura)
         Me.gbIniciar.Controls.Add(Me.linkDetalhesCliente)
         Me.gbIniciar.Controls.Add(Me.linkAdcCliente)
         Me.gbIniciar.Controls.Add(Me.linkAtualizarCliente)
@@ -697,6 +699,16 @@ Partial Class frmBackOffice
         Me.Label9.TabIndex = 7
         Me.Label9.Text = "Produto"
         '
+        'btnCancelarCaptura
+        '
+        Me.btnCancelarCaptura.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelarCaptura.Location = New System.Drawing.Point(145, 134)
+        Me.btnCancelarCaptura.Name = "btnCancelarCaptura"
+        Me.btnCancelarCaptura.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancelarCaptura.TabIndex = 155
+        Me.btnCancelarCaptura.Text = "C&ancelar"
+        Me.btnCancelarCaptura.UseVisualStyleBackColor = True
+        '
         'frmBackOffice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -777,4 +789,5 @@ Partial Class frmBackOffice
     Friend WithEvents linkAtualizarCliente As LinkLabel
     Friend WithEvents Label8 As Label
     Friend WithEvents cbCliente As ComboBox
+    Friend WithEvents btnCancelarCaptura As Button
 End Class

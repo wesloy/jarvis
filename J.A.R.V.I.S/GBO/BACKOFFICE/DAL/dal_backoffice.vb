@@ -391,14 +391,14 @@
     ''' Voltar registros para a fila e/ou deletar registros após um tempo de espera.
     ''' Padrão atual de 6 horas de espera.
     ''' </summary>
-    Public Sub rollbackRegistrosLocados()
+    Public Function rollbackRegistrosLocados(Optional ByVal tempoMinutos As Integer = 600) As Boolean
         Try
-            sql = "Select * from tb_base where status = 1 and data_cat < " & objCon.valorSql(hlp.dataHoraAtual.AddHours(-6), False) & " "
+            sql = "Select * from tb_base where status = 1 and data_cat < " & objCon.valorSql(hlp.dataHoraAtual.AddMinutes(-tempoMinutos), False) & " "
             dt = objCon.retornaDataTable(sql)
 
 
             If dt.Rows.Count = 0 Then
-                sql = "Select * from tb_base where data_imp < " & objCon.valorSql(hlp.dataHoraAtual.AddHours(-6), False) & " "
+                sql = "Select * from tb_base where data_imp < " & objCon.valorSql(hlp.dataHoraAtual.AddMinutes(-tempoMinutos), False) & " "
                 sql += "and status < 2 and tipo_registro = 'M'"
                 dt = objCon.retornaDataTable(sql)
             End If
@@ -414,12 +414,13 @@
                     End If
                 Next
             End If
-
+            Return True
         Catch ex As Exception
+            Return False
             Logs.RegistrarLOG(Err.Number, Err.Description, hlp.getCurrentMethodName, "ROLLBACK DE REGISTROS")
         End Try
 
-    End Sub
+    End Function
 
     Public Sub capturarClientesDiposniveisPorFila(ByVal frm As Form, ByVal cb As ComboBox, ByVal id_fila As Integer)
         Try

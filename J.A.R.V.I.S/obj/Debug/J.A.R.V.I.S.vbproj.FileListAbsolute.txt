@@ -101,3 +101,4 @@ C:\Users\wesleyel\Documents\GitHub\jarvis\J.A.R.V.I.S\obj\Debug\J.A.R.V.I.S.exe
 C:\Users\wesleyel\Documents\GitHub\jarvis\J.A.R.V.I.S\obj\Debug\J.A.R.V.I.S.xml
 C:\Users\wesleyel\Documents\GitHub\jarvis\J.A.R.V.I.S\obj\Debug\J.A.R.V.I.S.pdb
 C:\Users\wesleyel\Documents\GitHub\jarvis\J.A.R.V.I.S\obj\Debug\J.A.R.V.I.S.vbprojAssemblyReference.cache
+C:\Users\wesleyel\Documents\GitHub\jarvis\J.A.R.V.I.S\obj\Debug\J.A.R.V.I.S.frmCadContratos.resources

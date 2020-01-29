@@ -263,6 +263,7 @@
     <Compile Include="USUARIOS\FORMS\frmSenhaAtualizar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="WindowHelper.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CAIXA\BANCOS_SALDOS\FORMS\frmCadBancos.resx">
@@ -276,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CLIENTES\FORMS\frmCadClientes.resx">
       <DependentUpon>frmCadClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTRATOS\FORMS\frmCadContratos.resx">
+      <DependentUpon>frmCadContratos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORNECEDORES\FORMS\frmCadFornecedores.resx">
       <DependentUpon>frmCadFornecedores.vb</DependentUpon>

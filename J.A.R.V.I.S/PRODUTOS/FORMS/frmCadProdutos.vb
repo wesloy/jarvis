@@ -145,4 +145,52 @@
         End If
         Me.ListView1.ListViewItemSorter = New mdlOrdenacaoListView(e.Column, Me.ListView1.Sorting)
     End Sub
+
+    Private Sub album_rbSim_CheckedChanged(sender As Object, e As EventArgs) Handles album_rbSim.CheckedChanged
+        album_txtFolhas.Enabled = True
+        album_txtTamanho.Enabled = True
+        album_txtTipo.Enabled = True
+    End Sub
+
+    Private Sub album_rbNao_CheckedChanged(sender As Object, e As EventArgs) Handles album_rbNao.CheckedChanged
+        album_txtFolhas.Enabled = False
+        album_txtTamanho.Enabled = False
+        album_txtTipo.Enabled = False
+    End Sub
+
+    Private Sub painel_rbSim_CheckedChanged(sender As Object, e As EventArgs) Handles painel_rbSim.CheckedChanged
+        painel_txtQtde.Enabled = True
+        painel_txtMoldura.Enabled = True
+        painel_txtTamanho.Enabled = True
+    End Sub
+
+    Private Sub painel_rbNao_CheckedChanged(sender As Object, e As EventArgs) Handles painel_rbNao.CheckedChanged
+        painel_txtQtde.Enabled = False
+        painel_txtMoldura.Enabled = False
+        painel_txtTamanho.Enabled = False
+    End Sub
+
+    Private Sub ensaios_rbSim_CheckedChanged(sender As Object, e As EventArgs) Handles ensaios_rbSim.CheckedChanged
+        ensaios_txtMeses.Enabled = True
+        ensaios_txtQtdade.Enabled = True
+        ensaios_cbPeriodo.Enabled = True
+    End Sub
+
+    Private Sub ensaios_rbNao_CheckedChanged(sender As Object, e As EventArgs) Handles ensaios_rbNao.CheckedChanged
+        ensaios_txtMeses.Enabled = False
+        ensaios_txtQtdade.Enabled = False
+        ensaios_cbPeriodo.Enabled = False
+    End Sub
+
+    Private Sub caixa_rbSim_CheckedChanged(sender As Object, e As EventArgs) Handles caixa_rbSim.CheckedChanged
+        caixa_txtQtde.Enabled = True
+        caixa_txtTamanho.Enabled = True
+        caixa_txtTipo.Enabled = True
+    End Sub
+
+    Private Sub caixa_rbNao_CheckedChanged(sender As Object, e As EventArgs) Handles caixa_rbNao.CheckedChanged
+        caixa_txtQtde.Enabled = False
+        caixa_txtTamanho.Enabled = False
+        caixa_txtTipo.Enabled = False
+    End Sub
 End Class

@@ -32,10 +32,6 @@
         hlp.fecharForm(Me)
     End Sub
 
-    Private Sub FilaDeTrabalhoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles tsmFilaTrabalho.Click
-        hlp.abrirFormInPanelMDI(frmBackOffice, Me, PainelFormularios, FormBorderStyle.None)
-    End Sub
-
     Private Sub UsuáriosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuáriosToolStripMenuItem.Click
         hlp.abrirFormInPanelMDI(frmCadUsuarios, Me, PainelFormularios, FormBorderStyle.None)
     End Sub
@@ -82,5 +78,37 @@
 
     Private Sub ReceitasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReceitasToolStripMenuItem.Click
         hlp.abrirFormInPanelMDI(frmCadReceitasDespesas, Me, PainelFormularios, FormBorderStyle.None)
+    End Sub
+
+    Private Sub AtenderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AtenderToolStripMenuItem.Click
+        hlp.abrirFormInPanelMDI(frmBackOffice, Me, PainelFormularios, FormBorderStyle.None)
+    End Sub
+
+    Private Sub DesbloquearRegistrosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DesbloquearRegistrosToolStripMenuItem.Click
+        Try
+            Dim int_OK As Boolean = False
+            Dim tempoMinutos As Integer = 1
+            Dim bll_backOffice As New bll_backoffice
+            Dim capturaInformacao As String = InputBox("Informe o tempo em MINUTOS que deve ser considerado, para liberar os registros reservados para trabalho: ", TITULO_ALERTA, 5)
+
+            int_OK = Integer.TryParse(capturaInformacao, tempoMinutos)
+
+            If int_OK Then
+                If bll_backOffice.rollbackRegistros(tempoMinutos) Then
+                    MsgBox("Todos os registros que estavam reservados para trabalho foram liberados.", TITULO_ALERTA, vbInformation)
+                End If
+            Else
+                MsgBox("Informa apenas números, para prosseguir com a liberação dos registros reservados para trabalho!", vbOKOnly + vbCritical, TITULO_ALERTA)
+            End If
+
+        Catch ex As Exception
+            MsgBox("Informa apenas números, para prosseguir com a liberação dos registros reservados para trabalho!", vbOKOnly + vbCritical, TITULO_ALERTA)
+        End Try
+
+    End Sub
+
+    Private Sub tsmContratos_Click(sender As Object, e As EventArgs) Handles tsmContratos.Click
+        hlp.abrirForm(frmCadContratos, True, True)
+        'hlp.abrirFormInPanelMDI(frmCadContratos, Me, PainelFormularios, FormBorderStyle.None)
     End Sub
 End Class

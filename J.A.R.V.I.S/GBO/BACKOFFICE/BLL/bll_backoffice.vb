@@ -133,9 +133,9 @@
         End Try
     End Function
 
-    Private Sub rollbackRegistros()
-        dal.rollbackRegistrosLocados()
-    End Sub
+    Public Function rollbackRegistros(Optional ByVal maiorQueXminutos As Integer = 600) As Boolean
+        Return dal.rollbackRegistrosLocados(maiorQueXminutos)
+    End Function
 
     Public Function finalizarRegistro(ByVal dto_back As dto_backoffice) As Boolean
         Try
