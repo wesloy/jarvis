@@ -38,6 +38,71 @@
                 .descricao = Me.txtDescricao.Text.Trim
                 .valor = hlp.transformarMoeda(Me.txtValor.Text.Trim)
                 .ativo = Me.ckboxAtivo.Checked
+
+                If album_rbSim.Checked Then
+                    If hlp.validaCamposObrigatorios(gbAlbum, "album_txtTamanho;album_txtTipo;album_txtFolhas") Then
+                        .album = True
+                        .albumQtdeFolhas = hlp.retornaSoNumeroDeString(Me.album_txtFolhas.Text)
+                        .albumTamanho = album_txtTamanho.Text.Trim
+                        .albumTipo = album_txtTipo.Text.Trim
+                    Else
+                        Return False
+                    End If
+                Else
+                    .album = False
+                    .albumQtdeFolhas = 0
+                    .albumTamanho = ""
+                    .albumTipo = ""
+                End If
+
+                If caixa_rbSim.Checked Then
+                    If hlp.validaCamposObrigatorios(gbCaixa, "caixa_txtTipo;caixa_txtTamanho;caixa_txtQtde") Then
+                        .caixa = True
+                        .caixaQtde = hlp.retornaSoNumeroDeString(Me.caixa_txtQtde.Text)
+                        .caixaTamanho = caixa_txtTamanho.Text.Trim
+                        .caixaTipo = caixa_txtTipo.Text.Trim
+                    Else
+                        Return False
+                    End If
+                Else
+                    .caixa = False
+                    .caixaQtde = 0
+                    .caixaTamanho = ""
+                    .caixaTipo = ""
+                End If
+
+                If painel_rbSim.Checked Then
+                    If hlp.validaCamposObrigatorios(gbPainel, "painel_txtQtde;painel_txtTamanho;painel_txtMoldura") Then
+                        .painel = True
+                        .painelQtde = hlp.retornaSoNumeroDeString(Me.painel_txtQtde.Text)
+                        .painelTamanho = painel_txtTamanho.Text.Trim
+                        .painelMoldura = painel_txtMoldura.Text.Trim
+                    Else
+                        Return False
+                    End If
+                Else
+                    .painel = False
+                    .painelQtde = 0
+                    .painelTamanho = ""
+                    .painelMoldura = ""
+                End If
+
+                If ensaios_rbSim.Checked Then
+                    If hlp.validaCamposObrigatorios(gbEnsaios, "ensaios_txtQtdade;ensaios_txtMeses;ensaios_cbPeriodo") Then
+                        .ensaios = True
+                        .ensaiosQtde = hlp.retornaSoNumeroDeString(Me.ensaios_txtQtdade.Text)
+                        .ensaiosMeses = ensaios_txtMeses.Text.Trim
+                        .ensaiosPeriodo = ensaios_cbPeriodo.Text.Trim
+                    Else
+                        Return False
+                    End If
+                Else
+                    .ensaios = False
+                    .ensaiosQtde = 0
+                    .ensaiosMeses = ""
+                    .ensaiosPeriodo = ""
+                End If
+
                 .acao = tipoManutencao
             End With
             With bll
@@ -118,23 +183,71 @@
     End Sub
 
     Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles ListView1.DoubleClick
+
         Dim id_registro As Integer
-        id_registro = Me.ListView1.SelectedItems(0).SubItems(0).Text 'captura informações da primeira coluna selecionada
-        If String.IsNullOrEmpty(id_registro) Or id_registro = 0 Then
-            MsgBox("Nenhum registro foi selecionado!", MsgBoxStyle.Information, TITULO_ALERTA)
-            Exit Sub
-        Else
-            dto = bll.GetRegistroPorID(id_registro)
-            With dto
-                Me.txtID.Text = .id
-                Me.txtProduto.Text = .produto
-                Me.txtSigla.Text = .sigla
-                Me.txtDescricao.Text = .descricao
-                Me.txtValor.Text = hlp.transformarMoeda(.valor)
-                Me.ckboxAtivo.Checked = .ativo
-            End With
-        End If
-        liberaBotoes()
+        Try
+            id_registro = Me.ListView1.SelectedItems(0).SubItems(0).Text 'captura informações da primeira coluna selecionada
+            If String.IsNullOrEmpty(id_registro) Or id_registro = 0 Then
+                MsgBox("Nenhum registro foi selecionado!", MsgBoxStyle.Information, TITULO_ALERTA)
+                Exit Sub
+            Else
+                dto = bll.GetRegistroPorID(id_registro)
+                With dto
+                    Me.txtID.Text = .id
+                    Me.ckboxAtivo.Checked = .ativo
+                    Me.txtProduto.Text = .produto
+                    Me.txtSigla.Text = .sigla
+                    Me.txtValor.Text = hlp.transformarMoeda(.valor)
+
+                    If .album Then
+                        album_rbSim.Checked = True
+                        Me.album_txtFolhas.Text = .albumQtdeFolhas
+                        Me.album_txtTamanho.Text = .albumTamanho
+                        Me.album_txtTipo.Text = .albumTipo
+                    Else
+                        album_rbNao.Checked = True
+                    End If
+
+
+                    If .painel Then
+                        painel_rbSim.Checked = True
+                        Me.painel_txtMoldura.Text = .painelMoldura
+                        Me.painel_txtQtde.Text = .painelQtde
+                        Me.painel_txtTamanho.Text = .painelTamanho
+                    Else
+                        painel_rbNao.Checked = True
+                    End If
+
+
+                    If .ensaios Then
+                        ensaios_rbSim.Checked = True
+                        Me.ensaios_txtMeses.Text = .ensaiosMeses
+                        Me.ensaios_txtQtdade.Text = .ensaiosQtde
+                        Me.ensaios_cbPeriodo.Text = .ensaiosPeriodo
+                    Else
+                        ensaios_rbNao.Checked = True
+                    End If
+
+
+                    If .caixa Then
+                        caixa_rbSim.Checked = True
+                        Me.caixa_txtQtde.Text = .caixaQtde
+                        Me.caixa_txtTamanho.Text = .caixaTamanho
+                        Me.caixa_txtTipo.Text = .caixaTipo
+                    Else
+                        caixa_rbNao.Checked = True
+                    End If
+
+
+                    Me.txtDescricao.Text = .descricao
+
+                End With
+            End If
+            liberaBotoes()
+        Catch ex As Exception
+            MsgBox("Ocorreu um erro e não foi possível carregar o produto selecionado!", vbCritical + vbOKOnly, TITULO_ALERTA)
+        End Try
+
     End Sub
 
     Private Sub ListView1_ColumnClick(sender As Object, e As ColumnClickEventArgs) Handles ListView1.ColumnClick
@@ -192,5 +305,9 @@
         caixa_txtQtde.Enabled = False
         caixa_txtTamanho.Enabled = False
         caixa_txtTipo.Enabled = False
+    End Sub
+
+    Private Sub ensaios_cbPeriodo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ensaios_cbPeriodo.KeyPress
+        e.Handled = True
     End Sub
 End Class

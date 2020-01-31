@@ -84,6 +84,7 @@ Partial Class frmCadClientes
         Me.dtpPreviscaoNascimento = New System.Windows.Forms.DateTimePicker()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.txtSemanasGestacao = New System.Windows.Forms.MaskedTextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbFilhos.SuspendLayout()
@@ -526,16 +527,16 @@ Partial Class frmCadClientes
         'ListView2
         '
         Me.ListView2.HideSelection = False
-        Me.ListView2.Location = New System.Drawing.Point(14, 138)
+        Me.ListView2.Location = New System.Drawing.Point(14, 178)
         Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(650, 237)
+        Me.ListView2.Size = New System.Drawing.Size(650, 199)
         Me.ListView2.TabIndex = 6
         Me.ListView2.UseCompatibleStateImageBehavior = False
         '
         'txtNomeFIlho
         '
         Me.txtNomeFIlho.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtNomeFIlho.Location = New System.Drawing.Point(92, 24)
+        Me.txtNomeFIlho.Location = New System.Drawing.Point(106, 37)
         Me.txtNomeFIlho.Name = "txtNomeFIlho"
         Me.txtNomeFIlho.Size = New System.Drawing.Size(254, 20)
         Me.txtNomeFIlho.TabIndex = 0
@@ -545,7 +546,7 @@ Partial Class frmCadClientes
         '
         Me.Label13.AutoSize = True
         Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Location = New System.Drawing.Point(11, 53)
+        Me.Label13.Location = New System.Drawing.Point(25, 66)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(64, 13)
         Me.Label13.TabIndex = 217
@@ -555,7 +556,7 @@ Partial Class frmCadClientes
         '
         Me.Label15.AutoSize = True
         Me.Label15.BackColor = System.Drawing.Color.Transparent
-        Me.Label15.Location = New System.Drawing.Point(11, 27)
+        Me.Label15.Location = New System.Drawing.Point(25, 40)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(75, 13)
         Me.Label15.TabIndex = 216
@@ -565,7 +566,7 @@ Partial Class frmCadClientes
         '
         Me.cbxSexo.FormattingEnabled = True
         Me.cbxSexo.Items.AddRange(New Object() {"FEMININO", "MASCULINO"})
-        Me.cbxSexo.Location = New System.Drawing.Point(92, 76)
+        Me.cbxSexo.Location = New System.Drawing.Point(106, 89)
         Me.cbxSexo.Name = "cbxSexo"
         Me.cbxSexo.Size = New System.Drawing.Size(254, 21)
         Me.cbxSexo.TabIndex = 2
@@ -575,7 +576,7 @@ Partial Class frmCadClientes
         '
         Me.Label17.AutoSize = True
         Me.Label17.BackColor = System.Drawing.Color.Transparent
-        Me.Label17.Location = New System.Drawing.Point(11, 79)
+        Me.Label17.Location = New System.Drawing.Point(25, 92)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(34, 13)
         Me.Label17.TabIndex = 218
@@ -587,7 +588,7 @@ Partial Class frmCadClientes
         Me.btnExcluirFilho.Enabled = False
         Me.btnExcluirFilho.Image = CType(resources.GetObject("btnExcluirFilho.Image"), System.Drawing.Image)
         Me.btnExcluirFilho.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnExcluirFilho.Location = New System.Drawing.Point(258, 102)
+        Me.btnExcluirFilho.Location = New System.Drawing.Point(272, 115)
         Me.btnExcluirFilho.Name = "btnExcluirFilho"
         Me.btnExcluirFilho.Size = New System.Drawing.Size(75, 30)
         Me.btnExcluirFilho.TabIndex = 5
@@ -600,7 +601,7 @@ Partial Class frmCadClientes
         Me.btnAlterarFilho.Enabled = False
         Me.btnAlterarFilho.Image = CType(resources.GetObject("btnAlterarFilho.Image"), System.Drawing.Image)
         Me.btnAlterarFilho.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnAlterarFilho.Location = New System.Drawing.Point(183, 102)
+        Me.btnAlterarFilho.Location = New System.Drawing.Point(197, 115)
         Me.btnAlterarFilho.Name = "btnAlterarFilho"
         Me.btnAlterarFilho.Size = New System.Drawing.Size(75, 30)
         Me.btnAlterarFilho.TabIndex = 4
@@ -612,7 +613,7 @@ Partial Class frmCadClientes
         Me.btnIncluirFilho.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnIncluirFilho.Image = CType(resources.GetObject("btnIncluirFilho.Image"), System.Drawing.Image)
         Me.btnIncluirFilho.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnIncluirFilho.Location = New System.Drawing.Point(108, 102)
+        Me.btnIncluirFilho.Location = New System.Drawing.Point(122, 115)
         Me.btnIncluirFilho.Name = "btnIncluirFilho"
         Me.btnIncluirFilho.Size = New System.Drawing.Size(75, 30)
         Me.btnIncluirFilho.TabIndex = 3
@@ -621,6 +622,7 @@ Partial Class frmCadClientes
         '
         'gbFilhos
         '
+        Me.gbFilhos.Controls.Add(Me.Label27)
         Me.gbFilhos.Controls.Add(Me.txtIdFilhos)
         Me.gbFilhos.Controls.Add(Me.Label25)
         Me.gbFilhos.Controls.Add(Me.dtpNascimentoFIlho)
@@ -633,17 +635,18 @@ Partial Class frmCadClientes
         Me.gbFilhos.Controls.Add(Me.cbxSexo)
         Me.gbFilhos.Controls.Add(Me.txtNomeFIlho)
         Me.gbFilhos.Controls.Add(Me.Label17)
-        Me.gbFilhos.Location = New System.Drawing.Point(407, 12)
+        Me.gbFilhos.Enabled = False
+        Me.gbFilhos.Location = New System.Drawing.Point(407, 17)
         Me.gbFilhos.Name = "gbFilhos"
-        Me.gbFilhos.Size = New System.Drawing.Size(678, 404)
+        Me.gbFilhos.Size = New System.Drawing.Size(678, 399)
         Me.gbFilhos.TabIndex = 16
         Me.gbFilhos.TabStop = False
-        Me.gbFilhos.Text = "Controle de Filhos (as):"
+        Me.gbFilhos.Text = "Controle de descendentes:"
         '
         'txtIdFilhos
         '
         Me.txtIdFilhos.Enabled = False
-        Me.txtIdFilhos.Location = New System.Drawing.Point(585, 112)
+        Me.txtIdFilhos.Location = New System.Drawing.Point(21, 121)
         Me.txtIdFilhos.Name = "txtIdFilhos"
         Me.txtIdFilhos.Size = New System.Drawing.Size(79, 20)
         Me.txtIdFilhos.TabIndex = 229
@@ -653,7 +656,8 @@ Partial Class frmCadClientes
         '
         Me.Label25.AutoSize = True
         Me.Label25.BackColor = System.Drawing.Color.Transparent
-        Me.Label25.Location = New System.Drawing.Point(462, 378)
+        Me.Label25.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label25.Location = New System.Drawing.Point(462, 159)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(202, 13)
         Me.Label25.TabIndex = 227
@@ -661,7 +665,7 @@ Partial Class frmCadClientes
         '
         'dtpNascimentoFIlho
         '
-        Me.dtpNascimentoFIlho.Location = New System.Drawing.Point(92, 50)
+        Me.dtpNascimentoFIlho.Location = New System.Drawing.Point(106, 63)
         Me.dtpNascimentoFIlho.Name = "dtpNascimentoFIlho"
         Me.dtpNascimentoFIlho.Size = New System.Drawing.Size(254, 20)
         Me.dtpNascimentoFIlho.TabIndex = 1
@@ -722,6 +726,18 @@ Partial Class frmCadClientes
         Me.txtSemanasGestacao.Tag = "QTDE SEMANAS"
         Me.txtSemanasGestacao.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtSemanasGestacao.ValidatingType = GetType(Integer)
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.BackColor = System.Drawing.Color.Transparent
+        Me.Label27.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label27.Location = New System.Drawing.Point(386, 52)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(261, 52)
+        Me.Label27.TabIndex = 230
+        Me.Label27.Text = "Para incluir descendentes a um cliente é necessário " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "primeiramente incluir o cli" &
+    "ente na J.A.R.V.I.S e depois " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "editar o cliente incluindo quantos descendentes " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "forem necessários."
         '
         'frmCadClientes
         '
@@ -850,4 +866,5 @@ Partial Class frmCadClientes
     Friend WithEvents Label26 As Label
     Friend WithEvents txtSemanasGestacao As MaskedTextBox
     Friend WithEvents txtIdFilhos As TextBox
+    Friend WithEvents Label27 As Label
 End Class

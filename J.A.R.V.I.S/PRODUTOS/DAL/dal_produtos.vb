@@ -66,6 +66,27 @@
                         .sigla = objCon.retornaVazioParaValorNulo(drRow("sigla"))
                         .ativo = objCon.retornaVazioParaValorNulo(drRow("ativo"))
                         .valor = objCon.retornaVazioParaValorNulo(drRow("valor"))
+
+                        .album = objCon.retornaVazioParaValorNulo(drRow("album"))
+                        .albumQtdeFolhas = objCon.retornaVazioParaValorNulo(drRow("album_qtde_folhas"), 0)
+                        .albumTamanho = objCon.retornaVazioParaValorNulo(drRow("album_tamanho"))
+                        .albumTipo = objCon.retornaVazioParaValorNulo(drRow("album_tipo"))
+
+                        .painel = objCon.retornaVazioParaValorNulo(drRow("painel"))
+                        .painelMoldura = objCon.retornaVazioParaValorNulo(drRow("painel_moldura"))
+                        .painelQtde = objCon.retornaVazioParaValorNulo(drRow("painel_qdte"), 0)
+                        .painelTamanho = objCon.retornaVazioParaValorNulo(drRow("painel_tamanho"))
+
+                        .caixa = objCon.retornaVazioParaValorNulo(drRow("caixa"))
+                        .caixaQtde = objCon.retornaVazioParaValorNulo(drRow("caixa_qtde"), 0)
+                        .caixaTamanho = objCon.retornaVazioParaValorNulo(drRow("caixa_tamanho"))
+                        .caixaTipo = objCon.retornaVazioParaValorNulo(drRow("caixa_tipo"))
+
+                        .ensaios = objCon.retornaVazioParaValorNulo(drRow("ensaios"))
+                        .ensaiosMeses = objCon.retornaVazioParaValorNulo(drRow("ensaios_meses"))
+                        .ensaiosPeriodo = objCon.retornaVazioParaValorNulo(drRow("ensaios_periodo"))
+                        .ensaiosQtde = objCon.retornaVazioParaValorNulo(drRow("ensaios_qtde"), 0)
+
                         .dataCadastro = objCon.retornaVazioParaValorNulo(drRow("dataCadastro"), Nothing)
                         .idCadastro = objCon.retornaVazioParaValorNulo(drRow("idCadastro"))
                         .acao = FlagAcao.NoAction
@@ -89,16 +110,58 @@
             sql += "sigla,"
             sql += "ativo,"
             sql += "valor, "
+
+            sql += "album, "
+            sql += "album_qtde_folhas, "
+            sql += "album_tamanho, "
+            sql += "album_tipo, "
+
+            sql += "painel, "
+            sql += "painel_moldura, "
+            sql += "painel_qdte, "
+            sql += "painel_tamanho, "
+
+            sql += "caixa, "
+            sql += "caixa_qtde, "
+            sql += "caixa_tamanho, "
+            sql += "caixa_tipo, "
+
+            sql += "ensaios, "
+            sql += "ensaios_meses, "
+            sql += "ensaios_periodo, "
+            sql += "ensaios_qtde, "
+
             sql += "dataCadastro, "
             sql += "idCadastro) "
             sql += "values( "
-            sql += objCon.valorSql(_obj.produto) & ","
-            sql += objCon.valorSql(_obj.descricao) & ","
-            sql += objCon.valorSql(_obj.sigla) & ","
-            sql += objCon.valorSql(_obj.ativo) & ","
-            sql += objCon.valorSql(_obj.valor) & ","
-            sql += objCon.valorSql(hlp.dataHoraAtual()) & ", "
-            sql += objCon.valorSql(sessaoIdUsuario) & ")"
+            sql += objCon.valorSql(_obj.produto, False) & ","
+            sql += objCon.valorSql(_obj.descricao, False) & ","
+            sql += objCon.valorSql(_obj.sigla, False) & ","
+            sql += objCon.valorSql(_obj.ativo, False) & ","
+            sql += objCon.valorSql(_obj.valor, False) & ","
+
+            sql += objCon.valorSql(_obj.album, False) & ","
+            sql += objCon.valorSql(_obj.albumQtdeFolhas, False) & ","
+            sql += objCon.valorSql(_obj.albumTamanho, False) & ","
+            sql += objCon.valorSql(_obj.albumTipo, False) & ","
+
+            sql += objCon.valorSql(_obj.painel, False) & ","
+            sql += objCon.valorSql(_obj.painelMoldura, False) & ","
+            sql += objCon.valorSql(_obj.painelQtde, False) & ","
+            sql += objCon.valorSql(_obj.painelTamanho, False) & ","
+
+            sql += objCon.valorSql(_obj.caixa, False) & ","
+            sql += objCon.valorSql(_obj.caixaQtde, False) & ","
+            sql += objCon.valorSql(_obj.caixaTamanho, False) & ","
+            sql += objCon.valorSql(_obj.caixaTipo, False) & ","
+
+            sql += objCon.valorSql(_obj.ensaios, False) & ","
+            sql += objCon.valorSql(_obj.ensaiosMeses, False) & ","
+            sql += objCon.valorSql(_obj.ensaiosPeriodo, False) & ","
+            sql += objCon.valorSql(_obj.ensaiosQtde, False) & ","
+
+            sql += objCon.valorSql(hlp.dataHoraAtual(), False) & ", "
+            sql += objCon.valorSql(sessaoIdUsuario, False) & ")"
 
             Incluir = objCon.executaQuery(sql)
             If Incluir Then
@@ -114,13 +177,35 @@
 
         Try
             sql = "Update tb_produtos "
-            sql += "set produto = " & objCon.valorSql(_obj.produto.Trim) & ","
-            sql += "sigla = " & objCon.valorSql(_obj.sigla.Trim) & ","
-            sql += "descricao = " & objCon.valorSql(_obj.descricao.Trim) & ","
-            sql += "ativo = " & objCon.valorSql(_obj.ativo) & ","
-            sql += "valor = " & objCon.valorSql(_obj.valor) & ", "
-            sql += "dataCadastro = " & objCon.valorSql(hlp.dataHoraAtual()) & ","
-            sql += "idCadastro = " & objCon.valorSql(sessaoIdUsuario) & " "
+            sql += "set produto = " & objCon.valorSql(_obj.produto.Trim, False) & ","
+            sql += "sigla = " & objCon.valorSql(_obj.sigla.Trim, False) & ","
+            sql += "descricao = " & objCon.valorSql(_obj.descricao.Trim, False) & ","
+            sql += "ativo = " & objCon.valorSql(_obj.ativo, False) & ","
+            sql += "valor = " & objCon.valorSql(_obj.valor, False) & ", "
+
+            sql += "album = " & objCon.valorSql(_obj.album, False) & ", "
+            sql += "album_qtde_folhas = " & objCon.valorSql(_obj.albumQtdeFolhas, False) & ", "
+            sql += "album_tamanho = " & objCon.valorSql(_obj.albumTamanho, False) & ", "
+            sql += "album_tipo = " & objCon.valorSql(_obj.albumTipo, False) & ", "
+
+            sql += "painel = " & objCon.valorSql(_obj.painel, False) & ", "
+            sql += "painel_moldura = " & objCon.valorSql(_obj.painelMoldura, False) & ", "
+            sql += "painel_qdte = " & objCon.valorSql(_obj.painelQtde, False) & ", "
+            sql += "painel_tamanho = " & objCon.valorSql(_obj.painelTamanho, False) & ", "
+
+            sql += "caixa = " & objCon.valorSql(_obj.caixa, False) & ", "
+            sql += "caixa_qtde = " & objCon.valorSql(_obj.caixaQtde, False) & ", "
+            sql += "caixa_tamanho = " & objCon.valorSql(_obj.caixaTamanho, False) & ", "
+            sql += "caixa_tipo = " & objCon.valorSql(_obj.caixaTipo, False) & ", "
+
+            sql += "ensaios = " & objCon.valorSql(_obj.ensaios, False) & ", "
+            sql += "ensaios_meses = " & objCon.valorSql(_obj.ensaiosMeses, False) & ", "
+            sql += "ensaios_periodo = " & objCon.valorSql(_obj.ensaiosPeriodo, False) & ", "
+            sql += "ensaios_qtde = " & objCon.valorSql(_obj.ensaiosQtde, False) & ", "
+
+
+            sql += "dataCadastro = " & objCon.valorSql(hlp.dataHoraAtual(), False) & ","
+            sql += "idCadastro = " & objCon.valorSql(sessaoIdUsuario, False) & " "
             sql += "where id = " & objCon.valorSql(_obj.id) & " "
 
             Atualizar = objCon.executaQuery(sql)

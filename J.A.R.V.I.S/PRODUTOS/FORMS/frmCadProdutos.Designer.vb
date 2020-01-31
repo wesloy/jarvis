@@ -22,6 +22,7 @@ Partial Class frmCadProdutos
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCadProdutos))
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtSigla = New System.Windows.Forms.TextBox()
@@ -52,14 +53,14 @@ Partial Class frmCadProdutos
         Me.txtValor = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.gbAlbum = New System.Windows.Forms.GroupBox()
-        Me.album_rbSim = New System.Windows.Forms.RadioButton()
-        Me.album_rbNao = New System.Windows.Forms.RadioButton()
-        Me.album_txtTamanho = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.album_txtFolhas = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.album_txtTipo = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.album_txtFolhas = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.album_txtTamanho = New System.Windows.Forms.TextBox()
+        Me.album_rbNao = New System.Windows.Forms.RadioButton()
+        Me.album_rbSim = New System.Windows.Forms.RadioButton()
         Me.gbPainel = New System.Windows.Forms.GroupBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.painel_txtMoldura = New System.Windows.Forms.TextBox()
@@ -70,6 +71,7 @@ Partial Class frmCadProdutos
         Me.painel_rbNao = New System.Windows.Forms.RadioButton()
         Me.painel_rbSim = New System.Windows.Forms.RadioButton()
         Me.gbEnsaios = New System.Windows.Forms.GroupBox()
+        Me.ensaios_cbPeriodo = New System.Windows.Forms.ComboBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.ensaios_txtMeses = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -77,7 +79,6 @@ Partial Class frmCadProdutos
         Me.Label21 = New System.Windows.Forms.Label()
         Me.ensaios_rbNao = New System.Windows.Forms.RadioButton()
         Me.ensaios_rbSim = New System.Windows.Forms.RadioButton()
-        Me.ensaios_cbPeriodo = New System.Windows.Forms.ComboBox()
         Me.gbCaixa = New System.Windows.Forms.GroupBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.caixa_txtTipo = New System.Windows.Forms.TextBox()
@@ -87,6 +88,7 @@ Partial Class frmCadProdutos
         Me.caixa_txtTamanho = New System.Windows.Forms.TextBox()
         Me.caixa_rbNao = New System.Windows.Forms.RadioButton()
         Me.caixa_rbSim = New System.Windows.Forms.RadioButton()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbAlbum.SuspendLayout()
@@ -413,49 +415,25 @@ Partial Class frmCadProdutos
         Me.gbAlbum.TabStop = False
         Me.gbAlbum.Text = "Álbum"
         '
-        'album_rbSim
+        'Label15
         '
-        Me.album_rbSim.AutoSize = True
-        Me.album_rbSim.Location = New System.Drawing.Point(18, 19)
-        Me.album_rbSim.Name = "album_rbSim"
-        Me.album_rbSim.Size = New System.Drawing.Size(44, 17)
-        Me.album_rbSim.TabIndex = 122
-        Me.album_rbSim.Tag = "Álbum SIM"
-        Me.album_rbSim.Text = "SIM"
-        Me.album_rbSim.UseVisualStyleBackColor = True
+        Me.Label15.AutoSize = True
+        Me.Label15.BackColor = System.Drawing.Color.Transparent
+        Me.Label15.Location = New System.Drawing.Point(15, 98)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(31, 13)
+        Me.Label15.TabIndex = 129
+        Me.Label15.Text = "Tipo:"
         '
-        'album_rbNao
+        'album_txtTipo
         '
-        Me.album_rbNao.AutoSize = True
-        Me.album_rbNao.Checked = True
-        Me.album_rbNao.Location = New System.Drawing.Point(68, 19)
-        Me.album_rbNao.Name = "album_rbNao"
-        Me.album_rbNao.Size = New System.Drawing.Size(48, 17)
-        Me.album_rbNao.TabIndex = 123
-        Me.album_rbNao.TabStop = True
-        Me.album_rbNao.Tag = "Álbum NÃO"
-        Me.album_rbNao.Text = "NÃO"
-        Me.album_rbNao.UseVisualStyleBackColor = True
-        '
-        'album_txtTamanho
-        '
-        Me.album_txtTamanho.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.album_txtTamanho.Enabled = False
-        Me.album_txtTamanho.Location = New System.Drawing.Point(76, 69)
-        Me.album_txtTamanho.Name = "album_txtTamanho"
-        Me.album_txtTamanho.Size = New System.Drawing.Size(96, 20)
-        Me.album_txtTamanho.TabIndex = 124
-        Me.album_txtTamanho.Tag = "Álbum TAMANHO"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Location = New System.Drawing.Point(15, 72)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(55, 13)
-        Me.Label8.TabIndex = 125
-        Me.Label8.Text = "Tamanho:"
+        Me.album_txtTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.album_txtTipo.Enabled = False
+        Me.album_txtTipo.Location = New System.Drawing.Point(76, 95)
+        Me.album_txtTipo.Name = "album_txtTipo"
+        Me.album_txtTipo.Size = New System.Drawing.Size(96, 20)
+        Me.album_txtTipo.TabIndex = 128
+        Me.album_txtTipo.Tag = "Álbum TIPO"
         '
         'Label13
         '
@@ -477,25 +455,49 @@ Partial Class frmCadProdutos
         Me.album_txtFolhas.TabIndex = 126
         Me.album_txtFolhas.Tag = "Álbum FOLHAS"
         '
-        'Label15
+        'Label8
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.BackColor = System.Drawing.Color.Transparent
-        Me.Label15.Location = New System.Drawing.Point(15, 98)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(31, 13)
-        Me.Label15.TabIndex = 129
-        Me.Label15.Text = "Tipo:"
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Location = New System.Drawing.Point(15, 72)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(55, 13)
+        Me.Label8.TabIndex = 125
+        Me.Label8.Text = "Tamanho:"
         '
-        'album_txtTipo
+        'album_txtTamanho
         '
-        Me.album_txtTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.album_txtTipo.Enabled = False
-        Me.album_txtTipo.Location = New System.Drawing.Point(76, 95)
-        Me.album_txtTipo.Name = "album_txtTipo"
-        Me.album_txtTipo.Size = New System.Drawing.Size(96, 20)
-        Me.album_txtTipo.TabIndex = 128
-        Me.album_txtTipo.Tag = "Álbum TIPO"
+        Me.album_txtTamanho.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.album_txtTamanho.Enabled = False
+        Me.album_txtTamanho.Location = New System.Drawing.Point(76, 69)
+        Me.album_txtTamanho.Name = "album_txtTamanho"
+        Me.album_txtTamanho.Size = New System.Drawing.Size(96, 20)
+        Me.album_txtTamanho.TabIndex = 124
+        Me.album_txtTamanho.Tag = "Álbum TAMANHO"
+        '
+        'album_rbNao
+        '
+        Me.album_rbNao.AutoSize = True
+        Me.album_rbNao.Checked = True
+        Me.album_rbNao.Location = New System.Drawing.Point(68, 19)
+        Me.album_rbNao.Name = "album_rbNao"
+        Me.album_rbNao.Size = New System.Drawing.Size(48, 17)
+        Me.album_rbNao.TabIndex = 123
+        Me.album_rbNao.TabStop = True
+        Me.album_rbNao.Tag = "Álbum NÃO"
+        Me.album_rbNao.Text = "NÃO"
+        Me.album_rbNao.UseVisualStyleBackColor = True
+        '
+        'album_rbSim
+        '
+        Me.album_rbSim.AutoSize = True
+        Me.album_rbSim.Location = New System.Drawing.Point(18, 19)
+        Me.album_rbSim.Name = "album_rbSim"
+        Me.album_rbSim.Size = New System.Drawing.Size(44, 17)
+        Me.album_rbSim.TabIndex = 122
+        Me.album_rbSim.Tag = "Álbum SIM"
+        Me.album_rbSim.Text = "SIM"
+        Me.album_rbSim.UseVisualStyleBackColor = True
         '
         'gbPainel
         '
@@ -615,6 +617,17 @@ Partial Class frmCadProdutos
         Me.gbEnsaios.TabStop = False
         Me.gbEnsaios.Text = "Ensaios"
         '
+        'ensaios_cbPeriodo
+        '
+        Me.ensaios_cbPeriodo.Enabled = False
+        Me.ensaios_cbPeriodo.FormattingEnabled = True
+        Me.ensaios_cbPeriodo.Items.AddRange(New Object() {"MENSAL", "BIMESTRAL", "TRIMESTRAL", "SEMESTRAL", "ANUAL", "OUTROS"})
+        Me.ensaios_cbPeriodo.Location = New System.Drawing.Point(76, 69)
+        Me.ensaios_cbPeriodo.Name = "ensaios_cbPeriodo"
+        Me.ensaios_cbPeriodo.Size = New System.Drawing.Size(96, 21)
+        Me.ensaios_cbPeriodo.TabIndex = 130
+        Me.ensaios_cbPeriodo.Tag = "Ensaios PERÍODO"
+        '
         'Label19
         '
         Me.Label19.AutoSize = True
@@ -634,7 +647,7 @@ Partial Class frmCadProdutos
         Me.ensaios_txtMeses.Size = New System.Drawing.Size(96, 20)
         Me.ensaios_txtMeses.TabIndex = 128
         Me.ensaios_txtMeses.Tag = "Ensaios MESES"
-        Me.ensaios_txtMeses.Text = "EXEMPLO: 1 E 2"
+        Me.ToolTip1.SetToolTip(Me.ensaios_txtMeses, "Exemplo: 1,2 e 3")
         '
         'Label20
         '
@@ -689,17 +702,6 @@ Partial Class frmCadProdutos
         Me.ensaios_rbSim.Tag = "Ensaios SIM"
         Me.ensaios_rbSim.Text = "SIM"
         Me.ensaios_rbSim.UseVisualStyleBackColor = True
-        '
-        'ensaios_cbPeriodo
-        '
-        Me.ensaios_cbPeriodo.Enabled = False
-        Me.ensaios_cbPeriodo.FormattingEnabled = True
-        Me.ensaios_cbPeriodo.Items.AddRange(New Object() {"MENSAL", "BIMESTRAL", "TRIMESTRAL", "SEMESTRAL", "ANUAL", "OUTROS"})
-        Me.ensaios_cbPeriodo.Location = New System.Drawing.Point(76, 69)
-        Me.ensaios_cbPeriodo.Name = "ensaios_cbPeriodo"
-        Me.ensaios_cbPeriodo.Size = New System.Drawing.Size(96, 21)
-        Me.ensaios_cbPeriodo.TabIndex = 130
-        Me.ensaios_cbPeriodo.Tag = "Ensaios PERÍODO"
         '
         'gbCaixa
         '
@@ -922,4 +924,5 @@ Partial Class frmCadProdutos
     Friend WithEvents caixa_txtTamanho As TextBox
     Friend WithEvents caixa_rbNao As RadioButton
     Friend WithEvents caixa_rbSim As RadioButton
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

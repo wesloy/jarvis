@@ -63,8 +63,6 @@
                     .cliente_desc = cbCliente.Text
                     .produto_id = cbProduto.SelectedValue
                     .produto_desc = cbProduto.Text
-                    .contrato_id = cbContrato.SelectedValue
-                    .contrato_desc = cbContrato.Text
                     .contrato_assinado = cbxContratoAssinado.Checked
                     .pgto_realizado = cbxPagamento.Checked
 
@@ -161,7 +159,6 @@
 
                 'Informações
                 cbProduto.SelectedValue = .produto_id
-                cbContrato.SelectedValue = .contrato_id
                 cbxContratoAssinado.Checked = .contrato_assinado
                 cbxPagamento.Checked = .pgto_realizado
             End With
@@ -198,7 +195,7 @@
         hlp.abrirForm(frmCadProdutos, False, False)
     End Sub
 
-    Private Sub linkAdcContrato_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkAdcContrato.LinkClicked
+    Private Sub linkAdcContrato_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
         hlp.abrirForm(frmCadContratos, False, False)
     End Sub
 
@@ -228,7 +225,7 @@
         e.Handled = True
     End Sub
 
-    Private Sub cbContrato_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbContrato.KeyPress
+    Private Sub cbContrato_KeyPress(sender As Object, e As KeyPressEventArgs)
         e.Handled = True
     End Sub
 
@@ -250,7 +247,7 @@
 
     End Sub
 
-    Private Sub lvHistoricoCliente_ColumnClick(sender As Object, e As ColumnClickEventArgs) Handles lvHistoricoCliente.ColumnClick
+    Private Sub lvHistoricoCliente_ColumnClick(sender As Object, e As ColumnClickEventArgs)
         If Me.lvHistoricoCliente.Sorting = SortOrder.Ascending Then
             Me.lvHistoricoCliente.Sorting = SortOrder.Descending
         Else
@@ -259,7 +256,7 @@
         Me.lvHistoricoCliente.ListViewItemSorter = New mdlOrdenacaoListView(e.Column, Me.lvHistoricoCliente.Sorting)
     End Sub
 
-    Private Sub linkAtualizarHistoricoCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkAtualizarHistoricoCliente.LinkClicked
+    Private Sub linkAtualizarHistoricoCliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
         Try
             If cbCliente.SelectedValue > 0 Then
                 If Not backOffice.carregarListViewHistoricoCliente(lvHistoricoCliente, cbCliente.SelectedValue) Then
@@ -278,7 +275,7 @@
         produtos.PreencheCombobox(Me, cbProduto)
     End Sub
 
-    Private Sub linkAtualizarContrato_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkAtualizarContrato.LinkClicked
+    Private Sub linkAtualizarContrato_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
 
     End Sub
 

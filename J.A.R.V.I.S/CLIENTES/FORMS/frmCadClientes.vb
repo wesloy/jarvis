@@ -11,6 +11,7 @@
         Me.btnExcluir.Enabled = True
         Me.btnIncluir.Enabled = False
         Me.btnCancelar.Enabled = True
+        gbFilhos.Enabled = True
     End Sub
 
     Private Sub bloqueiaBotoes()
@@ -21,6 +22,7 @@
         cbxSexo.Text = ""
         hlp.limparCampos(Me)
         hlp.limparCampos(gbFilhos)
+        gbFilhos.Enabled = False
     End Sub
 
     Private Function salvarRegistro(ByVal tipoManutencao As Integer) As Boolean
@@ -271,4 +273,5 @@
     Private Sub cbxSexo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbxSexo.KeyPress
         e.Handled = True
     End Sub
+
 End Class
