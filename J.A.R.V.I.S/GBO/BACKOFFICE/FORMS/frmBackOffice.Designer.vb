@@ -55,41 +55,8 @@ Partial Class frmBackOffice
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtProtocolo = New System.Windows.Forms.TextBox()
         Me.gbDados = New System.Windows.Forms.GroupBox()
-        Me.linkAtualizarProduto = New System.Windows.Forms.LinkLabel()
-        Me.cbxContratoAssinado = New System.Windows.Forms.CheckBox()
-        Me.cbxPagamento = New System.Windows.Forms.CheckBox()
-        Me.linkDetalhesProduto = New System.Windows.Forms.LinkLabel()
-        Me.linkAdcProduto = New System.Windows.Forms.LinkLabel()
-        Me.cbProduto = New System.Windows.Forms.ComboBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.gbAlbum = New System.Windows.Forms.GroupBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.album_txtTipo = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.album_txtFolhas = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.album_txtTamanho = New System.Windows.Forms.TextBox()
-        Me.album_rbNao = New System.Windows.Forms.RadioButton()
-        Me.album_rbSim = New System.Windows.Forms.RadioButton()
-        Me.gbPainel = New System.Windows.Forms.GroupBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.painel_txtMoldura = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.painel_txtQtde = New System.Windows.Forms.TextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.painel_txtTamanho = New System.Windows.Forms.TextBox()
-        Me.painel_rbNao = New System.Windows.Forms.RadioButton()
-        Me.painel_rbSim = New System.Windows.Forms.RadioButton()
-        Me.gbEnsaios = New System.Windows.Forms.GroupBox()
-        Me.ensaios_cbPeriodo = New System.Windows.Forms.ComboBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.ensaios_txtMeses = New System.Windows.Forms.TextBox()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.ensaios_txtQtdade = New System.Windows.Forms.TextBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.ensaios_rbNao = New System.Windows.Forms.RadioButton()
-        Me.ensaios_rbSim = New System.Windows.Forms.RadioButton()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.gbCaixa = New System.Windows.Forms.GroupBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.caixa_txtTipo = New System.Windows.Forms.TextBox()
@@ -99,27 +66,60 @@ Partial Class frmBackOffice
         Me.caixa_txtTamanho = New System.Windows.Forms.TextBox()
         Me.caixa_rbNao = New System.Windows.Forms.RadioButton()
         Me.caixa_rbSim = New System.Windows.Forms.RadioButton()
-        Me.lvHistoricoCliente = New System.Windows.Forms.ListView()
-        Me.linkAtualizarHistoricoCliente = New System.Windows.Forms.LinkLabel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
+        Me.gbEnsaios = New System.Windows.Forms.GroupBox()
+        Me.ensaios_cbPeriodo = New System.Windows.Forms.ComboBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.ensaios_txtMeses = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.ensaios_txtQtdade = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.ensaios_rbNao = New System.Windows.Forms.RadioButton()
+        Me.ensaios_rbSim = New System.Windows.Forms.RadioButton()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.gbPainel = New System.Windows.Forms.GroupBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.painel_txtMoldura = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.painel_txtQtde = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.painel_txtTamanho = New System.Windows.Forms.TextBox()
+        Me.painel_rbNao = New System.Windows.Forms.RadioButton()
+        Me.painel_rbSim = New System.Windows.Forms.RadioButton()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.gbAlbum = New System.Windows.Forms.GroupBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.album_txtTipo = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.album_txtFolhas = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.album_txtTamanho = New System.Windows.Forms.TextBox()
+        Me.album_rbNao = New System.Windows.Forms.RadioButton()
+        Me.album_rbSim = New System.Windows.Forms.RadioButton()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.linkAtualizarProduto = New System.Windows.Forms.LinkLabel()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.cbxContratoAssinado = New System.Windows.Forms.CheckBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.cbxPagamento = New System.Windows.Forms.CheckBox()
+        Me.linkAtualizarHistoricoCliente = New System.Windows.Forms.LinkLabel()
+        Me.linkDetalhesProduto = New System.Windows.Forms.LinkLabel()
+        Me.lvHistoricoCliente = New System.Windows.Forms.ListView()
+        Me.linkAdcProduto = New System.Windows.Forms.LinkLabel()
+        Me.cbProduto = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.gbIniciar.SuspendLayout()
         Me.gbConcluir.SuspendLayout()
         Me.gbInformacoesRelevantes.SuspendLayout()
         Me.gbDados.SuspendLayout()
-        Me.gbAlbum.SuspendLayout()
-        Me.gbPainel.SuspendLayout()
-        Me.gbEnsaios.SuspendLayout()
         Me.gbCaixa.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbEnsaios.SuspendLayout()
+        Me.gbPainel.SuspendLayout()
+        Me.gbAlbum.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbIniciar
@@ -496,283 +496,139 @@ Partial Class frmBackOffice
         Me.gbDados.TabStop = False
         Me.gbDados.Text = "Informações"
         '
-        'linkAtualizarProduto
+        'Label26
         '
-        Me.linkAtualizarProduto.AutoSize = True
-        Me.linkAtualizarProduto.Location = New System.Drawing.Point(60, 36)
-        Me.linkAtualizarProduto.Name = "linkAtualizarProduto"
-        Me.linkAtualizarProduto.Size = New System.Drawing.Size(53, 13)
-        Me.linkAtualizarProduto.TabIndex = 152
-        Me.linkAtualizarProduto.TabStop = True
-        Me.linkAtualizarProduto.Text = "(Atualizar)"
-        Me.ToolTip1.SetToolTip(Me.linkAtualizarProduto, "Verificar informações detalhadas do registro selecionado")
+        Me.Label26.AutoSize = True
+        Me.Label26.BackColor = System.Drawing.Color.Transparent
+        Me.Label26.Location = New System.Drawing.Point(19, 388)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(51, 13)
+        Me.Label26.TabIndex = 175
+        Me.Label26.Text = "Histórico:"
         '
-        'cbxContratoAssinado
+        'Label14
         '
-        Me.cbxContratoAssinado.AutoSize = True
-        Me.cbxContratoAssinado.Location = New System.Drawing.Point(157, 360)
-        Me.cbxContratoAssinado.Name = "cbxContratoAssinado"
-        Me.cbxContratoAssinado.Size = New System.Drawing.Size(112, 17)
-        Me.cbxContratoAssinado.TabIndex = 20
-        Me.cbxContratoAssinado.Tag = "CONTRATO ASSINADO"
-        Me.cbxContratoAssinado.Text = "Contrato Assinado"
-        Me.ToolTip1.SetToolTip(Me.cbxContratoAssinado, "Quando o cliente assinar o contrato este item deve ser marcado, para que não gere" &
-        " fila de trabalho com esta pendência.")
-        Me.cbxContratoAssinado.UseVisualStyleBackColor = True
+        Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label14.AutoSize = True
+        Me.Label14.BackColor = System.Drawing.Color.Transparent
+        Me.Label14.Location = New System.Drawing.Point(628, 389)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(67, 13)
+        Me.Label14.TabIndex = 174
+        Me.Label14.Text = "Trabalhando"
         '
-        'cbxPagamento
+        'gbCaixa
         '
-        Me.cbxPagamento.AutoSize = True
-        Me.cbxPagamento.Location = New System.Drawing.Point(17, 360)
-        Me.cbxPagamento.Name = "cbxPagamento"
-        Me.cbxPagamento.Size = New System.Drawing.Size(130, 17)
-        Me.cbxPagamento.TabIndex = 19
-        Me.cbxPagamento.Tag = "PAGTO REALIZADO"
-        Me.cbxPagamento.Text = "Pagamento Realizado"
-        Me.ToolTip1.SetToolTip(Me.cbxPagamento, "Ao clicar deverá efetivar o pagamento do cliente!")
-        Me.cbxPagamento.UseVisualStyleBackColor = True
+        Me.gbCaixa.Controls.Add(Me.Label23)
+        Me.gbCaixa.Controls.Add(Me.caixa_txtTipo)
+        Me.gbCaixa.Controls.Add(Me.Label24)
+        Me.gbCaixa.Controls.Add(Me.caixa_txtQtde)
+        Me.gbCaixa.Controls.Add(Me.Label25)
+        Me.gbCaixa.Controls.Add(Me.caixa_txtTamanho)
+        Me.gbCaixa.Controls.Add(Me.caixa_rbNao)
+        Me.gbCaixa.Controls.Add(Me.caixa_rbSim)
+        Me.gbCaixa.Location = New System.Drawing.Point(223, 216)
+        Me.gbCaixa.Name = "gbCaixa"
+        Me.gbCaixa.Size = New System.Drawing.Size(200, 126)
+        Me.gbCaixa.TabIndex = 156
+        Me.gbCaixa.TabStop = False
+        Me.gbCaixa.Text = "Caixa"
         '
-        'linkDetalhesProduto
+        'Label23
         '
-        Me.linkDetalhesProduto.AutoSize = True
-        Me.linkDetalhesProduto.Location = New System.Drawing.Point(374, 35)
-        Me.linkDetalhesProduto.Name = "linkDetalhesProduto"
-        Me.linkDetalhesProduto.Size = New System.Drawing.Size(49, 13)
-        Me.linkDetalhesProduto.TabIndex = 12
-        Me.linkDetalhesProduto.TabStop = True
-        Me.linkDetalhesProduto.Text = "Detalhes"
-        Me.ToolTip1.SetToolTip(Me.linkDetalhesProduto, "Verificar informações detalhadas do registro selecionado")
+        Me.Label23.AutoSize = True
+        Me.Label23.BackColor = System.Drawing.Color.Transparent
+        Me.Label23.Location = New System.Drawing.Point(15, 98)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(31, 13)
+        Me.Label23.TabIndex = 129
+        Me.Label23.Text = "Tipo:"
         '
-        'linkAdcProduto
+        'caixa_txtTipo
         '
-        Me.linkAdcProduto.AutoSize = True
-        Me.linkAdcProduto.Location = New System.Drawing.Point(276, 35)
-        Me.linkAdcProduto.Name = "linkAdcProduto"
-        Me.linkAdcProduto.Size = New System.Drawing.Size(92, 13)
-        Me.linkAdcProduto.TabIndex = 11
-        Me.linkAdcProduto.TabStop = True
-        Me.linkAdcProduto.Text = "Adicionar / Alterar"
-        Me.ToolTip1.SetToolTip(Me.linkAdcProduto, "Inserir novo registro ou editar um existente")
+        Me.caixa_txtTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.caixa_txtTipo.Enabled = False
+        Me.caixa_txtTipo.Location = New System.Drawing.Point(76, 95)
+        Me.caixa_txtTipo.Name = "caixa_txtTipo"
+        Me.caixa_txtTipo.Size = New System.Drawing.Size(96, 20)
+        Me.caixa_txtTipo.TabIndex = 128
+        Me.caixa_txtTipo.Tag = "Caixa TIPO"
         '
-        'cbProduto
+        'Label24
         '
-        Me.cbProduto.FormattingEnabled = True
-        Me.cbProduto.Location = New System.Drawing.Point(17, 52)
-        Me.cbProduto.Name = "cbProduto"
-        Me.cbProduto.Size = New System.Drawing.Size(406, 21)
-        Me.cbProduto.TabIndex = 8
-        Me.cbProduto.Tag = "PRODUTO"
+        Me.Label24.AutoSize = True
+        Me.Label24.BackColor = System.Drawing.Color.Transparent
+        Me.Label24.Location = New System.Drawing.Point(19, 46)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(45, 13)
+        Me.Label24.TabIndex = 127
+        Me.Label24.Text = "Qtdade:"
         '
-        'Label9
+        'caixa_txtQtde
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(16, 36)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(44, 13)
-        Me.Label9.TabIndex = 7
-        Me.Label9.Text = "Produto"
+        Me.caixa_txtQtde.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.caixa_txtQtde.Enabled = False
+        Me.caixa_txtQtde.Location = New System.Drawing.Point(76, 43)
+        Me.caixa_txtQtde.Name = "caixa_txtQtde"
+        Me.caixa_txtQtde.Size = New System.Drawing.Size(96, 20)
+        Me.caixa_txtQtde.TabIndex = 126
+        Me.caixa_txtQtde.Tag = "Caixa QUANTIDADE"
         '
-        'gbAlbum
+        'Label25
         '
-        Me.gbAlbum.Controls.Add(Me.Label15)
-        Me.gbAlbum.Controls.Add(Me.album_txtTipo)
-        Me.gbAlbum.Controls.Add(Me.Label10)
-        Me.gbAlbum.Controls.Add(Me.album_txtFolhas)
-        Me.gbAlbum.Controls.Add(Me.Label16)
-        Me.gbAlbum.Controls.Add(Me.album_txtTamanho)
-        Me.gbAlbum.Controls.Add(Me.album_rbNao)
-        Me.gbAlbum.Controls.Add(Me.album_rbSim)
-        Me.gbAlbum.Location = New System.Drawing.Point(17, 79)
-        Me.gbAlbum.Name = "gbAlbum"
-        Me.gbAlbum.Size = New System.Drawing.Size(200, 126)
-        Me.gbAlbum.TabIndex = 153
-        Me.gbAlbum.TabStop = False
-        Me.gbAlbum.Text = "Álbum"
+        Me.Label25.AutoSize = True
+        Me.Label25.BackColor = System.Drawing.Color.Transparent
+        Me.Label25.Location = New System.Drawing.Point(15, 72)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(55, 13)
+        Me.Label25.TabIndex = 125
+        Me.Label25.Text = "Tamanho:"
         '
-        'Label15
+        'caixa_txtTamanho
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.BackColor = System.Drawing.Color.Transparent
-        Me.Label15.Location = New System.Drawing.Point(15, 98)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(31, 13)
-        Me.Label15.TabIndex = 129
-        Me.Label15.Text = "Tipo:"
+        Me.caixa_txtTamanho.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.caixa_txtTamanho.Enabled = False
+        Me.caixa_txtTamanho.Location = New System.Drawing.Point(76, 69)
+        Me.caixa_txtTamanho.Name = "caixa_txtTamanho"
+        Me.caixa_txtTamanho.Size = New System.Drawing.Size(96, 20)
+        Me.caixa_txtTamanho.TabIndex = 124
+        Me.caixa_txtTamanho.Tag = "Caixa TAMANHO"
         '
-        'album_txtTipo
+        'caixa_rbNao
         '
-        Me.album_txtTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.album_txtTipo.Enabled = False
-        Me.album_txtTipo.Location = New System.Drawing.Point(76, 95)
-        Me.album_txtTipo.Name = "album_txtTipo"
-        Me.album_txtTipo.Size = New System.Drawing.Size(96, 20)
-        Me.album_txtTipo.TabIndex = 128
-        Me.album_txtTipo.Tag = "Álbum TIPO"
+        Me.caixa_rbNao.AutoSize = True
+        Me.caixa_rbNao.Checked = True
+        Me.caixa_rbNao.Location = New System.Drawing.Point(68, 19)
+        Me.caixa_rbNao.Name = "caixa_rbNao"
+        Me.caixa_rbNao.Size = New System.Drawing.Size(48, 17)
+        Me.caixa_rbNao.TabIndex = 123
+        Me.caixa_rbNao.TabStop = True
+        Me.caixa_rbNao.Tag = "Caixa NÃO"
+        Me.caixa_rbNao.Text = "NÃO"
+        Me.caixa_rbNao.UseVisualStyleBackColor = True
         '
-        'Label10
+        'caixa_rbSim
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Location = New System.Drawing.Point(19, 46)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(41, 13)
-        Me.Label10.TabIndex = 127
-        Me.Label10.Text = "Folhas:"
+        Me.caixa_rbSim.AutoSize = True
+        Me.caixa_rbSim.Location = New System.Drawing.Point(18, 19)
+        Me.caixa_rbSim.Name = "caixa_rbSim"
+        Me.caixa_rbSim.Size = New System.Drawing.Size(44, 17)
+        Me.caixa_rbSim.TabIndex = 122
+        Me.caixa_rbSim.Tag = "Caixa SIM"
+        Me.caixa_rbSim.Text = "SIM"
+        Me.caixa_rbSim.UseVisualStyleBackColor = True
         '
-        'album_txtFolhas
+        'PictureBox3
         '
-        Me.album_txtFolhas.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.album_txtFolhas.Enabled = False
-        Me.album_txtFolhas.Location = New System.Drawing.Point(76, 43)
-        Me.album_txtFolhas.Name = "album_txtFolhas"
-        Me.album_txtFolhas.Size = New System.Drawing.Size(96, 20)
-        Me.album_txtFolhas.TabIndex = 126
-        Me.album_txtFolhas.Tag = "Álbum FOLHAS"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.BackColor = System.Drawing.Color.Transparent
-        Me.Label16.Location = New System.Drawing.Point(15, 72)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(55, 13)
-        Me.Label16.TabIndex = 125
-        Me.Label16.Text = "Tamanho:"
-        '
-        'album_txtTamanho
-        '
-        Me.album_txtTamanho.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.album_txtTamanho.Enabled = False
-        Me.album_txtTamanho.Location = New System.Drawing.Point(76, 69)
-        Me.album_txtTamanho.Name = "album_txtTamanho"
-        Me.album_txtTamanho.Size = New System.Drawing.Size(96, 20)
-        Me.album_txtTamanho.TabIndex = 124
-        Me.album_txtTamanho.Tag = "Álbum TAMANHO"
-        '
-        'album_rbNao
-        '
-        Me.album_rbNao.AutoSize = True
-        Me.album_rbNao.Checked = True
-        Me.album_rbNao.Location = New System.Drawing.Point(68, 19)
-        Me.album_rbNao.Name = "album_rbNao"
-        Me.album_rbNao.Size = New System.Drawing.Size(48, 17)
-        Me.album_rbNao.TabIndex = 123
-        Me.album_rbNao.TabStop = True
-        Me.album_rbNao.Tag = "Álbum NÃO"
-        Me.album_rbNao.Text = "NÃO"
-        Me.album_rbNao.UseVisualStyleBackColor = True
-        '
-        'album_rbSim
-        '
-        Me.album_rbSim.AutoSize = True
-        Me.album_rbSim.Location = New System.Drawing.Point(18, 19)
-        Me.album_rbSim.Name = "album_rbSim"
-        Me.album_rbSim.Size = New System.Drawing.Size(44, 17)
-        Me.album_rbSim.TabIndex = 122
-        Me.album_rbSim.Tag = "Álbum SIM"
-        Me.album_rbSim.Text = "SIM"
-        Me.album_rbSim.UseVisualStyleBackColor = True
-        '
-        'gbPainel
-        '
-        Me.gbPainel.Controls.Add(Me.Label17)
-        Me.gbPainel.Controls.Add(Me.painel_txtMoldura)
-        Me.gbPainel.Controls.Add(Me.Label18)
-        Me.gbPainel.Controls.Add(Me.painel_txtQtde)
-        Me.gbPainel.Controls.Add(Me.Label19)
-        Me.gbPainel.Controls.Add(Me.painel_txtTamanho)
-        Me.gbPainel.Controls.Add(Me.painel_rbNao)
-        Me.gbPainel.Controls.Add(Me.painel_rbSim)
-        Me.gbPainel.Location = New System.Drawing.Point(223, 79)
-        Me.gbPainel.Name = "gbPainel"
-        Me.gbPainel.Size = New System.Drawing.Size(200, 126)
-        Me.gbPainel.TabIndex = 154
-        Me.gbPainel.TabStop = False
-        Me.gbPainel.Text = "Painel"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.BackColor = System.Drawing.Color.Transparent
-        Me.Label17.Location = New System.Drawing.Point(15, 98)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(48, 13)
-        Me.Label17.TabIndex = 129
-        Me.Label17.Text = "Moldura:"
-        '
-        'painel_txtMoldura
-        '
-        Me.painel_txtMoldura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.painel_txtMoldura.Enabled = False
-        Me.painel_txtMoldura.Location = New System.Drawing.Point(76, 95)
-        Me.painel_txtMoldura.Name = "painel_txtMoldura"
-        Me.painel_txtMoldura.Size = New System.Drawing.Size(96, 20)
-        Me.painel_txtMoldura.TabIndex = 128
-        Me.painel_txtMoldura.Tag = "Painel MOLDURA"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.BackColor = System.Drawing.Color.Transparent
-        Me.Label18.Location = New System.Drawing.Point(19, 46)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(45, 13)
-        Me.Label18.TabIndex = 127
-        Me.Label18.Text = "Qtdade:"
-        '
-        'painel_txtQtde
-        '
-        Me.painel_txtQtde.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.painel_txtQtde.Enabled = False
-        Me.painel_txtQtde.Location = New System.Drawing.Point(76, 43)
-        Me.painel_txtQtde.Name = "painel_txtQtde"
-        Me.painel_txtQtde.Size = New System.Drawing.Size(96, 20)
-        Me.painel_txtQtde.TabIndex = 126
-        Me.painel_txtQtde.Tag = "Painel QUANTIDADE"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.BackColor = System.Drawing.Color.Transparent
-        Me.Label19.Location = New System.Drawing.Point(15, 72)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(55, 13)
-        Me.Label19.TabIndex = 125
-        Me.Label19.Text = "Tamanho:"
-        '
-        'painel_txtTamanho
-        '
-        Me.painel_txtTamanho.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.painel_txtTamanho.Enabled = False
-        Me.painel_txtTamanho.Location = New System.Drawing.Point(76, 69)
-        Me.painel_txtTamanho.Name = "painel_txtTamanho"
-        Me.painel_txtTamanho.Size = New System.Drawing.Size(96, 20)
-        Me.painel_txtTamanho.TabIndex = 124
-        Me.painel_txtTamanho.Tag = "Painel TAMANHO"
-        '
-        'painel_rbNao
-        '
-        Me.painel_rbNao.AutoSize = True
-        Me.painel_rbNao.Checked = True
-        Me.painel_rbNao.Location = New System.Drawing.Point(68, 19)
-        Me.painel_rbNao.Name = "painel_rbNao"
-        Me.painel_rbNao.Size = New System.Drawing.Size(48, 17)
-        Me.painel_rbNao.TabIndex = 123
-        Me.painel_rbNao.TabStop = True
-        Me.painel_rbNao.Tag = "Painel NÃO"
-        Me.painel_rbNao.Text = "NÃO"
-        Me.painel_rbNao.UseVisualStyleBackColor = True
-        '
-        'painel_rbSim
-        '
-        Me.painel_rbSim.AutoSize = True
-        Me.painel_rbSim.Location = New System.Drawing.Point(18, 19)
-        Me.painel_rbSim.Name = "painel_rbSim"
-        Me.painel_rbSim.Size = New System.Drawing.Size(44, 17)
-        Me.painel_rbSim.TabIndex = 122
-        Me.painel_rbSim.Tag = "Painel SIM"
-        Me.painel_rbSim.Text = "SIM"
-        Me.painel_rbSim.UseVisualStyleBackColor = True
+        Me.PictureBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(615, 387)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(18, 15)
+        Me.PictureBox3.TabIndex = 173
+        Me.PictureBox3.TabStop = False
         '
         'gbEnsaios
         '
@@ -877,152 +733,229 @@ Partial Class frmBackOffice
         Me.ensaios_rbSim.Text = "SIM"
         Me.ensaios_rbSim.UseVisualStyleBackColor = True
         '
-        'gbCaixa
+        'Label11
         '
-        Me.gbCaixa.Controls.Add(Me.Label23)
-        Me.gbCaixa.Controls.Add(Me.caixa_txtTipo)
-        Me.gbCaixa.Controls.Add(Me.Label24)
-        Me.gbCaixa.Controls.Add(Me.caixa_txtQtde)
-        Me.gbCaixa.Controls.Add(Me.Label25)
-        Me.gbCaixa.Controls.Add(Me.caixa_txtTamanho)
-        Me.gbCaixa.Controls.Add(Me.caixa_rbNao)
-        Me.gbCaixa.Controls.Add(Me.caixa_rbSim)
-        Me.gbCaixa.Location = New System.Drawing.Point(223, 216)
-        Me.gbCaixa.Name = "gbCaixa"
-        Me.gbCaixa.Size = New System.Drawing.Size(200, 126)
-        Me.gbCaixa.TabIndex = 156
-        Me.gbCaixa.TabStop = False
-        Me.gbCaixa.Text = "Caixa"
+        Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Location = New System.Drawing.Point(704, 389)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(65, 13)
+        Me.Label11.TabIndex = 172
+        Me.Label11.Text = "Aguardando"
         '
-        'Label23
+        'gbPainel
         '
-        Me.Label23.AutoSize = True
-        Me.Label23.BackColor = System.Drawing.Color.Transparent
-        Me.Label23.Location = New System.Drawing.Point(15, 98)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(31, 13)
-        Me.Label23.TabIndex = 129
-        Me.Label23.Text = "Tipo:"
+        Me.gbPainel.Controls.Add(Me.Label17)
+        Me.gbPainel.Controls.Add(Me.painel_txtMoldura)
+        Me.gbPainel.Controls.Add(Me.Label18)
+        Me.gbPainel.Controls.Add(Me.painel_txtQtde)
+        Me.gbPainel.Controls.Add(Me.Label19)
+        Me.gbPainel.Controls.Add(Me.painel_txtTamanho)
+        Me.gbPainel.Controls.Add(Me.painel_rbNao)
+        Me.gbPainel.Controls.Add(Me.painel_rbSim)
+        Me.gbPainel.Location = New System.Drawing.Point(223, 79)
+        Me.gbPainel.Name = "gbPainel"
+        Me.gbPainel.Size = New System.Drawing.Size(200, 126)
+        Me.gbPainel.TabIndex = 154
+        Me.gbPainel.TabStop = False
+        Me.gbPainel.Text = "Painel"
         '
-        'caixa_txtTipo
+        'Label17
         '
-        Me.caixa_txtTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.caixa_txtTipo.Enabled = False
-        Me.caixa_txtTipo.Location = New System.Drawing.Point(76, 95)
-        Me.caixa_txtTipo.Name = "caixa_txtTipo"
-        Me.caixa_txtTipo.Size = New System.Drawing.Size(96, 20)
-        Me.caixa_txtTipo.TabIndex = 128
-        Me.caixa_txtTipo.Tag = "Caixa TIPO"
+        Me.Label17.AutoSize = True
+        Me.Label17.BackColor = System.Drawing.Color.Transparent
+        Me.Label17.Location = New System.Drawing.Point(15, 98)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(48, 13)
+        Me.Label17.TabIndex = 129
+        Me.Label17.Text = "Moldura:"
         '
-        'Label24
+        'painel_txtMoldura
         '
-        Me.Label24.AutoSize = True
-        Me.Label24.BackColor = System.Drawing.Color.Transparent
-        Me.Label24.Location = New System.Drawing.Point(19, 46)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(45, 13)
-        Me.Label24.TabIndex = 127
-        Me.Label24.Text = "Qtdade:"
+        Me.painel_txtMoldura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.painel_txtMoldura.Enabled = False
+        Me.painel_txtMoldura.Location = New System.Drawing.Point(76, 95)
+        Me.painel_txtMoldura.Name = "painel_txtMoldura"
+        Me.painel_txtMoldura.Size = New System.Drawing.Size(96, 20)
+        Me.painel_txtMoldura.TabIndex = 128
+        Me.painel_txtMoldura.Tag = "Painel MOLDURA"
         '
-        'caixa_txtQtde
+        'Label18
         '
-        Me.caixa_txtQtde.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.caixa_txtQtde.Enabled = False
-        Me.caixa_txtQtde.Location = New System.Drawing.Point(76, 43)
-        Me.caixa_txtQtde.Name = "caixa_txtQtde"
-        Me.caixa_txtQtde.Size = New System.Drawing.Size(96, 20)
-        Me.caixa_txtQtde.TabIndex = 126
-        Me.caixa_txtQtde.Tag = "Caixa QUANTIDADE"
+        Me.Label18.AutoSize = True
+        Me.Label18.BackColor = System.Drawing.Color.Transparent
+        Me.Label18.Location = New System.Drawing.Point(19, 46)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(45, 13)
+        Me.Label18.TabIndex = 127
+        Me.Label18.Text = "Qtdade:"
         '
-        'Label25
+        'painel_txtQtde
         '
-        Me.Label25.AutoSize = True
-        Me.Label25.BackColor = System.Drawing.Color.Transparent
-        Me.Label25.Location = New System.Drawing.Point(15, 72)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(55, 13)
-        Me.Label25.TabIndex = 125
-        Me.Label25.Text = "Tamanho:"
+        Me.painel_txtQtde.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.painel_txtQtde.Enabled = False
+        Me.painel_txtQtde.Location = New System.Drawing.Point(76, 43)
+        Me.painel_txtQtde.Name = "painel_txtQtde"
+        Me.painel_txtQtde.Size = New System.Drawing.Size(96, 20)
+        Me.painel_txtQtde.TabIndex = 126
+        Me.painel_txtQtde.Tag = "Painel QUANTIDADE"
         '
-        'caixa_txtTamanho
+        'Label19
         '
-        Me.caixa_txtTamanho.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.caixa_txtTamanho.Enabled = False
-        Me.caixa_txtTamanho.Location = New System.Drawing.Point(76, 69)
-        Me.caixa_txtTamanho.Name = "caixa_txtTamanho"
-        Me.caixa_txtTamanho.Size = New System.Drawing.Size(96, 20)
-        Me.caixa_txtTamanho.TabIndex = 124
-        Me.caixa_txtTamanho.Tag = "Caixa TAMANHO"
+        Me.Label19.AutoSize = True
+        Me.Label19.BackColor = System.Drawing.Color.Transparent
+        Me.Label19.Location = New System.Drawing.Point(15, 72)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(55, 13)
+        Me.Label19.TabIndex = 125
+        Me.Label19.Text = "Tamanho:"
         '
-        'caixa_rbNao
+        'painel_txtTamanho
         '
-        Me.caixa_rbNao.AutoSize = True
-        Me.caixa_rbNao.Checked = True
-        Me.caixa_rbNao.Location = New System.Drawing.Point(68, 19)
-        Me.caixa_rbNao.Name = "caixa_rbNao"
-        Me.caixa_rbNao.Size = New System.Drawing.Size(48, 17)
-        Me.caixa_rbNao.TabIndex = 123
-        Me.caixa_rbNao.TabStop = True
-        Me.caixa_rbNao.Tag = "Caixa NÃO"
-        Me.caixa_rbNao.Text = "NÃO"
-        Me.caixa_rbNao.UseVisualStyleBackColor = True
+        Me.painel_txtTamanho.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.painel_txtTamanho.Enabled = False
+        Me.painel_txtTamanho.Location = New System.Drawing.Point(76, 69)
+        Me.painel_txtTamanho.Name = "painel_txtTamanho"
+        Me.painel_txtTamanho.Size = New System.Drawing.Size(96, 20)
+        Me.painel_txtTamanho.TabIndex = 124
+        Me.painel_txtTamanho.Tag = "Painel TAMANHO"
         '
-        'caixa_rbSim
+        'painel_rbNao
         '
-        Me.caixa_rbSim.AutoSize = True
-        Me.caixa_rbSim.Location = New System.Drawing.Point(18, 19)
-        Me.caixa_rbSim.Name = "caixa_rbSim"
-        Me.caixa_rbSim.Size = New System.Drawing.Size(44, 17)
-        Me.caixa_rbSim.TabIndex = 122
-        Me.caixa_rbSim.Tag = "Caixa SIM"
-        Me.caixa_rbSim.Text = "SIM"
-        Me.caixa_rbSim.UseVisualStyleBackColor = True
+        Me.painel_rbNao.AutoSize = True
+        Me.painel_rbNao.Checked = True
+        Me.painel_rbNao.Location = New System.Drawing.Point(68, 19)
+        Me.painel_rbNao.Name = "painel_rbNao"
+        Me.painel_rbNao.Size = New System.Drawing.Size(48, 17)
+        Me.painel_rbNao.TabIndex = 123
+        Me.painel_rbNao.TabStop = True
+        Me.painel_rbNao.Tag = "Painel NÃO"
+        Me.painel_rbNao.Text = "NÃO"
+        Me.painel_rbNao.UseVisualStyleBackColor = True
         '
-        'lvHistoricoCliente
+        'painel_rbSim
         '
-        Me.lvHistoricoCliente.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lvHistoricoCliente.HideSelection = False
-        Me.lvHistoricoCliente.Location = New System.Drawing.Point(17, 404)
-        Me.lvHistoricoCliente.Name = "lvHistoricoCliente"
-        Me.lvHistoricoCliente.Size = New System.Drawing.Size(752, 113)
-        Me.lvHistoricoCliente.TabIndex = 167
-        Me.lvHistoricoCliente.UseCompatibleStateImageBehavior = False
+        Me.painel_rbSim.AutoSize = True
+        Me.painel_rbSim.Location = New System.Drawing.Point(18, 19)
+        Me.painel_rbSim.Name = "painel_rbSim"
+        Me.painel_rbSim.Size = New System.Drawing.Size(44, 17)
+        Me.painel_rbSim.TabIndex = 122
+        Me.painel_rbSim.Tag = "Painel SIM"
+        Me.painel_rbSim.Text = "SIM"
+        Me.painel_rbSim.UseVisualStyleBackColor = True
         '
-        'linkAtualizarHistoricoCliente
+        'Label12
         '
-        Me.linkAtualizarHistoricoCliente.AutoSize = True
-        Me.linkAtualizarHistoricoCliente.Location = New System.Drawing.Point(437, 388)
-        Me.linkAtualizarHistoricoCliente.Name = "linkAtualizarHistoricoCliente"
-        Me.linkAtualizarHistoricoCliente.Size = New System.Drawing.Size(53, 13)
-        Me.linkAtualizarHistoricoCliente.TabIndex = 168
-        Me.linkAtualizarHistoricoCliente.TabStop = True
-        Me.linkAtualizarHistoricoCliente.Text = "(Atualizar)"
-        Me.ToolTip1.SetToolTip(Me.linkAtualizarHistoricoCliente, "Verificar informações detalhadas do registro selecionado")
+        Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
+        Me.Label12.Location = New System.Drawing.Point(496, 389)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(52, 13)
+        Me.Label12.TabIndex = 171
+        Me.Label12.Text = "Legenda:"
         '
-        'PictureBox1
+        'gbAlbum
         '
-        Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(547, 387)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(18, 15)
-        Me.PictureBox1.TabIndex = 169
-        Me.PictureBox1.TabStop = False
+        Me.gbAlbum.Controls.Add(Me.Label15)
+        Me.gbAlbum.Controls.Add(Me.album_txtTipo)
+        Me.gbAlbum.Controls.Add(Me.Label10)
+        Me.gbAlbum.Controls.Add(Me.album_txtFolhas)
+        Me.gbAlbum.Controls.Add(Me.Label16)
+        Me.gbAlbum.Controls.Add(Me.album_txtTamanho)
+        Me.gbAlbum.Controls.Add(Me.album_rbNao)
+        Me.gbAlbum.Controls.Add(Me.album_rbSim)
+        Me.gbAlbum.Location = New System.Drawing.Point(17, 79)
+        Me.gbAlbum.Name = "gbAlbum"
+        Me.gbAlbum.Size = New System.Drawing.Size(200, 126)
+        Me.gbAlbum.TabIndex = 153
+        Me.gbAlbum.TabStop = False
+        Me.gbAlbum.Text = "Álbum"
         '
-        'Label13
+        'Label15
         '
-        Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Location = New System.Drawing.Point(561, 389)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(56, 13)
-        Me.Label13.TabIndex = 170
-        Me.Label13.Text = "Concluído"
+        Me.Label15.AutoSize = True
+        Me.Label15.BackColor = System.Drawing.Color.Transparent
+        Me.Label15.Location = New System.Drawing.Point(15, 98)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(31, 13)
+        Me.Label15.TabIndex = 129
+        Me.Label15.Text = "Tipo:"
+        '
+        'album_txtTipo
+        '
+        Me.album_txtTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.album_txtTipo.Enabled = False
+        Me.album_txtTipo.Location = New System.Drawing.Point(76, 95)
+        Me.album_txtTipo.Name = "album_txtTipo"
+        Me.album_txtTipo.Size = New System.Drawing.Size(96, 20)
+        Me.album_txtTipo.TabIndex = 128
+        Me.album_txtTipo.Tag = "Álbum TIPO"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Location = New System.Drawing.Point(19, 46)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(41, 13)
+        Me.Label10.TabIndex = 127
+        Me.Label10.Text = "Folhas:"
+        '
+        'album_txtFolhas
+        '
+        Me.album_txtFolhas.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.album_txtFolhas.Enabled = False
+        Me.album_txtFolhas.Location = New System.Drawing.Point(76, 43)
+        Me.album_txtFolhas.Name = "album_txtFolhas"
+        Me.album_txtFolhas.Size = New System.Drawing.Size(96, 20)
+        Me.album_txtFolhas.TabIndex = 126
+        Me.album_txtFolhas.Tag = "Álbum FOLHAS"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.BackColor = System.Drawing.Color.Transparent
+        Me.Label16.Location = New System.Drawing.Point(15, 72)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(55, 13)
+        Me.Label16.TabIndex = 125
+        Me.Label16.Text = "Tamanho:"
+        '
+        'album_txtTamanho
+        '
+        Me.album_txtTamanho.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.album_txtTamanho.Enabled = False
+        Me.album_txtTamanho.Location = New System.Drawing.Point(76, 69)
+        Me.album_txtTamanho.Name = "album_txtTamanho"
+        Me.album_txtTamanho.Size = New System.Drawing.Size(96, 20)
+        Me.album_txtTamanho.TabIndex = 124
+        Me.album_txtTamanho.Tag = "Álbum TAMANHO"
+        '
+        'album_rbNao
+        '
+        Me.album_rbNao.AutoSize = True
+        Me.album_rbNao.Checked = True
+        Me.album_rbNao.Location = New System.Drawing.Point(68, 19)
+        Me.album_rbNao.Name = "album_rbNao"
+        Me.album_rbNao.Size = New System.Drawing.Size(48, 17)
+        Me.album_rbNao.TabIndex = 123
+        Me.album_rbNao.TabStop = True
+        Me.album_rbNao.Tag = "Álbum NÃO"
+        Me.album_rbNao.Text = "NÃO"
+        Me.album_rbNao.UseVisualStyleBackColor = True
+        '
+        'album_rbSim
+        '
+        Me.album_rbSim.AutoSize = True
+        Me.album_rbSim.Location = New System.Drawing.Point(18, 19)
+        Me.album_rbSim.Name = "album_rbSim"
+        Me.album_rbSim.Size = New System.Drawing.Size(44, 17)
+        Me.album_rbSim.TabIndex = 122
+        Me.album_rbSim.Tag = "Álbum SIM"
+        Me.album_rbSim.Text = "SIM"
+        Me.album_rbSim.UseVisualStyleBackColor = True
         '
         'PictureBox2
         '
@@ -1036,60 +969,127 @@ Partial Class frmBackOffice
         Me.PictureBox2.TabIndex = 166
         Me.PictureBox2.TabStop = False
         '
-        'Label12
+        'linkAtualizarProduto
         '
-        Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.Color.Transparent
-        Me.Label12.Location = New System.Drawing.Point(496, 389)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(52, 13)
-        Me.Label12.TabIndex = 171
-        Me.Label12.Text = "Legenda:"
+        Me.linkAtualizarProduto.AutoSize = True
+        Me.linkAtualizarProduto.Location = New System.Drawing.Point(60, 36)
+        Me.linkAtualizarProduto.Name = "linkAtualizarProduto"
+        Me.linkAtualizarProduto.Size = New System.Drawing.Size(53, 13)
+        Me.linkAtualizarProduto.TabIndex = 152
+        Me.linkAtualizarProduto.TabStop = True
+        Me.linkAtualizarProduto.Text = "(Atualizar)"
+        Me.ToolTip1.SetToolTip(Me.linkAtualizarProduto, "Verificar informações detalhadas do registro selecionado")
         '
-        'Label11
+        'Label13
         '
-        Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label11.AutoSize = True
-        Me.Label11.BackColor = System.Drawing.Color.Transparent
-        Me.Label11.Location = New System.Drawing.Point(704, 389)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(65, 13)
-        Me.Label11.TabIndex = 172
-        Me.Label11.Text = "Aguardando"
+        Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Location = New System.Drawing.Point(561, 389)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(56, 13)
+        Me.Label13.TabIndex = 170
+        Me.Label13.Text = "Concluído"
         '
-        'PictureBox3
+        'cbxContratoAssinado
         '
-        Me.PictureBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(615, 387)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(18, 15)
-        Me.PictureBox3.TabIndex = 173
-        Me.PictureBox3.TabStop = False
+        Me.cbxContratoAssinado.AutoSize = True
+        Me.cbxContratoAssinado.Location = New System.Drawing.Point(157, 360)
+        Me.cbxContratoAssinado.Name = "cbxContratoAssinado"
+        Me.cbxContratoAssinado.Size = New System.Drawing.Size(112, 17)
+        Me.cbxContratoAssinado.TabIndex = 20
+        Me.cbxContratoAssinado.Tag = "CONTRATO ASSINADO"
+        Me.cbxContratoAssinado.Text = "Contrato Assinado"
+        Me.ToolTip1.SetToolTip(Me.cbxContratoAssinado, "Quando o cliente assinar o contrato este item deve ser marcado, para que não gere" &
+        " fila de trabalho com esta pendência.")
+        Me.cbxContratoAssinado.UseVisualStyleBackColor = True
         '
-        'Label14
+        'PictureBox1
         '
-        Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label14.AutoSize = True
-        Me.Label14.BackColor = System.Drawing.Color.Transparent
-        Me.Label14.Location = New System.Drawing.Point(628, 389)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(67, 13)
-        Me.Label14.TabIndex = 174
-        Me.Label14.Text = "Trabalhando"
+        Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(547, 387)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(18, 15)
+        Me.PictureBox1.TabIndex = 169
+        Me.PictureBox1.TabStop = False
         '
-        'Label26
+        'cbxPagamento
         '
-        Me.Label26.AutoSize = True
-        Me.Label26.BackColor = System.Drawing.Color.Transparent
-        Me.Label26.Location = New System.Drawing.Point(19, 388)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(51, 13)
-        Me.Label26.TabIndex = 175
-        Me.Label26.Text = "Histórico:"
+        Me.cbxPagamento.AutoSize = True
+        Me.cbxPagamento.Location = New System.Drawing.Point(17, 360)
+        Me.cbxPagamento.Name = "cbxPagamento"
+        Me.cbxPagamento.Size = New System.Drawing.Size(130, 17)
+        Me.cbxPagamento.TabIndex = 19
+        Me.cbxPagamento.Tag = "PAGTO REALIZADO"
+        Me.cbxPagamento.Text = "Pagamento Realizado"
+        Me.ToolTip1.SetToolTip(Me.cbxPagamento, "Ao clicar deverá efetivar o pagamento do cliente!")
+        Me.cbxPagamento.UseVisualStyleBackColor = True
+        '
+        'linkAtualizarHistoricoCliente
+        '
+        Me.linkAtualizarHistoricoCliente.AutoSize = True
+        Me.linkAtualizarHistoricoCliente.Location = New System.Drawing.Point(437, 388)
+        Me.linkAtualizarHistoricoCliente.Name = "linkAtualizarHistoricoCliente"
+        Me.linkAtualizarHistoricoCliente.Size = New System.Drawing.Size(53, 13)
+        Me.linkAtualizarHistoricoCliente.TabIndex = 168
+        Me.linkAtualizarHistoricoCliente.TabStop = True
+        Me.linkAtualizarHistoricoCliente.Text = "(Atualizar)"
+        Me.ToolTip1.SetToolTip(Me.linkAtualizarHistoricoCliente, "Verificar informações detalhadas do registro selecionado")
+        '
+        'linkDetalhesProduto
+        '
+        Me.linkDetalhesProduto.AutoSize = True
+        Me.linkDetalhesProduto.Location = New System.Drawing.Point(374, 35)
+        Me.linkDetalhesProduto.Name = "linkDetalhesProduto"
+        Me.linkDetalhesProduto.Size = New System.Drawing.Size(49, 13)
+        Me.linkDetalhesProduto.TabIndex = 12
+        Me.linkDetalhesProduto.TabStop = True
+        Me.linkDetalhesProduto.Text = "Detalhes"
+        Me.ToolTip1.SetToolTip(Me.linkDetalhesProduto, "Verificar informações detalhadas do registro selecionado")
+        '
+        'lvHistoricoCliente
+        '
+        Me.lvHistoricoCliente.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lvHistoricoCliente.HideSelection = False
+        Me.lvHistoricoCliente.Location = New System.Drawing.Point(17, 404)
+        Me.lvHistoricoCliente.Name = "lvHistoricoCliente"
+        Me.lvHistoricoCliente.Size = New System.Drawing.Size(752, 113)
+        Me.lvHistoricoCliente.TabIndex = 167
+        Me.lvHistoricoCliente.UseCompatibleStateImageBehavior = False
+        '
+        'linkAdcProduto
+        '
+        Me.linkAdcProduto.AutoSize = True
+        Me.linkAdcProduto.Location = New System.Drawing.Point(276, 35)
+        Me.linkAdcProduto.Name = "linkAdcProduto"
+        Me.linkAdcProduto.Size = New System.Drawing.Size(92, 13)
+        Me.linkAdcProduto.TabIndex = 11
+        Me.linkAdcProduto.TabStop = True
+        Me.linkAdcProduto.Text = "Adicionar / Alterar"
+        Me.ToolTip1.SetToolTip(Me.linkAdcProduto, "Inserir novo registro ou editar um existente")
+        '
+        'cbProduto
+        '
+        Me.cbProduto.FormattingEnabled = True
+        Me.cbProduto.Location = New System.Drawing.Point(17, 52)
+        Me.cbProduto.Name = "cbProduto"
+        Me.cbProduto.Size = New System.Drawing.Size(406, 21)
+        Me.cbProduto.TabIndex = 8
+        Me.cbProduto.Tag = "PRODUTO"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(16, 36)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(44, 13)
+        Me.Label9.TabIndex = 7
+        Me.Label9.Text = "Produto"
         '
         'frmBackOffice
         '
@@ -1111,17 +1111,17 @@ Partial Class frmBackOffice
         Me.gbInformacoesRelevantes.PerformLayout()
         Me.gbDados.ResumeLayout(False)
         Me.gbDados.PerformLayout()
-        Me.gbAlbum.ResumeLayout(False)
-        Me.gbAlbum.PerformLayout()
-        Me.gbPainel.ResumeLayout(False)
-        Me.gbPainel.PerformLayout()
-        Me.gbEnsaios.ResumeLayout(False)
-        Me.gbEnsaios.PerformLayout()
         Me.gbCaixa.ResumeLayout(False)
         Me.gbCaixa.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbEnsaios.ResumeLayout(False)
+        Me.gbEnsaios.PerformLayout()
+        Me.gbPainel.ResumeLayout(False)
+        Me.gbPainel.PerformLayout()
+        Me.gbAlbum.ResumeLayout(False)
+        Me.gbAlbum.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

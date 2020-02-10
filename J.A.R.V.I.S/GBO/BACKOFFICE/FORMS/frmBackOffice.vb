@@ -10,7 +10,6 @@
     Private finalizacoes As New bll_finalizacoes
     Private subFinalizacoes As New bll_subfinalizacoes
 
-
 #End Region
 
     Private Sub limpeza(Optional ByVal parcial = False)
@@ -358,5 +357,9 @@
 
     Private Sub btnCancelarCaptura_Click(sender As Object, e As EventArgs) Handles btnCancelarCaptura.Click
         limpeza(True)
+    End Sub
+
+    Private Sub cbProduto_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cbProduto.SelectionChangeCommitted
+
     End Sub
 End Class
